@@ -1,0 +1,34 @@
+<div class="formatting-modal">
+  <div class="modal-header">
+    <h4 class="modal-title">Welcome to <b style="color: rgb(228, 134, 11);">BANGER</b></h4>
+    <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
+  </div>
+
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="emailAddress"><b>Email Address</b></label>
+        <input type="email" id="emailAddress" class="form-control"
+          placeholder="Enter Your Email Address">
+
+      </div>
+      <div class="form-group">
+        <label for="password"><b>Password</b></label>
+        <input type="password" id="password" class="form-control"
+          placeholder="Enter Your Password">
+      </div>
+      <button type="button" class="btn btn-outline-success mb-2" style="width: 30%; margin-right: 0px;">Login</button>
+      <hr>
+      <span style="font-size: 14px;">Not a User at BANGER? <a
+        style="text-decoration: none; color: rgba(162, 124, 231, 0.938); cursor: pointer;"
+        (click)="openSignUp()">Sign Up Here</a></span><br>
+
+        <span style="font-size: 14px;">Forgot Password? <a
+          style="text-decoration: none; color: rgba(162, 124, 231, 0.938); cursor: pointer;">Re-set Your password Here</a></span>
+    </form>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="hideForm()" style="width: 30%;">Close</button>
+    </div>
+  </div>
+</div>

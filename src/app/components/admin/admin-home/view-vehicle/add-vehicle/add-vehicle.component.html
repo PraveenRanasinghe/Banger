@@ -1,0 +1,80 @@
+<div class="formatting-modal">
+  <div class="modal-header">
+    <h4 class="modal-title">Add Vehicles to <b style="color: rgb(228, 134, 11);">BANGER</b></h4>
+    <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
+  </div>
+
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <label for="vehicleType"><b>Vehicle Type</b></label>
+            <select class="form-control" type="text" id="vehicleType">
+              <option  >Four-Wheel Drive</option>
+              <option >Two-Wheel Drive</option>
+            </select>
+          </div>
+          <div class="col">
+            <label for="vehicleModel"><b>Vehicle Model & Name</b></label>
+            <input type="text" id="vehicleModel" class="form-control" placeholder="Toyota Premio">
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col">
+            <label for="seat"><b>Number of Seats</b></label>
+            <input type="text" id="seat" class="form-control" placeholder="Number of Passenger-Seats">
+          </div>
+          <div class="col">
+            <label for="fuelType"><b>Fuel Type</b></label>
+            <select  class="form-control" type="text" id="vehicleType">
+              <option>Petrol</option>
+              <option>Diesel</option>
+              <option>Electric</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <label for="transmission"><b>Transmission Type</b></label><br>
+            <input type="radio" id="auto" name="transmission" value="auto">
+            <label for="male">Automatic</label><br>
+            <input type="radio" id="manual" name="transmission" value="manual">
+            <label for="manual">Manual</label><br>
+          </div>
+          <div class="col">
+            <label for="airbags"><b>Air Bags</b></label><br>
+            <input type="radio" id="yes" name="airbags" value="yes">
+            <label for="airbags">Yes</label><br>
+            <input type="radio" id="no" name="airbags" value="no">
+            <label for="airbags">No</label><br>
+          </div>
+          <div class="col">
+            <label for="ac"><b>Air-Conditioned</b></label><br>
+            <input type="radio" id="yes" name="ac" value="yes">
+            <label for="ac">Yes</label><br>
+            <input type="radio" id="no" name="ac" value="no">
+            <label for="ac">No</label><br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="addImg"><b>Add Images of the Vehicle</b></label>
+            <button class="btn btn-outline-dark ml-4" style="width: 50%;" (click)="fileSelector.click()">Click Here To Add Images</button>
+          <input type="file" accept="image/*" style="display: none;" #fileSelector (change)="addVehicleImg($event)"
+            multiple="false">
+          </div>
+
+
+        </div>
+      </div>
+
+    </form>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="hideForm()" style="width: 30%;">Close</button>
+    </div>
+  </div>
+</div>

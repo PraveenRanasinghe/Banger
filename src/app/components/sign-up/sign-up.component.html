@@ -1,0 +1,77 @@
+<div class="formatting-modal">
+  <div class="modal-header">
+    <h4 class="modal-title">Be a Member of <b style="color: rgb(228, 134, 11);">BANGER</b></h4>
+    <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
+  </div>
+
+  <div class="modal-body">
+    <form>
+      <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="fName"><b>First Name</b></label>
+              <input type="text" id="fName" class="form-control"
+                placeholder="Enter Your First Name">
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="lName"><b>Last Name</b></label>
+              <input type="text" id="lName" class="form-control"
+                placeholder="Enter Your Last Name">
+            </div>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="emailAddress"><b>Email Address</b></label>
+        <input type="email" id="emailAddress" class="form-control"
+          placeholder="Enter Your Email Address">
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="contactNumber"><b>Contact Number</b></label>
+            <input type="text" id="contactNumber" class="form-control"
+              placeholder="Enter Your Contact Number">
+        </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="contactNumber"><b>NIC Number</b></label>
+            <input type="text" id="nicNumber" class="form-control"
+              placeholder="Enter Your NIC Number">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <label for="liscenceImg"><b>Add Your Liscence Image</b></label><br>
+          <button class="btn btn-outline-dark" style="width: 50%;" (click)="fileSelector.click()">Click Here To Add</button>
+          <input type="file" accept="image/*" style="display: none;" #fileSelector (change)="showLiscenceImg($event)"
+            multiple="false">
+        </div>
+        <!-- <div class="col-lg-4">
+          <img class="img-thumbnail" alt="liscenceImg"  style="border-radius: 5px;">
+        </div> -->
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col">
+          <label for="password"><b>Create your password</b></label>
+          <input type="password" class="form-control" placeholder="Enter Your Password">
+        </div>
+        <div class="col">
+          <label for="password"><b>Verify your password</b></label>
+          <input type="password" class="form-control" placeholder="Re-Enter Your Password">
+        </div>
+      </div>
+      <span style="font-size: 13px; color: brown;">Once You Sign Up, You Will Get an Email. Follow The Instructions to Verify Your Account</span>
+      <hr style="background-color: rgb(13, 104, 1);">
+      <button class="btn btn-outline-success mb-3">Create Account</button>
+    </form>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="hideForm()" style="width: 30%;">Close</button>
+    </div>
+  </div>
+</div>
+

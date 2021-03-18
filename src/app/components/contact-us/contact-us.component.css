@@ -1,0 +1,20 @@
+.Rside{
+  background: rgb(55, 182, 97);
+  /* background: radial-gradient(circle, rgba(6,26,54,1) 0%, rgba(29,58,87,0.989233193277311) 100%); */
+  box-shadow: 10px 10px 25px grey;
+  color: black;
+}
+.contact-info{
+  margin-top: 140px;
+}
+
+.Lside{
+  background: rgb(61, 62, 65);
+  background: radial-gradient(circle, rgba(224,233,245,1) 0%, rgba(209,212,215,0.989233193277311) 100%);
+  box-shadow: 10px 10px 25px grey;
+}
+
+.contact-info img{
+  width: 80px;
+  height: 80px;
+}
