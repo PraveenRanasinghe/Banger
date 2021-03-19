@@ -16,14 +16,16 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { AdminNavComponent } from './components/admin/admin-nav/admin-nav.component';
-import { ViewVehicleComponent } from './components/admin/admin-home/view-vehicle/view-vehicle.component';
-import { ViewEquipmentsComponent } from './components/admin/admin-home/view-equipments/view-equipments.component';
-import { ViewBookingsComponent } from './components/admin/admin-home/view-bookings/view-bookings.component';
-import { AddVehicleComponent } from './components/admin/admin-home/view-vehicle/add-vehicle/add-vehicle.component';
-import { UpdateDeleteVehicleComponent } from './components/admin/admin-home/view-vehicle/update-delete-vehicle/update-delete-vehicle.component';
-
-
-@NgModule({
+import { VehicleComponent } from './components/admin/admin-home/vehicle/vehicle.component';
+import { EquipmentComponent } from './components/admin/admin-home/equipment/equipment.component';
+import { BookingComponent } from './components/admin/admin-home/booking/booking.component';
+import { AddVehicleComponent } from './components/admin/admin-home/vehicle/add-vehicle/add-vehicle.component';
+import { UpdateDeleteComponent } from './components/admin/admin-home/vehicle/update-delete/update-delete.component';
+import { BreadCrumbComponent } from './components/shared/bread-crumb/bread-crumb.component';
+import { AddEquipmentComponent } from './components/admin/admin-home/equipment/add-equipment/add-equipment.component';
+import { UpdateDeleteEquipComponent } from './components/admin/admin-home/equipment/update-delete-equip/update-delete-equip.component';
+import { UsersComponent } from './components/admin/admin-home/users/users.component';
+ @NgModule({
   declarations: [
     AppComponent,
     CustomerHomeComponent,
@@ -35,12 +37,15 @@ import { UpdateDeleteVehicleComponent } from './components/admin/admin-home/view
     LoginComponent,
     AdminHomeComponent,
     AdminNavComponent,
-    ViewVehicleComponent,
-    ViewEquipmentsComponent,
-    ViewBookingsComponent,
+    VehicleComponent,
+    EquipmentComponent,
+    BookingComponent,
     AddVehicleComponent,
-    UpdateDeleteVehicleComponent,
-
+    UpdateDeleteComponent,
+    BreadCrumbComponent,
+    AddEquipmentComponent,
+    UpdateDeleteEquipComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

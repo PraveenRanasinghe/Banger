@@ -1,8 +1,11 @@
 .cb{
   width: 270px;
   transition: background-color 0.75s;
+  border-color: black;
+  border-style: dotted;
+  background-color: rgb(122, 201, 122);
 }
 .cb:hover {
-  background-color: rgba(2, 66, 25, 0.37);
+  background-color: rgba(185, 205, 241, 0.37);
   cursor: pointer;
 }

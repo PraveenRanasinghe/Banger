@@ -2,3 +2,9 @@
   background-image: url('../../../assets/img/bgHome.jpg');
   background-size: cover;
 }
+
+.details{
+  margin-left: 2%;
+  font-size: 70px;
+  font-family: 'sans-serif';
+}

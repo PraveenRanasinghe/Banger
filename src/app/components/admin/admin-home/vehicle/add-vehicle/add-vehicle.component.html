@@ -1,4 +1,4 @@
-<div class="formatting-modal">
+<div class="formatting-modal fm">
   <div class="modal-header">
     <h4 class="modal-title">Add Vehicles to <b style="color: rgb(228, 134, 11);">BANGER</b></h4>
     <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
@@ -62,8 +62,8 @@
         <div class="row">
           <div class="col">
             <label for="addImg"><b>Add Images of the Vehicle</b></label>
-            <button class="btn btn-outline-dark ml-4" style="width: 50%;" (click)="fileSelector.click()">Click Here To Add Images</button>
-          <input type="file" accept="image/*" style="display: none;" #fileSelector (change)="addVehicleImg($event)"
+            <button class="btn btn-outline-dark ml-4" style="width: 50%;">Click Here To Add Images</button>
+          <input type="file" accept="image/*" style="display: none;"
             multiple="false">
           </div>
 
@@ -74,7 +74,7 @@
     </form>
 
     <div class="modal-footer">
-      <button type="button" class="btn btn-danger" (click)="hideForm()" style="width: 30%;">Close</button>
+      <button type="button" class="btn btn-outline-danger" (click)="hideForm()" style="width: 30%;">Close</button>
     </div>
   </div>
 </div>

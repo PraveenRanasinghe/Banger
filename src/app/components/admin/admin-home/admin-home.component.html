@@ -1,9 +1,10 @@
 <app-admin-nav></app-admin-nav>
+<app-bread-crumb [pageName]="'Admin-Home'"></app-bread-crumb>
 
 <div class="container">
   <div class="row mt-5">
-     <div class="col-lg-4">
-      <div class="card cb" style="width: 18rem; height: 10rem;" [routerLink]="['/viewVehicle']" routerLinkActive="active">
+     <div class="col-lg-3">
+      <div class="card cb" style="width: 18rem; height: 10rem;" [routerLink]="['/admin','viewVehicle']" routerLinkActive="active">
         <div class="card-body">
           <div class="row justify-content-center"  style="color: rgb(46, 24, 17); font-size: 30px;">
             <b> VEHICLES</b>
@@ -16,8 +17,8 @@
      </div>
 
 
-     <div class="col-lg-4">
-      <div class="card cb" style="width: 18rem; height: 10rem;">
+     <div class="col-lg-3">
+      <div class="card cb" style="width: 18rem; height: 10rem;" [routerLink]="['/admin','viewEquipment']" routerLinkActive="active">
         <div class="card-body">
           <div class="row justify-content-center" style="color: rgb(46, 24, 17); font-size: 30px;">
             <b> EQUIPMENTS</b>
@@ -29,8 +30,8 @@
       </div>
      </div>
 
-     <div class="col-lg-4">
-      <div class="card cb" style="width: 18rem; height: 10rem;">
+     <div class="col-lg-3">
+      <div class="card cb" style="width: 18rem; height: 10rem;" [routerLink]="['viewBookings']" routerLinkActive="active">
         <div class="card-body">
           <div class="row justify-content-center" style="color: rgb(46, 24, 17); font-size: 30px;">
             <b> BOOKINGS</b>
@@ -42,8 +43,21 @@
       </div>
      </div>
 
+     <div class="col-lg-3">
+      <div class="card cb" style="width: 18rem; height: 10rem;" [routerLink]="['viewUsers']" routerLinkActive="active">
+        <div class="card-body">
+          <div class="row justify-content-center" style="color: rgb(46, 24, 17); font-size: 30px;">
+            <b> USERS</b>
+          </div>
+          <div  class="row justify-content-center">
+            <i class="fas fa-users-cog" style="color: rgb(46, 24, 17); font-size: 30px;"></i>
+          </div>
+        </div>
+      </div>
+     </div>
   </div>
-  <div class="row mt-5">
+  <hr style="background-color: rgb(247, 247, 247);">
+  <div class="row mt-5 justify-content-center">
     <router-outlet></router-outlet>
   </div>
 </div>

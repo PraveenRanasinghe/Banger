@@ -1,4 +1,4 @@
-<div class="formatting-modal">
+<div class="formatting-modal fm">
   <div class="modal-header">
     <h4 class="modal-title">Be a Member of <b style="color: rgb(228, 134, 11);">BANGER</b></h4>
     <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
@@ -23,11 +23,23 @@
           </div>
       </div>
 
-      <div class="form-group">
-        <label for="emailAddress"><b>Email Address</b></label>
-        <input type="email" id="emailAddress" class="form-control"
-          placeholder="Enter Your Email Address">
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="emailAddress"><b>Email Address</b></label>
+            <input type="email" id="emailAddress" class="form-control"
+              placeholder="Enter Your Email Address">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="age"><b>Your Age</b></label>
+            <input type="text" id="age" class="form-control"
+              placeholder="Enter Your Age">
+          </div>
+        </div>
       </div>
+
       <div class="row">
         <div class="col">
           <div class="form-group">

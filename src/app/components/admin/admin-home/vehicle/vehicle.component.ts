@@ -3,11 +3,11 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
 
 @Component({
-  selector: 'app-view-vehicle',
-  templateUrl: './view-vehicle.component.html',
-  styleUrls: ['./view-vehicle.component.css']
+  selector: 'app-vehicle',
+  templateUrl: './vehicle.component.html',
+  styleUrls: ['./vehicle.component.css']
 })
-export class ViewVehicleComponent implements OnInit {
+export class VehicleComponent implements OnInit {
 
   constructor(private bsModal : BsModalService) { }
 
@@ -19,5 +19,4 @@ export class ViewVehicleComponent implements OnInit {
       class:'modal-dialog-centered modal-lg'
     })
   }
-
 }
