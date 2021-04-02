@@ -1,0 +1,43 @@
+<div class="formatting-modal fm">
+  <div class="modal-header">
+    <h4 class="modal-title">Update Equipment in <b style="color: rgb(228, 134, 11);">BANGER</b></h4>
+    <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
+  </div>
+
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <label for="itemName"><b>Item Name</b></label>
+            <input class="form-control" type="text" id="itemName" placeholder="Item Name (Ex:- Wine-Chiller)">
+            </div>
+            <div class="col">
+              <label for="totalItems"><b>Number of Items</b></label>
+              <input class="form-control" type="text" id="totalItems" placeholder="Total Number Of Items">
+              </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="price"><b>Price Per One</b></label>
+            <input class="form-control" type="text" id="price" placeholder="RS:500.00">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="description"><b>Description</b></label>
+            <textarea class="form-control" rows="4" id="description"
+                placeholder="About the Item" style="resize:none;"></textarea>
+          </div>
+        </div>
+      </div>
+      <hr style="background-color: black;">
+      <button class="btn btn-success mb-3 mt-1">Update Equipment</button>
+
+    </form>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="hideForm()" style="width: 30%;">Close</button>
+    </div>
+  </div>
+</div>

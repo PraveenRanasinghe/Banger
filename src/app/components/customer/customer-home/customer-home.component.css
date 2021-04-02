@@ -1,0 +1,9 @@
+.customerHome{
+  background-image: url('../../../../assets/img/giphy.gif');
+  background-size: cover;
+}
+
+.crd{
+  background-color: rgb(240, 250, 95);
+  cursor: pointer;
+}

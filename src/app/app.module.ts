@@ -25,7 +25,20 @@ import { BreadCrumbComponent } from './components/shared/bread-crumb/bread-crumb
 import { AddEquipmentComponent } from './components/admin/admin-home/equipment/add-equipment/add-equipment.component';
 import { UpdateDeleteEquipComponent } from './components/admin/admin-home/equipment/update-delete-equip/update-delete-equip.component';
 import { UsersComponent } from './components/admin/admin-home/users/users.component';
- @NgModule({
+import { UpdateComponent } from './components/admin/admin-home/vehicle/update-delete/update/update.component';
+import { DeleteComponent } from './components/admin/admin-home/vehicle/update-delete/delete/delete.component';
+import { AddToBlacklistComponent } from './components/admin/admin-home/users/add-to-blacklist/add-to-blacklist.component';
+import { AcceptComponent } from './components/admin/admin-home/booking/accept/accept.component';
+import { RejectComponent } from './components/admin/admin-home/booking/reject/reject.component';
+import { UpdateEquipComponent } from './components/admin/admin-home/equipment/update-delete-equip/update-equip/update-equip.component';
+import { DeleteEquipComponent } from './components/admin/admin-home/equipment/update-delete-equip/delete-equip/delete-equip.component';
+import { CustomerNavComponent } from './components/customer/customer-nav/customer-nav.component';
+import { UserAccountComponent } from './components/customer/customer-home/user-account/user-account.component';
+import { ViewVehiclesComponent } from './components/customer/customer-home/view-vehicles/view-vehicles.component';
+import { ViewBookingsComponent } from './components/customer/customer-home/view-bookings/view-bookings.component';
+import { MakeBookingComponent } from './components/customer/customer-home/view-vehicles/make-booking/make-booking.component';
+
+@NgModule({
   declarations: [
     AppComponent,
     CustomerHomeComponent,
@@ -46,6 +59,20 @@ import { UsersComponent } from './components/admin/admin-home/users/users.compon
     AddEquipmentComponent,
     UpdateDeleteEquipComponent,
     UsersComponent,
+    UpdateComponent,
+    DeleteComponent,
+    AddToBlacklistComponent,
+    AcceptComponent,
+    RejectComponent,
+    UpdateEquipComponent,
+    DeleteEquipComponent,
+    CustomerNavComponent,
+    UserAccountComponent,
+    ViewVehiclesComponent,
+    ViewBookingsComponent,
+    MakeBookingComponent,
+
+
   ],
   imports: [
     BrowserModule,

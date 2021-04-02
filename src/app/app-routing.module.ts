@@ -9,6 +9,10 @@ import { UsersComponent } from './components/admin/admin-home/users/users.compon
 import { UpdateDeleteComponent } from './components/admin/admin-home/vehicle/update-delete/update-delete.component';
 import { VehicleComponent } from './components/admin/admin-home/vehicle/vehicle.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { CustomerHomeComponent } from './components/customer/customer-home/customer-home.component';
+import { UserAccountComponent } from './components/customer/customer-home/user-account/user-account.component';
+import { ViewBookingsComponent } from './components/customer/customer-home/view-bookings/view-bookings.component';
+import { ViewVehiclesComponent } from './components/customer/customer-home/view-vehicles/view-vehicles.component';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
@@ -51,6 +55,24 @@ const routes: Routes = [
       {
         path:'viewUsers',
         component:UsersComponent
+      }
+    ]
+  },
+  {
+    path:'customer',
+    component:CustomerHomeComponent,
+    children:[
+      {
+        path:'viewVehicles',
+        component:ViewVehiclesComponent
+      },
+      {
+        path:'updateUserAccount',
+        component:UserAccountComponent
+      },
+      {
+        path:'viewBookings',
+        component:ViewBookingsComponent
       }
     ]
   },

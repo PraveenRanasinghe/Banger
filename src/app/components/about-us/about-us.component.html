@@ -1,52 +1,56 @@
 <app-nav-bar></app-nav-bar>
 <app-bread-crumb [pageName]="'About-Us'"></app-bread-crumb>
 
-<div class="container mt-5" style="background-color: rgb(181, 245, 181); box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-  <div class="card" style="width: 100%; border: none; padding: 1%; background-color: rgb(181, 245, 181);">
-    <div class="row no-gutters">
-      <div class="col-sm-5 mt-1 p-1">
-        <h3 class="display-5">Our Mission</h3>
-      </div>
-      <div class="col-sm-7">
-        <div class="card-body">
-          <p class="text-justify" style="font-size: large;">
-            {{ ourMission}}
-          </p>
-        </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-7 mt-5">
+      <div class="aboutPage" style="width: 100%; height: 80%;">
+
       </div>
     </div>
-  </div>
-</div>
-
-<div class="container mt-4" style="background-color: rgb(181, 245, 181); box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-  <div class="card" style="width: 100%; border: none; padding: 1%; background-color: rgb(181, 245, 181);">
-    <div class="row no-gutters">
-      <div class="col-sm-5 mt-1 p-1">
-        <h3 class="display-5">Our Vision</h3>
-      </div>
-      <div class="col-sm-7">
-        <div class="card-body">
-          <p class="text-justify"  style="font-size: large;">
-            {{ ourVision}}
-          </p>
+    <div class="col-lg-5">
+      <div class="container mt-5"
+        style="background-color: rgb(228, 245, 181); box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <div class="card" style="width: 100%; border: none; padding: 1%; background-color:  rgb(228, 245, 181);">
+          <div class="card-header">
+            <h3>Our Mission</h3>
+          </div>
+          <div class="card-body">
+            <p class="text-justify" style="font-size: large;">
+              {{ ourMission}}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<div class="container mt-5" style="background-color: rgb(181, 245, 181); box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-  <div class="card" style="width: 100%; border: none; padding: 1%; background-color: rgb(181, 245, 181);">
-    <div class="row no-gutters">
-      <div class="col-sm-5 mt-1 p-1">
-        <h3 class="display-5">Our Service</h3>
-      </div>
-      <div class="col-sm-7">
-        <div class="card-body">
-          <p class="text-justify"  style="font-size: large;">
-            {{ ourService}}
-          </p>
+      <div class="container mt-2"
+        style="background-color: rgb(228, 245, 181); box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <div class="card" style="width: 100%; border: none; padding: 1%; background-color:  rgb(228, 245, 181);">
+          <div class="card-header">
+            <h3>Our Vision</h3>
+          </div>
+          <div class="card-body">
+            <p class="text-justify" style="font-size: large;">
+              {{ ourVision}}
+            </p>
+          </div>
         </div>
+      </div>
+
+      <div class="container mt-2"
+        style="background-color:rgb(228, 245, 181); box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <div class="card" style="width: 100%; border: none; padding: 1%; background-color: rgb(228, 245, 181);">
+          <div class="card-header">
+            <h3>Our Services</h3>
+          </div>
+          <div class="card-body">
+            <p class="text-justify" style="font-size: large;">
+              {{ourService}}
+            </p>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>

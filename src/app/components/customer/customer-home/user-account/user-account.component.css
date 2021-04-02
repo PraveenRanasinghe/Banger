@@ -1,0 +1,11 @@
+.contact-form{
+  border-color: black;
+  background-color: beige;
+}
+.contact-image{
+  text-align: center;
+}
+.contact-image img{
+  margin-top: -20%;
+  transform: rotate(29deg);
+}

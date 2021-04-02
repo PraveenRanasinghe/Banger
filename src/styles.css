@@ -5,8 +5,8 @@ body {
 }
 body {
   margin: 0;
-  background-color: #000000;
   font-family: 'Zilla Slab', serif;
+
 }
 
 ::-webkit-scrollbar {

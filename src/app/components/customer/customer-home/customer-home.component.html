@@ -1,1 +1,33 @@
-<p>customer-home works!</p>
+<app-customer-nav></app-customer-nav>
+
+<div class="container">
+    <div class="row">
+      <div class="col-lg-6 customerHome" style="width: 950px; height: 450px;">
+
+      </div>
+      <div class="col-lg-6">
+        <div class="card text-center ml-5 crd" style="margin-top: 100px;" [routerLink]="['/customer','viewVehicles']" routerLinkActive="active">
+          <div class="card-body">
+            <h5 class="card-title" style="font-size: x-large;" >Make Your Booking</h5>
+          </div>
+        </div>
+
+        <div class="card text-center ml-5 mt-4 crd"  [routerLink]="['/customer','updateUserAccount']" routerLinkActive="active">
+          <div class="card-body" >
+            <h5 class="card-title" style="font-size: x-large;">Update Account Details</h5>
+          </div>
+        </div>
+
+        <div class="card text-center ml-5 mt-4 crd" [routerLink]="['/customer','viewBookings']" routerLinkActive="active" >
+          <div class="card-body">
+            <h5 class="card-title" style="font-size: x-large;">Extend Bookings</h5>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <hr style="background-color: black;">
+    <div class="row justify-content-center">
+      <router-outlet></router-outlet>
+    </div>
+</div>
