@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import {Component, OnInit} from '@angular/core';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-add-vehicle',
@@ -8,16 +8,18 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 })
 export class AddVehicleComponent implements OnInit {
 
-  constructor(private bsModal : BsModalService,
-    private modalRef:BsModalRef) { }
+  constructor(private bsModal: BsModalService,
+              private modalRef: BsModalRef) {
+  }
 
   ngOnInit(): void {
   }
+
   hideForm() {
     this.modalRef.hide();
   }
 
-  addVehicleImg(){
+  addVehicleImg() {
 
   }
 }

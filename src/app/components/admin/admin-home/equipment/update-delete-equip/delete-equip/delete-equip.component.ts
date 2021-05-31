@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import {Component, OnInit} from '@angular/core';
+import {BsModalRef} from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-delete-equip',
@@ -8,12 +8,13 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class DeleteEquipComponent implements OnInit {
 
-  constructor(private bsModal:BsModalRef) { }
+  constructor(private bsModal: BsModalRef) {
+  }
 
   ngOnInit(): void {
   }
 
-  hideForm(){
+  hideForm() {
     this.bsModal.hide();
   }
 }

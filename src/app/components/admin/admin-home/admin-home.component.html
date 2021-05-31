@@ -3,60 +3,81 @@
 
 <div class="container">
   <div class="row mt-5">
-     <div class="col-lg-3">
-      <div class="card cb" style="width: 18rem; height: 10rem;" [routerLink]="['/admin','viewVehicle']" routerLinkActive="active">
+    <div class="col-lg-4">
+      <div class="card cb" style="width: 18rem; height: 8rem;" [routerLink]="['/admin','viewVehicle']"
+           routerLinkActive="active">
         <div class="card-body">
-          <div class="row justify-content-center"  style="color: rgb(46, 24, 17); font-size: 30px;">
+          <div class="row justify-content-center" style="color: rgb(46, 24, 17); font-size: 30px;">
             <b> VEHICLES</b>
           </div>
-          <div  class="row justify-content-center">
+          <div class="row justify-content-center">
             <i class="fas fa-car" style="color: rgb(46, 24, 17); font-size: 30px;"></i>
           </div>
         </div>
       </div>
-     </div>
+    </div>
 
 
-     <div class="col-lg-3">
-      <div class="card cb" style="width: 18rem; height: 10rem;" [routerLink]="['/admin','viewEquipment']" routerLinkActive="active">
+    <div class="col-lg-4">
+      <div class="card cb" style="width: 18rem; height: 8rem;" [routerLink]="['/admin','viewEquipment']"
+           routerLinkActive="active">
         <div class="card-body">
           <div class="row justify-content-center" style="color: rgb(46, 24, 17); font-size: 30px;">
             <b> EQUIPMENTS</b>
           </div>
-          <div  class="row justify-content-center">
+          <div class="row justify-content-center">
             <i class="fas fa-tools" style="color: rgb(46, 24, 17); font-size: 30px;"></i>
           </div>
         </div>
       </div>
-     </div>
+    </div>
 
-     <div class="col-lg-3">
-      <div class="card cb" style="width: 18rem; height: 10rem;" [routerLink]="['viewBookings']" routerLinkActive="active">
+    <div class="col-lg-4">
+      <div class="card cb" style="width: 18rem; height: 8rem;" [routerLink]="['viewBookings']"
+           routerLinkActive="active">
         <div class="card-body">
           <div class="row justify-content-center" style="color: rgb(46, 24, 17); font-size: 30px;">
             <b> BOOKINGS</b>
           </div>
-          <div  class="row justify-content-center">
+          <div class="row justify-content-center">
             <i class="fas fa-bookmark" style="color: rgb(46, 24, 17); font-size: 30px;"></i>
           </div>
         </div>
       </div>
-     </div>
+    </div>
+  </div>
 
-     <div class="col-lg-3">
-      <div class="card cb" style="width: 18rem; height: 10rem;" [routerLink]="['viewUsers']" routerLinkActive="active">
+
+  <div class="row justify-content-center mt-4">
+
+    <div class="col-lg-5 ml-5">
+    <div class="card cb" style="width: 18rem; height: 8rem;" [routerLink]="['viewInquiries']" routerLinkActive="active">
+      <div class="card-body">
+        <div class="row justify-content-center" style="color: rgb(46, 24, 17); font-size: 30px;">
+          <b> INQUIRIES</b>
+        </div>
+        <div class="row justify-content-center">
+          <i class="fas fa-users-cog" style="color: rgb(46, 24, 17); font-size: 30px;"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-5 ">
+      <div class="card cb" style="width: 18rem; height: 8rem;" [routerLink]="['viewUsers']" routerLinkActive="active">
         <div class="card-body">
           <div class="row justify-content-center" style="color: rgb(46, 24, 17); font-size: 30px;">
             <b> USERS</b>
           </div>
-          <div  class="row justify-content-center">
+          <div class="row justify-content-center">
             <i class="fas fa-users-cog" style="color: rgb(46, 24, 17); font-size: 30px;"></i>
           </div>
         </div>
       </div>
-     </div>
+    </div>
+
   </div>
-  <hr style="background-color: rgb(247, 247, 247);">
+  <hr style="background-color: rgb(8, 8, 8);">
   <div class="row mt-5 justify-content-center">
     <router-outlet></router-outlet>
   </div>

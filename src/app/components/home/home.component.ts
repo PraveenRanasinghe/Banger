@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { LoginComponent } from '../login/login.component';
-import { SignUpComponent } from '../sign-up/sign-up.component';
+import {Component, OnInit} from '@angular/core';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
+import {LoginComponent} from '../login/login.component';
+import {SignUpComponent} from '../sign-up/sign-up.component';
 
 @Component({
   selector: 'app-home',
@@ -11,20 +11,21 @@ import { SignUpComponent } from '../sign-up/sign-up.component';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private bsModal : BsModalService) { }
+  constructor(private bsModal: BsModalService) {
+  }
 
   ngOnInit(): void {
   }
 
-  openSignUp(){
-    this.bsModal.show(SignUpComponent,{
-      class:'modal-dialog-centered modal-lg'
+  openSignUp() {
+    this.bsModal.show(SignUpComponent, {
+      class: 'modal-dialog-centered modal-lg'
     })
   }
 
-  openLogin(){
-    this.bsModal.show(LoginComponent,{
-      class:'modal-dialog-centered'
+  openLogin() {
+    this.bsModal.show(LoginComponent, {
+      class: 'modal-dialog-centered'
     })
   }
 }

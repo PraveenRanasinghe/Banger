@@ -1,9 +1,9 @@
-.background{
+.background {
   background-image: url('../../../assets/img/home.png');
   background-size: cover;
 }
 
-.details{
+.details {
   margin-left: 2%;
   font-size: 70px;
   font-family: 'sans-serif';

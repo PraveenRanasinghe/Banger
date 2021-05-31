@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-about-us',
@@ -14,10 +14,11 @@ export class AboutUsComponent implements OnInit {
   ourVision: string = `To create a better everyday life for many people
    to enjoy their travelling life with much more comfortable`;
 
-   ourService: string = `Satisfaction is a rating. Loyalty is a brand.
+  ourService: string = `Satisfaction is a rating. Loyalty is a brand.
     There for we are here to give our best service to our customers.`;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

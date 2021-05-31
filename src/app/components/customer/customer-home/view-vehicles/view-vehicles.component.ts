@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
-import { MakeBookingComponent } from './make-booking/make-booking.component';
+import {Component, OnInit} from '@angular/core';
+import {BsModalService} from 'ngx-bootstrap/modal';
+import {MakeBookingComponent} from './make-booking/make-booking.component';
 
 @Component({
   selector: 'app-view-vehicles',
@@ -9,14 +9,15 @@ import { MakeBookingComponent } from './make-booking/make-booking.component';
 })
 export class ViewVehiclesComponent implements OnInit {
 
-  constructor(private bsModal:BsModalService) { }
+  constructor(private bsModal: BsModalService) {
+  }
 
   ngOnInit(): void {
   }
 
-  openBooking(){
-    this.bsModal.show(MakeBookingComponent,{
-      class:'modal-dialog-centered modal-lg'
+  openBooking() {
+    this.bsModal.show(MakeBookingComponent, {
+      class: 'modal-dialog-centered modal-lg'
     })
   }
 }

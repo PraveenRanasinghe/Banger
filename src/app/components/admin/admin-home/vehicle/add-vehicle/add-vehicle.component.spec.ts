@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AddVehicleComponent } from './add-vehicle.component';
+import {AddVehicleComponent} from './add-vehicle.component';
 
 describe('AddVehicleComponent', () => {
   let component: AddVehicleComponent;
@@ -8,9 +8,9 @@ describe('AddVehicleComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddVehicleComponent ]
+      declarations: [AddVehicleComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

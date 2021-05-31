@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
-import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
+import {Component, OnInit} from '@angular/core';
+import {BsModalService} from 'ngx-bootstrap/modal';
+import {AddVehicleComponent} from './add-vehicle/add-vehicle.component';
 
 @Component({
   selector: 'app-vehicle',
@@ -9,14 +9,15 @@ import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
 })
 export class VehicleComponent implements OnInit {
 
-  constructor(private bsModal : BsModalService) { }
+  constructor(private bsModal: BsModalService) {
+  }
 
   ngOnInit(): void {
   }
 
-  openAddVehicle(){
-    this.bsModal.show(AddVehicleComponent,{
-      class:'modal-dialog-centered modal-lg'
+  openAddVehicle() {
+    this.bsModal.show(AddVehicleComponent, {
+      class: 'modal-dialog-centered modal-lg'
     })
   }
 }

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import {Component, OnInit} from '@angular/core';
+import {BsModalRef} from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-accept',
@@ -8,7 +8,8 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class AcceptComponent implements OnInit {
 
-  constructor(private modalRef:BsModalRef) { }
+  constructor(private modalRef: BsModalRef) {
+  }
 
   ngOnInit(): void {
   }

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
-import { DeleteComponent } from './delete/delete.component';
-import { UpdateComponent } from './update/update.component';
+import {Component, OnInit} from '@angular/core';
+import {BsModalService} from 'ngx-bootstrap/modal';
+import {DeleteComponent} from './delete/delete.component';
+import {UpdateComponent} from './update/update.component';
 
 @Component({
   selector: 'app-update-delete',
@@ -10,20 +10,21 @@ import { UpdateComponent } from './update/update.component';
 })
 export class UpdateDeleteComponent implements OnInit {
 
-  constructor(private bsModal : BsModalService) { }
+  constructor(private bsModal: BsModalService) {
+  }
 
   ngOnInit(): void {
   }
 
-  openUpdate(){
-    this.bsModal.show(UpdateComponent,{
-      class:'modal-dialog-centered modal-lg'
+  openUpdate() {
+    this.bsModal.show(UpdateComponent, {
+      class: 'modal-dialog-centered modal-lg'
     })
   }
 
-  openDelete(){
-    this.bsModal.show(DeleteComponent,{
-      class:'modal-dialog-centered'
+  openDelete() {
+    this.bsModal.show(DeleteComponent, {
+      class: 'modal-dialog-centered'
     })
   }
 

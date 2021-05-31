@@ -1,5 +1,5 @@
-import { Component,Input, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
+import {Component, Input, OnInit} from '@angular/core';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-bread-crumb',
@@ -10,7 +10,8 @@ export class BreadCrumbComponent implements OnInit {
 
   @Input("pageName") pageName: string = "";
 
-  constructor(private _location: Location) { }
+  constructor(private _location: Location) {
+  }
 
   ngOnInit(): void {
   }

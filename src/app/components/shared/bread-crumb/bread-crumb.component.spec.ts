@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BreadCrumbComponent } from './bread-crumb.component';
+import {BreadCrumbComponent} from './bread-crumb.component';
 
 describe('BreadCrumbComponent', () => {
   let component: BreadCrumbComponent;
@@ -8,9 +8,9 @@ describe('BreadCrumbComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BreadCrumbComponent ]
+      declarations: [BreadCrumbComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
