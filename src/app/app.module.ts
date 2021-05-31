@@ -83,7 +83,13 @@ import {HttpClientModule} from "@angular/common/http";
     NgxSpinnerModule,
     ModalModule.forRoot(),
     BsDropdownModule,
-    HttpClientModule
+    HttpClientModule,
+
+
+
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
