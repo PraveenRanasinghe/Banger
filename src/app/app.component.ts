@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get('localhost:8080/home').subscribe((data) => {
+    this.http.get('http://localhost:8080/home').subscribe((data) => {
       console.log(data);
     });
   }
