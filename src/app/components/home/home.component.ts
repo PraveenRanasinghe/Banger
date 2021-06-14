@@ -19,12 +19,14 @@ export class HomeComponent implements OnInit {
 
   openSignUp() {
     this.bsModal.show(SignUpComponent, {
+      ignoreBackdropClick:true,
       class: 'modal-dialog-centered modal-lg'
     })
   }
 
   openLogin() {
     this.bsModal.show(LoginComponent, {
+      ignoreBackdropClick:true,
       class: 'modal-dialog-centered'
     })
   }

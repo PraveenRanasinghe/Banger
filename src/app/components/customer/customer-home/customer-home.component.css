@@ -7,3 +7,9 @@
   background-color: rgb(240, 250, 95);
   cursor: pointer;
 }
+
+.cb{
+  background: rgb(71,144,135);
+  background: radial-gradient(circle, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 100%);
+}
+

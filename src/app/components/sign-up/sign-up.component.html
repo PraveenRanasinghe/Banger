@@ -1,6 +1,7 @@
 <div class="formatting-modal fm">
-  <div class="modal-header">
-    <h4 class="modal-title">Be a Member of <b style="color: rgb(228, 134, 11);">BANGER</b></h4>
+  <div class="modal-header" style="background-color: rgb(71,144,135);
+background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);">
+    <h4 class="modal-title">Be a Member of <b style="color: rgb(241,240,234);">BANGER & Co</b></h4>
     <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
   </div>
 
@@ -56,14 +57,22 @@
           </div>
         </div>
       </div>
-      <div class="row mb-3 mt-3">
+      <div class="row">
         <div class="col">
-          <label for="password"><b>Create your password</b></label>
+          <label><b>Create your password</b></label>
           <input type="password" class="form-control" placeholder="Enter Your Password">
         </div>
         <div class="col">
-          <label for="password"><b>Verify your password</b></label>
+          <label><b>Verify your password</b></label>
           <input type="password" class="form-control" placeholder="Re-Enter Your Password">
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col">
+          <label><b>Upload Your Liscence Image:</b></label>
+        </div>
+        <div class="col">
+          <input type="file" accept="image/*" multiple="false">
         </div>
       </div>
       <span style="font-size: 13px; color: brown;">Once You Sign Up, You Will Get an Email. Follow The Instructions to Verify Your Account</span>

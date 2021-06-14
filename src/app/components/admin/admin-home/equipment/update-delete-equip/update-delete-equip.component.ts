@@ -18,12 +18,14 @@ export class UpdateDeleteEquipComponent implements OnInit {
 
   openUpdateEquip() {
     this.bsModal.show(UpdateEquipComponent, {
+      ignoreBackdropClick:true,
       class: 'modal-dialog-centered modal-lg'
     })
   }
 
   openDeleteEquip() {
     this.bsModal.show(DeleteEquipComponent, {
+      ignoreBackdropClick:true,
       class: 'modal-dialog-centered'
     })
   }

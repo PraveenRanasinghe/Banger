@@ -1,0 +1,28 @@
+  <div class="row" style="border-radius: 15px;">
+    <div class="ml-5" style="width: 100%;">
+      <table class="table table-info" style="border-radius: 15px;">
+        <thead class="justify-content-center">
+        <tr style="height: 70px; background-color: #f5a99d; font-size: larger">
+          <th scope="col">#</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Contact Number</th>
+          <th scope="col">Add to Black List</th>
+          <th scope="col">Remove User</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="font-size: medium">
+          <th scope="row">1</th>
+          <td>Praveen</td>
+          <td>Ranasighe</td>
+          <td>praveenranasinghe@gmail.com</td>
+          <td>+94-715658987</td>
+          <td class="btn btn-dark" (click)="addToBlackList()">Add To Black-List</td>
+          <td class="btn btn-danger ml-4" (click)="removeUser()">Remove User</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

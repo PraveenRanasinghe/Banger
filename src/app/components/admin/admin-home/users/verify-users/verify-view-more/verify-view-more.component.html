@@ -1,0 +1,49 @@
+<div class="formatting-modal fm">
+  <div class="modal-header">
+    <h4 class="modal-title">New Users in <b style="color: rgb(228, 134, 11);">BANGER & Co</b></h4>
+    <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
+  </div>
+
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <label><b>First Name</b></label>
+            <input class="form-control" type="text" placeholder="John" readonly="true">
+          </div>
+          <div class="col">
+            <label><b>Last Name</b></label>
+            <input class="form-control" type="text" placeholder="Doe" readonly="true">
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <label><b>Email</b></label>
+            <input class="form-control" type="text"placeholder="johndoe@yahoo.com" readonly="true">
+          </div>
+          <div class="col">
+            <label><b>Contact Number</b></label>
+            <input class="form-control" type="text"placeholder="+9471-9878987" readonly="true">
+          </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+          <div class="col">
+            <label><b>License Image</b></label>
+            <img src="https://www.ocregister.com/wp-content/uploads/2018/10/0418_nws_idb-l-allen-col-0418-1.jpg?w=640" height="250px;" width="500px;">
+          </div>
+          <div class="col">
+
+          </div>
+        </div>
+      </div>
+      <hr style="background-color: black;">
+      <button class="btn btn-success mb-3 mt-1">Accept User Account</button>
+
+    </form>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="hideForm()" style="width: 30%;">Close</button>
+    </div>
+  </div>
+</div>

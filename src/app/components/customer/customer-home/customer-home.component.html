@@ -1,33 +1,53 @@
 <app-customer-nav></app-customer-nav>
-
+<app-page-position [pageName]="'Home'"></app-page-position>
 <div class="container">
-  <div class="row">
-    <div class="col-lg-6 customerHome" style="width: 950px; height: 450px;">
-
+  <div class="row justify-content-center mt-2">
+    <div class="col-lg-4 " style="cursor:pointer;" >
+      <div class="card cb" style="width: 18rem; height: 8rem;"[routerLink]="['/customer','viewVehicles']"
+           routerLinkActive="active">
+        <div class="card-body">
+          <div class="row justify-content-center" style="color: rgb(46, 24, 17); font-size: 30px;">
+            <b>View Vehicles</b>
+          </div>
+          <div class="row justify-content-center">
+            <i class="fas fa-users-cog" style="color: rgb(46, 24, 17); font-size: 30px;"></i>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-lg-6">
-      <div class="card text-center ml-5 crd" style="margin-top: 100px;" [routerLink]="['/customer','viewVehicles']"
+
+    <div class="col-lg-4 " style="cursor: pointer;">
+      <div class="card cb" style="width: 18rem; height: 8rem;"  [routerLink]="['/customer','updateUserAccount']"
            routerLinkActive="active">
         <div class="card-body">
-          <h5 class="card-title" style="font-size: x-large;">Make Your Booking</h5>
+          <div class="row justify-content-center" style="color: rgb(46, 24, 17); font-size: 30px;">
+            <b>My Account</b>
+          </div>
+          <div class="row justify-content-center">
+            <i class="fas fa-users-cog" style="color: rgb(46, 24, 17); font-size: 30px;"></i>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="card text-center ml-5 mt-4 crd" [routerLink]="['/customer','updateUserAccount']"
-           routerLinkActive="active">
+
+    <div class="col-lg-4 " style="cursor: pointer;">
+      <div class="card cb" style="width: 18rem; height: 8rem;" [routerLink]="['/customer','viewBookings']" routerLinkActive="active">
         <div class="card-body">
-          <h5 class="card-title" style="font-size: x-large;">Update Account Details</h5>
+          <div class="row justify-content-center" style="color: rgb(46, 24, 17); font-size: 30px;">
+            <b>Extend Bookings</b>
+          </div>
+          <div class="row justify-content-center">
+            <i class="fas fa-users-cog" style="color: rgb(46, 24, 17); font-size: 30px;"></i>
+          </div>
         </div>
       </div>
-
-      <div class="card text-center ml-5 mt-4 crd" [routerLink]="['/customer','viewBookings']" routerLinkActive="active">
-        <div class="card-body">
-          <h5 class="card-title" style="font-size: x-large;">Extend Bookings</h5>
-        </div>
-      </div>
-
     </div>
   </div>
+</div>
+
+
+<div class="container">
   <hr style="background-color: black;">
   <div class="row justify-content-center">
     <router-outlet></router-outlet>

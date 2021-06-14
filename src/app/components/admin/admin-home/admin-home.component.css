@@ -3,10 +3,12 @@
   transition: background-color 0.75s;
   border-color: black;
   border-style: dotted;
-  background-color: rgb(122, 201, 122);
+  background-color:rgb(71,144,135);
+  background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
+  box-shadow: 10px 10px 25px black;
 }
 
 .cb:hover {
-  background-color: rgba(185, 205, 241, 0.37);
+  background-color: red;
   cursor: pointer;
 }
