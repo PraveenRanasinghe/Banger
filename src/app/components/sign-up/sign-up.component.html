@@ -72,12 +72,12 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
           <label><b>Upload Your Liscence Image:</b></label>
         </div>
         <div class="col">
-          <input type="file" accept="image/*" multiple="false">
+          <!-- <input type="file" accept="image/*" (change)="onFileChanged($event)" multiple="false"> -->
         </div>
       </div>
       <span style="font-size: 13px; color: brown;">Once You Sign Up, You Will Get an Email. Follow The Instructions to Verify Your Account</span>
       <hr style="background-color: rgb(13, 104, 1);">
-      <button class="btn btn-success mb-3">Create Account</button>
+      <!-- <button class="btn btn-success mb-3" (click)="onUpload()" value="upload">Create Account</button> -->
     </form>
     <div class="modal-footer">
       <button type="button" class="btn btn-danger" (click)="hideForm()" style="width: 30%;">Close</button>
