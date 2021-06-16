@@ -45,7 +45,7 @@ import { RemoveUserComponent } from './components/admin/admin-home/users/view-us
 import { VerifyViewMoreComponent } from './components/admin/admin-home/users/verify-users/verify-view-more/verify-view-more.component';
 import { ExtendBookingComponent } from './components/customer/customer-home/view-bookings/extend-booking/extend-booking.component';
 import { AdminServiceService } from './services/admin-service.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderService } from './services/header.service';
 
 // @ts-ignore
@@ -99,6 +99,7 @@ import { HeaderService } from './services/header.service';
     BsDropdownModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {

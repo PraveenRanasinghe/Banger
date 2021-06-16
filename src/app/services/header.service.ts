@@ -12,10 +12,8 @@ export class HeaderService implements HttpInterceptor{
       req = req.clone({
         headers:req.headers.append("Authorization","Bearer " + localStorage.getItem("token"))
       })
-
       return next.handle(req);
     }
-return next.handle(req);
-
-}
+    return next.handle(req);
+  }
 }
