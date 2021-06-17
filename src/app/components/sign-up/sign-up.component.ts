@@ -29,7 +29,10 @@ export class SignUpComponent implements OnInit {
       'fName':new  FormControl(null),
       'lName':new  FormControl(null),
       'emailAddress':new  FormControl(null),
-      'password':new  FormControl(null)
+      'password':new  FormControl(null),
+      'contactNumber':new  FormControl(null),
+      'dob':new  FormControl(null),
+      'nicNumber':new  FormControl(null)
     })
   }
 

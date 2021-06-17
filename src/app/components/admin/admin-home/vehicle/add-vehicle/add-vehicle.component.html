@@ -6,30 +6,32 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
   </div>
 
   <div class="modal-body">
-    <form>
+    <form [formGroup]="form"  (ngSubmit)="onSubmit()">
       <div class="form-group">
         <div class="row">
           <div class="col">
             <label for="vehicleType"><b>Vehicle Type</b></label>
-            <select class="form-control" type="text" id="vehicleType">
+            <select class="form-control" type="text"  [formControlName]="'vehicleType'">
               <option>Four-Wheel Drive</option>
               <option>Two-Wheel Drive</option>
             </select>
           </div>
           <div class="col">
             <label for="vehicleModel"><b>Vehicle Model & Name</b></label>
-            <input type="text" id="vehicleModel" class="form-control" placeholder="Toyota Premio">
+            <input type="text" class="form-control"
+            placeholder="Toyota Premio"  [formControlName]="'vehicleModel'">
           </div>
         </div>
 
         <div class="row mt-3">
           <div class="col-lg-4">
             <label for="seat"><b>Number of Seats</b></label>
-            <input type="text" id="seat" class="form-control" placeholder="Number of Passenger-Seats">
+            <input type="text" class="form-control"
+            placeholder="Number of Passenger-Seats"  [formControlName]="'seat'">
           </div>
           <div class="col-lg-4">
             <label><b>Fuel Type</b></label>
-            <select class="form-control" type="text">
+            <select class="form-control" type="text" [formControlName]="'fuelType'">
               <option>Petrol</option>
               <option>Diesel</option>
               <option>Electric</option>
@@ -37,29 +39,30 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
           </div>
           <div class="col-lg-4">
             <label><b>Price per Day in Rs</b></label>
-            <input type="text" class="form-control" placeholder="Rs:1000.00">
+            <input type="text" class="form-control"
+             placeholder="Rs:1000.00" [formControlName]="'pricePerDay'">
           </div>
         </div>
         <div class="row mt-3">
           <div class="col">
             <label><b>Transmission Type</b></label><br>
-            <input type="radio" id="auto" name="transmission" value="auto">
+            <input type="radio" id="auto" name="transmission" value="auto" [formControlName]="'transmission'">
             <label>Automatic</label><br>
-            <input type="radio" id="manual" name="transmission" value="manual">
+            <input type="radio" id="manual" name="transmission" value="manual" [formControlName]="'transmission'">
             <label>Manual</label><br>
           </div>
           <div class="col">
             <label><b>Air Bags</b></label><br>
-            <input type="radio" name="airbags" value="yes">
+            <input type="radio" name="airbags" value="yes" [formControlName]="'airbags'">
             <label>Yes</label><br>
-            <input type="radio" name="airbags" value="no">
+            <input type="radio" name="airbags" value="no" [formControlName]="'airbags'">
             <label>No</label><br>
           </div>
           <div class="col">
             <label><b>Air-Conditioned</b></label><br>
-            <input type="radio" id="yes" name="ac" value="yes">
+            <input type="radio" id="yes" name="ac" value="yes" [formControlName]="'ac'">
             <label>Yes</label><br>
-            <input type="radio" id="no" name="ac" value="no">
+            <input type="radio" id="no" name="ac" value="no" [formControlName]="'ac'">
             <label>No</label><br>
           </div>
         </div>

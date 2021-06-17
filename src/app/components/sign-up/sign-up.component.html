@@ -42,9 +42,9 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
           <div class="form-group">
             <label for="age"><b>Date of Birth</b></label>
 
-            <input type="text" id="age" class="form-control"
-                  [formControlName]="'DOB'"
-                  placeholder="Enter Your Age">
+            <input type="date" class="form-control"
+                  [formControlName]="'dob'"
+                  placeholder="Enter Your Birthday">
           </div>
         </div>
       </div>
@@ -103,7 +103,7 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
 </div>
 
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
   var password = document.getElementById("pass1")
       , confirm_password = document.getElementById("pass2");
 
@@ -117,5 +117,5 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
 
   password.onchange = validatePassword;
   confirm_password.onkeyup = validatePassword;
-</script> -->
+</script>
 

@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
+import { AdminServiceService } from 'src/app/services/admin-service.service';
 
 @Component({
   selector: 'app-add-vehicle',
@@ -8,8 +10,11 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 })
 export class AddVehicleComponent implements OnInit {
 
+  form : FormGroup;
+
   constructor(private bsModal: BsModalService,
-              private modalRef: BsModalRef) {
+              private modalRef: BsModalRef,
+              private adminService:AdminServiceService) {
   }
 
   ngOnInit(): void {
@@ -17,6 +22,10 @@ export class AddVehicleComponent implements OnInit {
 
   hideForm() {
     this.modalRef.hide();
+  }
+
+  onSubmit(){
+
   }
 
   addVehicleImg() {

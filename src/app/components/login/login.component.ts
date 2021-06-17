@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
 
 
   onLogin() {
-
     const email:string=this.form.get('emailAddress').value;
     const password : string=this.form.get('password').value;
 

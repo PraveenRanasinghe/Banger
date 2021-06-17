@@ -13,11 +13,12 @@ export class UserServiceService {
        fName:fName,
        lName:lName,
        emailAddress:emailAddress,
-       dob:dob,
-       contactNumber:contactNumber,
-       nic:nic,
+       DOB:dob,
+       contactNum:contactNumber,
+       nicNumber:nic,
        password:password
      };
      return this.Http.post("http://localhost:8080/createAccount",signUpInfo)
   }
+
 }
