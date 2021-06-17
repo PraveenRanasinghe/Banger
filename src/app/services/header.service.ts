@@ -15,8 +15,6 @@ export class HeaderService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log(req.url);
-
     const ටෝකන්එපාමේවට = [
       'http://localhost:8080/authenticate',
       'http://localhost:8080/createAccount',
