@@ -22,8 +22,8 @@ export class HeaderService implements HttpInterceptor {
 
     let ටෝකන්_ඕනෙද: boolean = false;
 
-    for (const checkKaranaUrlEka of ටෝකන්එපාමේවට) {
-      if (checkKaranaUrlEka.toLowerCase() === req.url.toLowerCase()) {
+    for (const checkKaranaUrleka of ටෝකන්එපාමේවට) {
+      if (checkKaranaUrleka.toLowerCase() === req.url.toLowerCase()) {
         ටෝකන්_ඕනෙද = false;
       }else{
         ටෝකන්_ඕනෙද = true;

@@ -12,8 +12,8 @@ export class UserServiceService {
      const signUpInfo={
        fName:fName,
        lName:lName,
-       emailAddress:emailAddress,
-       DOB:dob,
+       email:emailAddress,
+       dob:dob,
        contactNum:contactNumber,
        nicNumber:nic,
        password:password
