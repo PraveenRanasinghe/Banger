@@ -8,7 +8,6 @@ import {UpdateDeleteEquipComponent} from './components/admin/admin-home/equipmen
 import { InquiryComponent } from './components/admin/admin-home/inquiry/inquiry.component';
 import {UsersComponent} from './components/admin/admin-home/users/users.component';
 import { VerifyUsersComponent } from './components/admin/admin-home/users/verify-users/verify-users.component';
-import { VerifyViewMoreComponent } from './components/admin/admin-home/users/verify-users/verify-view-more/verify-view-more.component';
 import { ViewUsersComponent } from './components/admin/admin-home/users/view-users/view-users.component';
 import {UpdateDeleteComponent} from './components/admin/admin-home/vehicle/update-delete/update-delete.component';
 import {VehicleComponent} from './components/admin/admin-home/vehicle/vehicle.component';
@@ -64,10 +63,6 @@ const routes: Routes = [
         path: 'verifyUsers',
         component: VerifyUsersComponent
       },
-      // {
-      //   path: 'verifyViewMore',
-      //   component: VerifyViewMoreComponent
-      // },
       {
         path: 'viewRegisteredUsers',
         component: ViewUsersComponent
