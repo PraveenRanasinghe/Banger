@@ -47,6 +47,7 @@ import { ExtendBookingComponent } from './components/customer/customer-home/view
 import { AdminServiceService } from './services/admin-service.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderService } from './services/header.service';
+import { ViewMoreComponent } from './components/admin/admin-home/inquiry/view-more/view-more.component';
 
 // @ts-ignore
 @NgModule({
@@ -89,6 +90,7 @@ import { HeaderService } from './services/header.service';
     RemoveUserComponent,
     VerifyViewMoreComponent,
     ExtendBookingComponent,
+    ViewMoreComponent,
     // RemoveUserComponent,
   ],
   imports: [

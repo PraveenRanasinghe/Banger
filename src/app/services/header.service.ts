@@ -15,23 +15,25 @@ export class HeaderService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const ටෝකන්එපාමේවට = [
+
+    const noNeedToken = [
       'http://localhost:8080/authenticate',
       'http://localhost:8080/createAccount',
+
     ];
 
-    let ටෝකන්_ඕනෙද: boolean = false;
+    let needToken: boolean = false;
 
-    for (const checkKaranaUrleka of ටෝකන්එපාමේවට) {
-      if (checkKaranaUrleka.toLowerCase() === req.url.toLowerCase()) {
-        ටෝකන්_ඕනෙද = false;
+    for (const CheckedUrl of noNeedToken) {
+      if (CheckedUrl.toLowerCase() === req.url.toLowerCase()) {
+        needToken = false;
       }else{
-        ටෝකන්_ඕනෙද = true;
+        needToken = true;
       }
     }
 
-    if (!ටෝකන්_ඕනෙද) {
-      console.log('ඔන්න මචන් ටෝකන් එක');
+    if (!needToken) {
+      console.log('Token!');
       req = req.clone({
         headers: req.headers.append(
           'Authorization',

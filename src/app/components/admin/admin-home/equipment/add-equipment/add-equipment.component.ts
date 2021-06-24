@@ -44,8 +44,5 @@ export class AddEquipmentComponent implements OnInit {
 
   }
 
-  onSubmit(){
-
-  }
 
 }

@@ -10,8 +10,8 @@ export class GuestService {
 
   addInquiry(fullName:string,contactNum:string, email:string,message:string){
     const inquiryInfo={
-      fullName:fullName,
-      email:email,
+      inquirerName:fullName,
+      inquirerEmail:email,
       contactNum:contactNum,
       message:message
     };

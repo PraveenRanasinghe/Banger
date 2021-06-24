@@ -33,10 +33,6 @@ export class AddVehicleComponent implements OnInit {
     this.modalRef.hide();
   }
 
-  onSubmit(){
-
-  }
-
   addVehicle(){
     const vehicleType:string=this.form.get('vehicleType').value;
     const vehicleModel : string=this.form.get('vehicleModel').value;

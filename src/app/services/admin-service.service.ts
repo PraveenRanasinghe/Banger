@@ -32,7 +32,16 @@ export class AdminServiceService{
       itemDescription:description,
       pricePerDayEQ:pricePerDay
     };
-    return this.Http.post("http://localhost:8080/addEquipment",equipmentInfo);
+    return this.Http.post("http://localhost:8080/admin/addEquipment",equipmentInfo);
   }
 
+
+
+  ViewAllInquiries(){
+    return this.Http.get<any>("http://localhost:8080/admin/viewInquiries");
+  }
+
+  ViewAllUsers(){
+    return this.Http.get<any>("http://localhost:8080/admin/viewAllUsers");
+  }
 }
