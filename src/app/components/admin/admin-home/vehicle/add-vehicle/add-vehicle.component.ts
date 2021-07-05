@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap/modal';
@@ -13,8 +14,15 @@ export class AddVehicleComponent implements OnInit {
   form : FormGroup;
 
   constructor(private modalRef: BsModalRef,
-              private adminService:AdminServiceService) {
-  }
+              private adminService:AdminServiceService,
+              private httpClient: HttpClient) {}
+
+            selectedFile :File;
+            retrievedImage: any;
+            base64Data: any;
+            retrieveResonse: any;
+            message: string;
+            imageName: any;
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -27,6 +35,29 @@ export class AddVehicleComponent implements OnInit {
       'airbags':new  FormControl(null),
       'ac':new  FormControl(null)
     })
+  }
+
+  onFileChanged(event){
+    this.selectedFile = event.target.files[0];
+  }
+
+  onUpload(){
+    console.log(this.selectedFile);
+
+    //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
+    const uploadImageData = new FormData();
+    uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+
+    //Make a call to the Spring Boot Application to save the image
+    this.httpClient.post('http://localhost:8080/admin/addVehicle', uploadImageData, { observe: 'response' })
+      .subscribe((response) => {
+        if (response.status === 200) {
+          this.message = 'Image uploaded successfully';
+        } else {
+          this.message = 'Image not uploaded successfully';
+        }
+      }
+      );
   }
 
   hideForm() {
