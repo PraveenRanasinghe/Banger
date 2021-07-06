@@ -31,7 +31,7 @@ export class SignUpComponent implements OnInit {
       'emailAddress':new  FormControl(null),
       'password':new  FormControl(null),
       'contactNumber':new  FormControl(null),
-      'dob':new  FormControl(null),
+      // 'dob':new  FormControl(null),
       'nicNumber':new  FormControl(null)
     })
   }
@@ -47,11 +47,11 @@ export class SignUpComponent implements OnInit {
     const email:string=this.form.get('emailAddress').value;
     const contactNumber : string=this.form.get('contactNumber').value;
     const nicNumber:string=this.form.get('nicNumber').value;
-    const dob : string=this.form.get('dob').value;
+    // const dob : string=this.form.get('dob').value;
     const password : string=this.form.get('password').value;
 
 
-    this.userService.userRegistration(fName,lName,email,contactNumber,nicNumber,dob,password).subscribe(
+    this.userService.userRegistration(fName,lName,email,contactNumber,nicNumber,password).subscribe(
       (data:any)=>{
         console.log(data);
         localStorage.setItem('token',data.token);
@@ -62,33 +62,30 @@ export class SignUpComponent implements OnInit {
     );
   }
 
-  onSubmit(){
-
-  }
-
 
   public onFileChanged(event) {
 
     this.selectedFile = event.target.files[0];
   }
 
-  onUpload() {
-    console.log(this.selectedFile);
 
-    //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
-    const uploadImageData = new FormData();
-    uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+  // onUpload() {
+  //   console.log(this.selectedFile);
 
-    this.httpClient.post('http://localhost:8080/image/upload', uploadImageData, { observe: 'response' })
-      .subscribe((response) => {
-        if (response.status === 200) {
-          this.message = 'Image uploaded successfully';
-        } else {
-          this.message = 'Image not uploaded successfully';
-        }
-      }
-      );
-  }
+  //   //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
+  //   const uploadImageData = new FormData();
+  //   uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+
+  //   this.httpClient.post('http://localhost:8080/image/upload', uploadImageData, { observe: 'response' })
+  //     .subscribe((response) => {
+  //       if (response.status === 200) {
+  //         this.message = 'Image uploaded successfully';
+  //       } else {
+  //         this.message = 'Image not uploaded successfully';
+  //       }
+  //     }
+  //     );
+  // }
 
 
 }

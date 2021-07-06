@@ -41,7 +41,7 @@ export class AddVehicleComponent implements OnInit {
     this.selectedFile = event.target.files[0];
   }
 
-  onUpload(){
+  onImageUpload(){
     console.log(this.selectedFile);
 
     //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
@@ -52,9 +52,9 @@ export class AddVehicleComponent implements OnInit {
     this.httpClient.post('http://localhost:8080/admin/addVehicle', uploadImageData, { observe: 'response' })
       .subscribe((response) => {
         if (response.status === 200) {
-          this.message = 'Image uploaded successfully';
+          console.log('Image uploaded successfully');
         } else {
-          this.message = 'Image not uploaded successfully';
+          console.log('Image not uploaded successfully');
         }
       }
       );
@@ -85,8 +85,4 @@ export class AddVehicleComponent implements OnInit {
     );
   }
 
-
-  addVehicleImg() {
-
-  }
 }

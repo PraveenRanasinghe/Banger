@@ -16,6 +16,6 @@ export class GuestService {
       message:message
     };
 
-    return this.Http.post("http://localhost:8080/addInq",inquiryInfo);
+    return this.Http.post("http://localhost:8080/customer/addInq",inquiryInfo);
   }
 }

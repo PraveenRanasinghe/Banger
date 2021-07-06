@@ -18,7 +18,8 @@ export class HeaderService implements HttpInterceptor {
 
     const noNeedToken = [
       'http://localhost:8080/authenticate',
-      'http://localhost:8080/createAccount',
+      'http://localhost:8080/customer/createAccount',
+      'http://localhost:8080/customer/addInq',
 
     ];
 
@@ -29,6 +30,7 @@ export class HeaderService implements HttpInterceptor {
         needToken = false;
       }else{
         needToken = true;
+        break;
       }
     }
 
@@ -40,7 +42,6 @@ export class HeaderService implements HttpInterceptor {
           'Bearer ' + localStorage.getItem('token')
         ),
       });
-      return next.handle(req);
     }
     return next.handle(req);
   }

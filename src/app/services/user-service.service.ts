@@ -8,17 +8,16 @@ export class UserServiceService {
 
   constructor(private Http:HttpClient) { }
 
-  userRegistration(fName:string, lName:string,emailAddress:string,dob:string, contactNumber:string,nic:string,password:string){
+  userRegistration(fName:string, lName:string,emailAddress:string,contactNumber:string,nic:string,password:string){
      const signUpInfo={
        fName:fName,
        lName:lName,
        email:emailAddress,
-       dob:dob,
        contactNum:contactNumber,
        nicNumber:nic,
        password:password
      };
-     return this.Http.post("http://localhost:8080/createAccount",signUpInfo)
+     return this.Http.post("http://localhost:8080/customer/createAccount",signUpInfo)
   }
 
 }
