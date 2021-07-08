@@ -1,12 +1,10 @@
 <div class="container">
-  <div class="row mt-5 ml-4">
-
-
+  <div class="row mt-5 ml-4" *ngFor="let equipment of List">
     <div class="card ml-3 c2" style="width: 21rem;">
       <div class="card-body">
-        <h5 class="card-title">Wine-Chiller</h5>
-        <p class="card-text">RS:500.00</p>
-        <p class="card-text">A Perfect Wine-Chiller to a family. Enoungh for more than 5 people.</p>
+        <h5 class="card-title">{{equipment.itemName}}</h5>
+        <p class="card-text">RS:{{equipment.pricePerDayEQ}}</p>
+        <p class="card-text">{{equipment.itemDescription}}</p>
         <div class="row">
           <div class="col">
             <a class="btn btn-primary" (click)="openUpdateEquip()">Update Item</a>

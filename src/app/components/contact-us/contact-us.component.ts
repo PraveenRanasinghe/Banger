@@ -25,9 +25,6 @@ export class ContactUsComponent implements OnInit {
     })
   }
 
-  onSubmit(){
-
-  }
 
   onSubmitInq(){
     const fullName:string=this.form.get('fullName').value;

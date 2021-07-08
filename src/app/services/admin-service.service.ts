@@ -23,7 +23,7 @@ export class AdminServiceService{
         ac:ac
       };
 
-      return this.Http.post("http://localhost:8080/addVehicle",vehicleInfo);
+      return this.Http.post("http://localhost:8080/admin/addVehicle",vehicleInfo);
   }
 
   AddEquipment(itemName:string, pricePerDay:string,description:string){
@@ -37,11 +37,30 @@ export class AdminServiceService{
 
 
 
-  ViewAllInquiries(){
+  viewAllInquiries(){
     return this.Http.get<any>("http://localhost:8080/admin/viewInquiries");
   }
 
-  ViewAllUsers(){
+
+  viewAllPendingUsers(){
+    return this.Http.get<any>("http://localhost:8080/admin/viewPendingUsers");
+  }
+
+  viewAllUsers(){
     return this.Http.get<any>("http://localhost:8080/admin/viewAllUsers");
   }
+
+  viewAllVehicles(){
+    return this.Http.get<any>("http://localhost:8080/admin/viewAllVehicles");
+  }
+
+  viewAllEquipments(){
+    return this.Http.get<any>("http://localhost:8080/admin/viewEquipments");
+  }
+
+
+  getInquiryById(){
+    return this.Http.get<any>("http://localhost:8080/admin/getSingleInquiry/{{inquiryId}}");
+  }
+
 }

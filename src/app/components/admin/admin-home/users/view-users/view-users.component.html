@@ -9,16 +9,16 @@
           <th scope="col">Email</th>
           <th scope="col">Contact Number</th>
           <th scope="col">Add to Black List</th>
-          <th scope="col">Remove User</th>
+          <th scope="col" class="ml-3">Remove User</th>
         </tr>
         </thead>
         <tbody>
-        <tr style="font-size: medium">
-          <th scope="row">1</th>
-          <td>Praveen</td>
-          <td>Ranasighe</td>
-          <td>praveenranasinghe@gmail.com</td>
-          <td>+94-715658987</td>
+        <tr style="font-size: medium" *ngFor="let user of List">
+          <td>{{$index+1|number}}</td>
+          <td>{{user.fName}}</td>
+          <td>{{user.lName}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.contactNum}}</td>
           <td class="btn btn-dark" (click)="addToBlackList()">Add To Black-List</td>
           <td class="btn btn-danger ml-4" (click)="removeUser()">Remove User</td>
         </tr>

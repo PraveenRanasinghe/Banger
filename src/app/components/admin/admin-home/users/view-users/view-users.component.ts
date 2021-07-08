@@ -11,9 +11,12 @@ import { RemoveUserComponent } from './remove-user/remove-user.component';
 })
 export class ViewUsersComponent implements OnInit {
 
+  List : any;
+
   constructor(private bsModal: BsModalService,private adminService:AdminServiceService) { }
 
   ngOnInit(): void {
+    this.getAllUsers();
   }
   addToBlackList() {
     this.bsModal.show(AddToBlacklistComponent, {
@@ -30,8 +33,9 @@ export class ViewUsersComponent implements OnInit {
   }
 
   getAllUsers(){
-    this.adminService.ViewAllUsers().subscribe((data)=>{
+    this.adminService.viewAllUsers().subscribe((data)=>{
       console.log(data);
+      this.List=data;
     })
   }
 

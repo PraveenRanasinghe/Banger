@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {BsModalService} from 'ngx-bootstrap/modal';
+import { AdminServiceService } from 'src/app/services/admin-service.service';
 import {DeleteEquipComponent} from './delete-equip/delete-equip.component';
 import {UpdateEquipComponent} from './update-equip/update-equip.component';
 
@@ -10,10 +11,20 @@ import {UpdateEquipComponent} from './update-equip/update-equip.component';
 })
 export class UpdateDeleteEquipComponent implements OnInit {
 
-  constructor(private bsModal: BsModalService) {
+  List : any;
+  constructor(private bsModal: BsModalService,private adminService:AdminServiceService) {
   }
 
   ngOnInit(): void {
+    this.getAllEquipments();
+  }
+
+
+  getAllEquipments(){
+    this.adminService.viewAllEquipments().subscribe((data)=>{
+      console.log(data);
+      this.List=data;
+    })
   }
 
   openUpdateEquip() {

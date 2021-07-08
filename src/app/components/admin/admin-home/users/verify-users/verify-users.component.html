@@ -12,12 +12,12 @@
       </tr>
       </thead>
       <tbody>
-      <tr style="font-size: medium">
+      <tr style="font-size: medium"  *ngFor="let user of List">
         <th scope="row">1</th>
-        <td>Praveen</td>
-        <td>Ranasighe</td>
-        <td>praveenranasinghe@gmail.com</td>
-        <td>+94-715658987</td>
+        <td>{{user.fName}}</td>
+        <td>{{user.lName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.contactNum}}</td>
         <td class="btn btn-primary"(click)="openViewMore()" >View More</td>
       </tr>
       </tbody>

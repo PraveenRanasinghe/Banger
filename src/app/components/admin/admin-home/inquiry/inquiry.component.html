@@ -1,4 +1,5 @@
 <div class="container">
+  <ngx-spinner [fullScreen]="false" bdColor="rgba(247, 250, 252)" color="#000000"></ngx-spinner>
   <div class="row">
     <div class="ml-5" style="width: 950px;">
       <table class="table table-success">
@@ -12,11 +13,11 @@
         </tr>
         </thead>
         <tbody>
-        <tr style="height: 60px; font-size: large">
+        <tr style="height: 60px; font-size: large"  *ngFor="let user of List">
           <th scope="row">1</th>
-          <td>Praveen Ranasinghe</td>
-          <td>praveenranasinghe@gmail.com</td>
-          <td>+94-715658987</td>
+          <td>{{user.inquirerName}}</td>
+          <td>{{user.contactNum}}</td>
+          <td>{{user.inquirerEmail}}</td>
           <td class="btn btn-primary" style="width: 150px;" (click)="openViewMore()">View More</td>
         </tr>
         </tbody>
