@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { LoginService } from 'src/app/services/login.service';
 import { SignUpComponent } from '../sign-up/sign-up.component';
@@ -12,7 +12,7 @@ import { SignUpComponent } from '../sign-up/sign-up.component';
 })
 export class LoginComponent implements OnInit {
 
-  form : FormGroup;
+  form:FormGroup;
 
   constructor(
     private bsModal: BsModalService,
@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      'emailAddress':new  FormControl(null),
-      'password':new  FormControl(null)
+      'emailAddress':new  FormControl('',Validators.required),
+      'password':new  FormControl('',Validators.required)
     })
   }
 

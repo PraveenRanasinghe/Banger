@@ -16,8 +16,8 @@
         <tr style="height: 60px; font-size: large"  *ngFor="let user of List">
           <th scope="row">1</th>
           <td>{{user.inquirerName}}</td>
-          <td>{{user.contactNum}}</td>
           <td>{{user.inquirerEmail}}</td>
+          <td>{{user.contactNum}}</td>
           <td class="btn btn-primary" style="width: 150px;" (click)="openViewMore()">View More</td>
         </tr>
         </tbody>

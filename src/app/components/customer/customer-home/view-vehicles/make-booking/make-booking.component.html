@@ -51,6 +51,12 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
       </div>
     </div>
 
+    <div class="col mt-3">
+      <label><b>Add an image of an Utility Bill </b></label>
+      <input type="file" accept="image/*" (change)="onFileChanged($event)" multiple="false">
+      <div style="color: rgb(238, 73, 32);"> [The Utility bill should be a valid one within three months]</div>
+    </div>
+
     <button type="button" class="btn btn-success mt-4 mb-3 ml-4" style="width: 30%;">Make Booking</button>
 
     <div class="modal-footer">

@@ -15,34 +15,38 @@
       <div class="row justify-content-center">
         <div class="col-lg-12 col-sm-12 contact-form mt-4 p-4">
 
-          <form name="form" [formGroup]="form"  (ngSubmit)="onSubmitInq()">
+          <form name="form" [formGroup]="contactForm"  (ngSubmit)="onSubmitInq()">
 
             <div class="form-group">
               <label><b>Your Name</b></label>
               <input type="text" class="form-control"
-              placeholder="Jack Logan"  [formControlName]="'fullName'" required="required">
+              placeholder="Jack Logan"  [formControlName]="'fullName'">
+              <span *ngIf="!contactForm.get('fullName').valid && contactForm.get('fullName').touched"
+                style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your Full Name!</span>
             </div>
 
             <div class="form-group">
               <label><b>Email Address</b></label>
               <input type="email" class="form-control"
-               placeholder="jack@example.com" name="email"  [formControlName]="'email'" required>
+               placeholder="jack@example.com" name="email"  [formControlName]="'contactNum'" required>
+               <span *ngIf="!contactForm.get('contactNum').valid && contactForm.get('contactNum').touched"
+               style="margin-top: 3px; color:red; font-size: 12px;">Please Enter a valid Email Address!</span>
             </div>
 
             <div class="form-group">
               <label><b>Contact Number</b></label>
               <input type="text" class="form-control" placeholder="+94777700000"
-                    [formControlName]="'contactNum'" required>
-              <!-- <span style="margin-top: 3px; color:red; font-size: 12px;">Please Enter
-                a Valid Contact Number</span> -->
+                    [formControlName]="'email'" required>
+                    <span *ngIf="!contactForm.get('email').valid && contactForm.get('email').touched"
+                    style="margin-top: 3px; color:red; font-size: 12px;">Please Enter a valid Contact Number!</span>
             </div>
 
             <div class="form-group">
               <label><b>Message</b></label>
               <textarea class="form-control" rows="5" [formControlName]="'message'"
                         placeholder="Your Message" style="resize:none;" required></textarea>
-              <!-- <span style="margin-top: 3px; color:red; font-size: 12px;">Please Enter
-                Your Message</span> -->
+                        <span *ngIf="!contactForm.get('message').valid && contactForm.get('message').touched"
+                        style="margin-top: 3px; color:red; font-size: 12px;">Please Enter Your Message!</span>
             </div>
 
             <!-- <span style="margin-top: 3px; color:green; font-size: 12px;"><b>Data is Valid!</b></span> -->

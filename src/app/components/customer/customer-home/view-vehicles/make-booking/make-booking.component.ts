@@ -14,6 +14,7 @@ export class MakeBookingComponent implements OnInit {
 
   constructor(private modalRef: BsModalRef) {
   }
+  selectedFile :File;
 
   ngOnInit(): void {
   }
@@ -33,6 +34,9 @@ export class MakeBookingComponent implements OnInit {
     }
   }
 
+  onFileChanged(event){
+    this.selectedFile = event.target.files[0];
+  }
   hideForm() {
     this.modalRef.hide();
   }

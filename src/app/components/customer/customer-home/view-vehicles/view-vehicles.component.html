@@ -1,57 +1,92 @@
 <div class="container">
+
   <div class="row justify-content-center">
-    <h5 style="color: rgb(14,3,0);"><b>* You must return the booked vehicle before 4:00 PM of the Return Date</b>
+    <p style="color: darkgreen;"><b>Enter your Pickup date and Return date to view the available vehicles.</b></p>
+  </div>
+
+    <div class="row justify-content-center mt-1">
+      <form>
+        <div class="row">
+        <div class="col">
+          <label><b>PickUp Date </b></label>
+          <input class="form-control me-2" type="date">
+        </div>
+       <div class="col">
+        <label><b>Return Date</b></label>
+        <input class="form-control me-2" type="date">
+       </div>
+      </div>
+      <div class="row justify-content-center mt-4">
+        <button class="btn btn-primary" type="submit" style="width: 50%;">Search</button>
+      </div>
+
+      </form>
+  </div>
+
+
+  <div class="row justify-content-center mt-3">
+    <h5 style="color: rgb(243, 64, 14);"><b>* You must return the booked vehicle before 4:00 PM of the Return Date</b>
     </h5>
   </div>
 
-  <div class="row mt-3">
-    <div class="col">
-      <!-- Begining of the card -->
-      <div class="card mb-5" style="width: 30rem; border-color: black; background-color: rgb(142,184,179);
-background: linear-gradient(0deg, rgb(160,214,207) 0%, rgb(145,200,194) 0%);">
-        <img src="https://img4.goodfon.com/wallpaper/big/3/3b/skyline-gtr-skyline-gtr-r33-midnight-purple.jpg"
-             class="card-img-top" style="width: 30rem; height: 10rem">
+  <div fxLayout="row wrap">
+    <div fxFlex="25%" *ngFor="let vehicle of List">
+      <div class="card mb-5" style="width: 20rem; border-color: black; background-color: rgb(142,184,179);
+      background: linear-gradient(0deg, rgb(160,214,207) 0%, rgb(145,200,194) 0%);">
+              <img src="https://img4.goodfon.com/wallpaper/big/3/3b/skyline-gtr-skyline-gtr-r33-midnight-purple.jpg"
+                   class="card-img-top" style="width: 20rem; height: 10rem">
 
-        <div class="ml-4 mr-4 mt-3" style="font-weight: 500; font-size: larger; background-color: rgb(142,184,179);
-background: linear-gradient(0deg, rgb(160,214,207) 0%, rgb(145,200,194) 0%);">
-          <div class="row">
-            <div class="col">
-              <label><b>Price Per Day</b></label>
-              <input class="form-control">
+              <div class="ml-4 mr-4 mt-3" style="font-weight: 500; font-size: larger; background-color: rgb(142,184,179);
+      background: linear-gradient(0deg, rgb(160,214,207) 0%, rgb(145,200,194) 0%);">
+                <div class="row">
+                  <div class="col">
+                    <label style="margin-left: 25%;"><b>Price Per Day : </b></label>
+                     {{vehicle.pricePerDay}}
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col">
+
+                     Vehicle Model :
+                    {{vehicle.vehicleModel}}
+                  </div>
+                  <div class="col">
+                    Transmission Type :
+                    {{vehicle.transmissionType}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                     Capacity :
+                    {{vehicle.numOfSeats}}
+                  </div>
+                  <div class="col">
+                    Fuel Type :
+                    {{vehicle.fuelType}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                     Air Conditioned :
+                    {{vehicle.ac}}
+                  </div>
+                  <div class="col">
+                    Air Bags :
+                    {{vehicle.airBag}}
+                  </div>
+                </div>
+                <button type="button" class="btn btn-success mb-3" style="width: 70%; margin-left: 15%;"
+                        (click)="openBooking()">Make a Booking
+                </button>
+              </div>
             </div>
-          </div>
-          <div class="row mt-3">
-            <div class="col">
-              <p class="form-control">Two Wheel Drive</p>
-            </div>
-            <div class="col">
-              <p class="form-control">Transmission Type</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <p class="form-control">Number Of Seats</p>
-            </div>
-            <div class="col">
-              <p class="form-control">Fuel Type</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <p class="form-control">Air Conditioned</p>
-            </div>
-            <div class="col">
-              <p class="form-control">Air Bags</p>
-            </div>
-          </div>
-          <button type="button" class="btn btn-success mb-3" style="width: 50%; margin-left: 27%;"
-                  (click)="openBooking()">Make a Booking
-          </button>
-        </div>
-      </div>
-      <!-- Ending of the card -->
     </div>
+  </div>
 
+  <!-- <div class="row mt-3" *ngFor="let vehicle of List">
+    <div class="col">
 
-</div>
+    </div>
+</div> -->
+
 </div>

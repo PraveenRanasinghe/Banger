@@ -1,5 +1,5 @@
 import {Component, OnInit, SystemJsNgModuleLoader} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { GuestService } from 'src/app/services/guest.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { GuestService } from 'src/app/services/guest.service';
 })
 export class ContactUsComponent implements OnInit {
 
-  form: FormGroup;
+  contactForm: FormGroup;
 
   constructor(
     private inqService:GuestService
@@ -17,20 +17,24 @@ export class ContactUsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      'fullName':new FormControl(null),
-      'email':new  FormControl(null),
-      'contactNum':new  FormControl(null),
-      'message':new  FormControl(null)
+   this.contactFormInfo();
+  }
+
+  contactFormInfo(){
+    this.contactForm = new FormGroup({
+      'fullName':new  FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])+$')]),
+      'contactNum':new  FormControl(null, [Validators.required,Validators.email]),
+      'email':new  FormControl(null, [Validators.required, Validators.pattern('(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})')],),
+      'message':new  FormControl(null,Validators.required)
     })
   }
 
-
   onSubmitInq(){
-    const fullName:string=this.form.get('fullName').value;
-    const email:string=this.form.get('email').value;
-    const contactNum:string=this.form.get('contactNum').value;
-    const message:string=this.form.get('message').value;
+    const fullName:string=this.contactForm.get('fullName').value;
+    const email:string=this.contactForm.get('email').value;
+    const contactNum:string=this.contactForm.get('contactNum').value;
+    const message:string=this.contactForm.get('message').value;
+
 
     this.inqService.addInquiry(fullName,email,contactNum,message).subscribe(
       (data:any)=>{

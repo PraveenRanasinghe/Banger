@@ -11,17 +11,26 @@ import { ViewMoreComponent } from './view-more/view-more.component';
 export class InquiryComponent implements OnInit {
 
   List : any;
+  Inquiry:any;
 
   constructor(private adminService:AdminServiceService,private bsModal: BsModalService) { }
 
   ngOnInit(): void {
     this.getAllInquiries();
+    this.getInqById(this.Inquiry);
   }
 
   getAllInquiries(){
     this.adminService.viewAllInquiries().subscribe((data)=>{
       console.log(data);
       this.List=data;
+    })
+  }
+
+  getInqById(intquiryId){
+    this.adminService.getInquiryById().subscribe((data)=>{
+      console.log(data);
+      this.Inquiry=data;
     })
   }
 

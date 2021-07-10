@@ -6,7 +6,7 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
   </div>
 
   <div class="modal-body">
-    <form name="form" [formGroup]="form" (ngSubmit)="onSignUP()">
+    <form name="form" [formGroup]="signupForm" (ngSubmit)="onSignUP()">
       <div class="row">
         <div class="col">
           <div class="form-group">
@@ -15,6 +15,8 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
             <input type="text" class="form-control"
                   [formControlName]="'fName'"
                   placeholder="Enter Your First Name">
+                  <span *ngIf="!signupForm.get('fName').valid && signupForm.get('fName').touched"
+                style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your First Name!</span>
           </div>
         </div>
         <div class="col">
@@ -24,6 +26,8 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
             <input type="text" id="lName" class="form-control"
                   [formControlName]="'lName'"
                   placeholder="Enter Your Last Name">
+                  <span *ngIf="!signupForm.get('lName').valid && signupForm.get('lName').touched"
+                  style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your Last Name!</span>
           </div>
         </div>
       </div>
@@ -36,6 +40,8 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
             <input type="email" class="form-control"
                   [formControlName]="'emailAddress'"
                   placeholder="Enter Your Email Address">
+                  <span *ngIf="!signupForm.get('emailAddress').valid && signupForm.get('emailAddress').touched"
+                  style="margin-top: 3px; color:red; font-size: 12px;">Please Enter a valid Email Address</span>
           </div>
         </div>
         <div class="col">
@@ -45,6 +51,8 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
             <input type="date" class="form-control"
                   [formControlName]="'dob'"
                   placeholder="Enter Your Birthday">
+                  <!-- <span *ngIf="!form.get('dateOfBirth').valid && form.get('dateOfBirth').touched"
+                  style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your First Name!</span> -->
           </div>
         </div>
       </div>
@@ -56,7 +64,9 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
 
             <input type="text" class="form-control"
                   [formControlName]="'contactNumber'"
-                  placeholder="Enter Your Contact Number">
+                  placeholder="Enter Your Contact Number (+94-777777777)">
+                  <span *ngIf="!signupForm.get('contactNumber').valid && signupForm.get('contactNumber').touched"
+                  style="margin-top: 3px; color:red; font-size: 12px;">Please Enter a Valid Contact Number!</span>
           </div>
         </div>
         <div class="col">
@@ -66,22 +76,39 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
             <input type="text" class="form-control"
                   [formControlName]="'nicNumber'"
                   placeholder="Enter Your NIC Number">
+                  <span *ngIf="!signupForm.get('nicNumber').valid && signupForm.get('nicNumber').touched"
+                  style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your NIC Number!</span>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <label><b>Create your password</b></label>
-
           <input type="password"
-          class="form-control" id="pass1" placeholder="Enter Your Password">
+          class="form-control"
+          [formControlName]="'password'"
+          placeholder="Enter Your Password">
         </div>
+
         <div class="col">
           <label><b>Verify your password</b></label>
-
-          <input type="password" class="form-control" id="pass2"
-                [formControlName]="'password'"
+          <input type="password" class="form-control"
+                [formControlName]="'passwordValidator'"
                 placeholder="Re-Enter Your Password">
+
+                <span *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched"
+                style="margin-top: 3px; color:red; font-size: 12px;">Please Enter
+                a Valid Password (Minimum Length is 6 characters) &nbsp;</span>
+              <span *ngIf="signupForm.get('password').value !== signupForm.get('passwordValidator').value"
+                style="margin-top: 3px; color:red; font-size: 12px;">Passwords Do Not Match</span>
+        </div>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col">
+          <label><b>Upload Your Profile Image:</b></label>
+        </div>
+        <div class="col">
+          <input type="file" accept="image/*" (change)="onFileChanged($event)" multiple="false">
         </div>
       </div>
       <div class="row mb-3 mt-3">
@@ -90,9 +117,11 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
         </div>
         <div class="col">
           <input type="file" accept="image/*" (change)="onFileChanged($event)" multiple="false">
+          <!-- <span *ngIf="!form.get('lName').valid && form.get('lName').touched"
+          style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your First Name!</span> -->
         </div>
       </div>
-      <span style="font-size: 13px; color: brown;">Once You Sign Up, You Will Get an Email. Follow The Instructions to Verify Your Account</span>
+      <span style="font-size: 13px; color: brown;">Once You Sign Up, Your account will send to the Adminstration Department to the Acceptance. Once Your Account is Accepted You will get an email!</span>
       <hr style="background-color: rgb(13, 104, 1);">
       <button class="btn btn-success mb-3"  type="submit">Create Account</button>
     </form>
@@ -102,20 +131,4 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
   </div>
 </div>
 
-
-<script type="text/javascript">
-  var password = document.getElementById("pass1")
-      , confirm_password = document.getElementById("pass2");
-
-  function validatePassword(){
-      if(password.value != confirm_password.value) {
-          confirm_password.setCustomValidity("Passwords Do Not Match");
-      } else {
-          confirm_password.setCustomValidity('');
-      }
-  }
-
-  password.onchange = validatePassword;
-  confirm_password.onkeyup = validatePassword;
-</script>
 

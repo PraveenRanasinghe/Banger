@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap/modal';
 import { UserServiceService } from 'src/app/services/user-service.service';
 
@@ -11,7 +11,7 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 })
 export class SignUpComponent implements OnInit {
 
-  form : FormGroup;
+  signupForm : FormGroup;
   constructor(
     private modalRef: BsModalRef,
     private httpClient: HttpClient,
@@ -25,33 +25,37 @@ export class SignUpComponent implements OnInit {
   imageName: any;
 
   ngOnInit(): void {
-    this.form= new FormGroup({
-      'fName':new  FormControl(null),
-      'lName':new  FormControl(null),
-      'emailAddress':new  FormControl(null),
-      'password':new  FormControl(null),
-      'contactNumber':new  FormControl(null),
-      // 'dob':new  FormControl(null),
-      'nicNumber':new  FormControl(null)
-    })
+    this.signupInfo();
   }
 
+  signupInfo(){
+    this.signupForm= new FormGroup({
+      'fName':new  FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])+$')]),
+      'lName':new  FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])+$')]),
+      'emailAddress':new  FormControl('',[Validators.required,Validators.email]),
+      'password': new FormControl(null, [Validators.required, Validators.minLength(6)]),
+      'passwordValidator': new FormControl(null, [Validators.required, Validators.minLength(6)]),
+      'contactNumber':new FormControl(null, [Validators.required, Validators.pattern('(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})')],),
+      'dob':new  FormControl('',Validators.required),
+      'nicNumber':new  FormControl('',Validators.required)
+    })
+  }
 
   hideForm() {
     this.modalRef.hide();
   }
 
   onSignUP(){
-    const fName:string=this.form.get('fName').value;
-    const lName : string=this.form.get('lName').value;
-    const email:string=this.form.get('emailAddress').value;
-    const contactNumber : string=this.form.get('contactNumber').value;
-    const nicNumber:string=this.form.get('nicNumber').value;
-    // const dob : string=this.form.get('dob').value;
-    const password : string=this.form.get('password').value;
+    const fName:string=this.signupForm.get('fName').value;
+    const lName : string=this.signupForm.get('lName').value;
+    const email:string=this.signupForm.get('emailAddress').value;
+    const contactNumber : string=this.signupForm.get('contactNumber').value;
+    const nicNumber:string=this.signupForm.get('nicNumber').value;
+    const dob : string=this.signupForm.get('dob').value;
+    const password : string=this.signupForm.get('password').value;
 
 
-    this.userService.userRegistration(fName,lName,email,contactNumber,nicNumber,password).subscribe(
+    this.userService.userRegistration(fName,lName,email,contactNumber,nicNumber,dob,password).subscribe(
       (data:any)=>{
         console.log(data);
         localStorage.setItem('token',data.token);

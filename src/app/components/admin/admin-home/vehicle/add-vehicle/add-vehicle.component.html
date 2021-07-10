@@ -6,7 +6,7 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
   </div>
 
   <div class="modal-body">
-    <form [formGroup]="form"  (ngSubmit)="addVehicle()">
+    <form [formGroup]="form"  (ngSubmit)="addVehicle()" (ngSubmit)="onUpload()">
       <div class="form-group">
         <div class="row">
           <div class="col">
@@ -70,14 +70,15 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
           </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-4">
           <div class="col">
             <label><b>Add Images of the Vehicle</b></label>
-            <input type="file" accept="image/*" (change)="onFileChanged($event)" multiple="false">
+            <input type="file" (change)="onFileChanged($event)" multiple="false">
           </div>
         </div>
+
       </div>
-      <button type="submit" class="btn btn-success" style="width: 30%;">Add Vehicle</button>
+      <button type="submit" class="btn btn-success mt-3" style="width: 30%;">Add Vehicle</button>
     </form>
 
     <div class="modal-footer">

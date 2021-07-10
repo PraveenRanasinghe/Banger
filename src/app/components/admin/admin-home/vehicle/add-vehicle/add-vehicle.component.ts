@@ -41,24 +41,14 @@ export class AddVehicleComponent implements OnInit {
     this.selectedFile = event.target.files[0];
   }
 
-  // onImageUpload(){
-  //   console.log(this.selectedFile);
 
-  //   //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
-  //   const uploadImageData = new FormData();
-  //   uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
 
-  //   //Make a call to the Spring Boot Application to save the image
-  //   this.httpClient.post('http://localhost:8080/admin/addVehicle', uploadImageData, { observe: 'response' })
-  //     .subscribe((response) => {
-  //       if (response.status === 200) {
-  //         console.log('Image uploaded successfully');
-  //       } else {
-  //         console.log('Image not uploaded successfully');
-  //       }
-  //     }
-  //     );
-  // }
+  onUpload(){
+    console.log(this.selectedFile);
+
+
+
+  }
 
   hideForm() {
     this.modalRef.hide();
@@ -73,6 +63,18 @@ export class AddVehicleComponent implements OnInit {
     const transmission : string=this.form.get('transmission').value;
     const airbags:string=this.form.get('airbags').value;
     const ac : string=this.form.get('ac').value;
+    const uploadImageData = new FormData();
+
+    uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+    this.httpClient.post('http://localhost:8080/admin/addVehicle', uploadImageData, { observe: 'response' })
+      .subscribe((response) => {
+        if (response.status === 200) {
+          console.log('Image uploaded successfully');
+        } else {
+          console.log('Image not uploaded successfully');
+        }
+      }
+      );
 
     this.adminService.AddVehicle(vehicleModel,vehicleType,seat,fuelType,pricePerDay,transmission,airbags,ac).subscribe(
       (data: any) => {

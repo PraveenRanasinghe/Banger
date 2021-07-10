@@ -16,7 +16,8 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
          class="form-control" name="email"
          [formControlName]="'emailAddress'"
          placeholder="Enter Your Email Address">
-
+          <span *ngIf="!form.get('emailAddress').valid && form.get('emailAddress').touched"
+                style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your Email Address</span>
       </div>
 
       <div class="form-group">
@@ -26,7 +27,8 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
         <input type="password"
         [formControlName]="'password'"
         class="form-control" placeholder="Enter Your Password">
-
+        <span *ngIf="!form.get('password').valid && form.get('password').touched"
+        style="margin-top: 3px; color:red; font-size: 12px;">Please Enter Your Password</span>
       </div>
 
       <button type="button" class="btn btn-success mb-2" style="width: 30%; margin-right: 0px;" (click)="onLogin()">Login</button>

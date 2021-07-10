@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {BsModalService} from 'ngx-bootstrap/modal';
+import { UserServiceService } from 'src/app/services/user-service.service';
 import {MakeBookingComponent} from './make-booking/make-booking.component';
 
 @Component({
@@ -9,10 +10,21 @@ import {MakeBookingComponent} from './make-booking/make-booking.component';
 })
 export class ViewVehiclesComponent implements OnInit {
 
-  constructor(private bsModal: BsModalService) {
+  List:any;
+
+  constructor(private bsModal: BsModalService,private userService:UserServiceService) {
   }
 
   ngOnInit(): void {
+    this.getAllVehicles();
+  }
+
+
+  getAllVehicles(){
+    this.userService.viewVehicles().subscribe((data)=>{
+      console.log(data);
+      this.List=data;
+    })
   }
 
   openBooking() {
