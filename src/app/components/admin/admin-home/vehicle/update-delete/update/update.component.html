@@ -10,56 +10,40 @@
         <div class="row">
           <div class="col">
             <label for="vehicleType"><b>Vehicle Type</b></label>
-            <select class="form-control" type="text" id="vehicleType">
-              <option>Four-Wheel Drive</option>
-              <option>Two-Wheel Drive</option>
-            </select>
+            <input class="form-control" type="text"name ="vehicleModel" type="text" [(ngModel)] = "selectedVehicle.vehicleModel" #vehicleId="ngModel" readonly>
           </div>
           <div class="col">
             <label for="vehicleModel"><b>Vehicle Model & Name</b></label>
-            <input type="text" id="vehicleModel" class="form-control" placeholder="Toyota Premio">
+            <input class="form-control" type="text" name ="vehicleType" type="text" [(ngModel)] = "selectedVehicle.vehicleType" #vehicleId="ngModel" readonly>
           </div>
         </div>
 
         <div class="row mt-3">
           <div class="col">
             <label for="seat"><b>Number of Seats</b></label>
-            <input type="text" id="seat" class="form-control" placeholder="Number of Passenger-Seats">
+            <input class="form-control" type="text" name ="numOfSeats" type="text" [(ngModel)] = "selectedVehicle.numOfSeats" #vehicleId="ngModel" readonly>
           </div>
           <div class="col">
             <label for="fuelType"><b>Fuel Type</b></label>
-            <select class="form-control" type="text" id="vehicleType">
-              <option>Petrol</option>
-              <option>Diesel</option>
-              <option>Electric</option>
-            </select>
+            <input class="form-control" type="text" name ="fuelType" type="text" [(ngModel)] = "selectedVehicle.fuelType" #vehicleId="ngModel">
           </div>
         </div>
         <div class="row mt-3">
           <div class="col">
             <label for="transmission"><b>Transmission Type</b></label><br>
-            <input type="radio" id="auto" name="transmission" value="auto">
-            <label for="male">Automatic</label><br>
-            <input type="radio" id="manual" name="transmission" value="manual">
-            <label for="manual">Manual</label><br>
+            <input class="form-control" type="text" name ="transmissionType" type="text" [(ngModel)] = "selectedVehicle.transmissionType" #vehicleId="ngModel">
           </div>
           <div class="col">
             <label for="airbags"><b>Air Bags</b></label><br>
-            <input type="radio" id="yes" name="airbags" value="yes">
-            <label for="airbags">Yes</label><br>
-            <input type="radio" id="no" name="airbags" value="no">
-            <label for="airbags">No</label><br>
+            <input class="form-control" type="text" name ="airBag" type="text" [(ngModel)] = "selectedVehicle.airBag" #vehicleId="ngModel">
           </div>
           <div class="col">
             <label for="ac"><b>Air-Conditioned</b></label><br>
-            <input type="radio" id="yes" name="ac" value="yes">
-            <label for="ac">Yes</label><br>
-            <input type="radio" id="no" name="ac" value="no">
-            <label for="ac">No</label><br>
+            <input class="form-control" type="text" name ="ac" type="text" [(ngModel)] = "selectedVehicle.ac" #vehicleId="ngModel">
           </div>
         </div>
 
-        <button type="button" class="btn btn-success" style="width: 40%;">Update Vehicle Details</button>
+        <button type="button" class="btn btn-success mt-4" style="width: 40%;">Update Vehicle Details</button>
       </div>
 
     </form>

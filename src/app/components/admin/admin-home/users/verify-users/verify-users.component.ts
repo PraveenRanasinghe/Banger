@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
 import { VerifyViewMoreComponent } from './verify-view-more/verify-view-more.component';
 
@@ -11,6 +11,8 @@ import { VerifyViewMoreComponent } from './verify-view-more/verify-view-more.com
 export class VerifyUsersComponent implements OnInit {
 
   List:any;
+  bsModalRef:BsModalRef
+  User:any;
 
   constructor(private bsModal: BsModalService,private adminService:AdminServiceService) {
   }
@@ -26,11 +28,23 @@ export class VerifyUsersComponent implements OnInit {
     })
   }
 
-  openViewMore() {
-    this.bsModal.show(VerifyViewMoreComponent, {
-      ignoreBackdropClick:true,
-      class: 'modal-dialog-centered modal-lg'
-    })
+  // openViewMore(userEmail:string) {
+  //   this.bsModal.show(VerifyViewMoreComponent, {
+  //     ignoreBackdropClick:true,
+  //     class: 'modal-dialog-centered modal-lg',
+  //     email:userEmail
+  //   })
+  // }
+
+
+  openViewMore(email:string) {
+    this.bsModalRef = this.bsModal.show(VerifyViewMoreComponent, {
+      ignoreBackdropClick: false,
+      class: 'modal-dialog-centered modal-lg',
+      initialState: {
+        userEmail:email
+      },
+    });
   }
 
 }

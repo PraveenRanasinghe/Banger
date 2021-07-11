@@ -49,6 +49,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderService } from './services/header.service';
 import { ViewMoreComponent } from './components/admin/admin-home/inquiry/view-more/view-more.component';
 import { ViewMoreVehicleComponent } from './components/admin/admin-home/vehicle/update-delete/view-more-vehicle/view-more-vehicle.component';
+import { RemoveInqComponent } from './components/admin/admin-home/inquiry/view-more/remove-inq/remove-inq.component';
 
 // @ts-ignore
 @NgModule({
@@ -93,6 +94,7 @@ import { ViewMoreVehicleComponent } from './components/admin/admin-home/vehicle/
     ExtendBookingComponent,
     ViewMoreComponent,
     ViewMoreVehicleComponent,
+    RemoveInqComponent,
 
   ],
   imports: [

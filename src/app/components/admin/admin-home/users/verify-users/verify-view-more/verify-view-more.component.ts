@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { AdminServiceService } from 'src/app/services/admin-service.service';
 
 @Component({
   selector: 'app-verify-view-more',
@@ -8,10 +9,21 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class VerifyViewMoreComponent implements OnInit {
 
-  constructor(private modalRef: BsModalRef) {
+  constructor(private modalRef: BsModalRef,private bsModal: BsModalService, private adminService:AdminServiceService) {
   }
 
   ngOnInit(): void {
+    this.getUserById();
+  }
+
+  userEmail:any;
+  selectedUser:any;
+
+  getUserById(){
+    this.adminService.getUserByID(this.userEmail).subscribe((data)=>{
+      console.log(data);
+      this.selectedUser=data;
+    });
   }
 
   hideForm() {

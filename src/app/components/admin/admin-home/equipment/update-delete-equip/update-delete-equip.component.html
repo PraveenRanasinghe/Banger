@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row mt-5 ml-4" *ngFor="let equipment of List">
     <div class="card ml-3 c2" style="width: 21rem;">
       <div class="card-body">
@@ -18,4 +18,36 @@
 
 
   </div>
+</div> -->
+
+
+<div class="row justify-content-center">
+  <h3 style="color: #130a02;"><b>Available Equipments in our Organization!</b></h3>
 </div>
+
+  <div class="row" style="border-radius: 15px;">
+    <div class="ml-5" style="width: 100%;">
+      <table class="table table-info" style="border-radius: 15px;">
+        <thead class="justify-content-center">
+        <tr style="height: 70px; background-color: #f5a99d; font-size: larger">
+          <th scope="col">#</th>
+          <th scope="col">Item Name</th>
+          <th scope="col">Price Per-Day</th>
+          <th scope="col">About Item</th>
+          <th scope="col">Update Item</th>
+          <th scope="col">Remove Item</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="font-size: medium" *ngFor="let equipment of List">
+          <td>{{$index+1|number}}</td>
+          <td>{{equipment.itemName}}</td>
+          <td>RS:{{equipment.pricePerDayEQ}}</td>
+          <td>{{equipment.itemDescription}}</td>
+          <td class="btn btn-primary" (click)="openUpdateEquip(equipment.equipmentId)">Update Item</td>
+          <td class="btn btn-danger" (click)="openDeleteEquip()">Remove Item</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

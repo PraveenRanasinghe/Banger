@@ -1,30 +1,39 @@
 <div class="formatting-modal fm">
-  <div class="modal-header">
+  <div class="modal-header" style="background-color: rgb(71,144,135);
+  background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);">
     <h4 class="modal-title">New Users in <b style="color: rgb(228, 134, 11);">BANGER & Co</b></h4>
     <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
   </div>
 
-  <div class="modal-body">
+  <div class="modal-body mb">
     <form>
       <div class="form-group">
         <div class="row">
-          <div class="col">
+          <div class="col-lg-4">
             <label><b>First Name</b></label>
-            <input class="form-control" type="text" placeholder="John" readonly="true">
+            <input class="form-control" name="fName" type="text" [(ngModel)] = "selectedUser.fName" #email="ngModel" readonly>
           </div>
-          <div class="col">
+          <div class="col-lg-4">
             <label><b>Last Name</b></label>
-            <input class="form-control" type="text" placeholder="Doe" readonly="true">
+            <input class="form-control" name="lName" type="text" [(ngModel)] = "selectedUser.lName" #email="ngModel" readonly>
+          </div>
+          <div class="col-lg-4">
+            <label><b>NIC Number</b></label>
+            <input class="form-control" name="nicNumber" type="text" [(ngModel)] = "selectedUser.nicNumber" #email="ngModel" readonly>
           </div>
         </div>
         <div class="row mt-3">
-          <div class="col">
-            <label><b>Email</b></label>
-            <input class="form-control" type="text"placeholder="johndoe@yahoo.com" readonly="true">
+          <div class="col-lg-4">
+            <label><b>Age</b></label>
+            <input class="form-control" name="dob" type="text" [(ngModel)] = "selectedUser.dob" #email="ngModel" readonly>
           </div>
-          <div class="col">
+          <div class="col-lg-4">
+            <label><b>Email</b></label>
+            <input class="form-control" name="email" type="text" [(ngModel)] = "selectedUser.email" #email="ngModel" readonly>
+          </div>
+          <div class="col-lg-4">
             <label><b>Contact Number</b></label>
-            <input class="form-control" type="text"placeholder="+9471-9878987" readonly="true">
+            <input class="form-control" name="contactNum" type="text" [(ngModel)] = "selectedUser.contactNum" #email="ngModel" readonly>
           </div>
         </div>
         <div class="row justify-content-center mt-3">

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BsModalService} from 'ngx-bootstrap/modal';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
 import {DeleteComponent} from './delete/delete.component';
 import {UpdateComponent} from './update/update.component';
@@ -13,6 +13,7 @@ import { ViewMoreVehicleComponent } from './view-more-vehicle/view-more-vehicle.
 export class UpdateDeleteComponent implements OnInit {
 
   List : any;
+  bsModalRef:BsModalRef
 
   constructor(private bsModal: BsModalService,private adminService:AdminServiceService) {
   }
@@ -28,9 +29,12 @@ export class UpdateDeleteComponent implements OnInit {
       this.List=data;
     })
   }
-  openUpdate() {
-    this.bsModal.show(UpdateComponent, {
-      class: 'modal-dialog-centered modal-lg'
+  openUpdate(vehicleId:number) {
+   this.bsModalRef= this.bsModal.show(UpdateComponent, {
+      class: 'modal-dialog-centered modal-lg',
+      initialState: {
+        vId:vehicleId
+      }
     })
   }
 
@@ -40,10 +44,10 @@ export class UpdateDeleteComponent implements OnInit {
     })
   }
 
-  viewMoreVehicle(){
-    this.bsModal.show(ViewMoreVehicleComponent, {
-      class: 'modal-dialog-centered modal-lg'
-    })
-  }
+  // viewMoreVehicle(){
+  //   this.bsModal.show(ViewMoreVehicleComponent, {
+  //     class: 'modal-dialog-centered modal-lg'
+  //   })
+  // }
 
 }

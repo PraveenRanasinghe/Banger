@@ -51,8 +51,8 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
             <input type="date" class="form-control"
                   [formControlName]="'dob'"
                   placeholder="Enter Your Birthday">
-                  <!-- <span *ngIf="!form.get('dateOfBirth').valid && form.get('dateOfBirth').touched"
-                  style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your First Name!</span> -->
+                  <span *ngIf="!signupForm.get('dob').valid && signupForm.get('dob').touched"
+                  style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your Date Of Birth!</span>
           </div>
         </div>
       </div>

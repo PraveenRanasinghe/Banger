@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
+import { RemoveInqComponent } from './view-more/remove-inq/remove-inq.component';
 import { ViewMoreComponent } from './view-more/view-more.component';
 
 @Component({
@@ -12,12 +13,14 @@ export class InquiryComponent implements OnInit {
 
   List : any;
   Inquiry:any;
+  bsModalRef:BsModalRef
+
 
   constructor(private adminService:AdminServiceService,private bsModal: BsModalService) { }
 
   ngOnInit(): void {
     this.getAllInquiries();
-    this.getInqById(this.Inquiry);
+
   }
 
   getAllInquiries(){
@@ -27,18 +30,16 @@ export class InquiryComponent implements OnInit {
     })
   }
 
-  getInqById(intquiryId){
-    this.adminService.getInquiryById().subscribe((data)=>{
-      console.log(data);
-      this.Inquiry=data;
-    })
-  }
 
-  openViewMore() {
-    this.bsModal.show(ViewMoreComponent, {
-      ignoreBackdropClick:true,
-      class: 'modal-dialog-centered modal-lg'
-    })
+  openViewMore(inquiryId: number) {
+    this.bsModalRef = this.bsModal.show(ViewMoreComponent, {
+      ignoreBackdropClick: false,
+      class: 'modal-dialog-centered modal-lg',
+      initialState: {
+        inqId:inquiryId
+      },
+    });
+
   }
 
 }

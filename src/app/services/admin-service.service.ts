@@ -59,8 +59,24 @@ export class AdminServiceService{
   }
 
 
-  getInquiryById(){
-    return this.Http.get<any>("http://localhost:8080/admin/getSingleInquiry/{{inquiryId}}");
+  getInquiryById(inqId:number){
+    return this.Http.get<any>("http://localhost:8080/admin/getSingleInquiry/"+inqId);
   }
 
+  removeInquiry(inqId:number){
+    return this.Http.delete("http://localhost:8080/admin/removeInquiry/"+inqId);
+  }
+
+
+  getUserByID(email:string){
+    return this.Http.get<any>("http://localhost:8080/admin/getSingleUser/"+email);
+  }
+
+  getVehicleById(vId:number){
+    return this.Http.get<any>("http://localhost:8080/admin/getSingleVehicle/"+vId);
+  }
+
+  getEquipmentById(equipId:number){
+    return this.Http.get<any>("http://localhost:8080/admin/getSingleEquipment/"+equipId);
+  }
 }
