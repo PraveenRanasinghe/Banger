@@ -33,7 +33,7 @@ export class InquiryComponent implements OnInit {
 
   openViewMore(inquiryId: number) {
     this.bsModalRef = this.bsModal.show(ViewMoreComponent, {
-      ignoreBackdropClick: false,
+      ignoreBackdropClick: true,
       class: 'modal-dialog-centered modal-lg',
       initialState: {
         inqId:inquiryId

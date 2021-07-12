@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap/modal';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
 
@@ -10,16 +10,16 @@ import { AdminServiceService } from 'src/app/services/admin-service.service';
 })
 export class AddEquipmentComponent implements OnInit {
 
-  form : FormGroup;
+  addEqform : FormGroup;
   constructor(private modalRef: BsModalRef,
     private adminService:AdminServiceService) {
   }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      'itemName':new  FormControl(null),
-      'pricePerDayEQ':new  FormControl(null),
-      'description':new  FormControl(null)
+    this.addEqform = new FormGroup({
+      'itemName':new  FormControl(null, Validators.required),
+      'pricePerDayEQ':new  FormControl(null,Validators.required),
+      'description':new  FormControl(null,Validators.required)
     })
   }
 
@@ -28,9 +28,9 @@ export class AddEquipmentComponent implements OnInit {
   }
 
   onAddEquipment(){
-    const itemName:string=this.form.get('itemName').value;
-    const pricePerDayEQ : string=this.form.get('pricePerDayEQ').value;
-    const description:string=this.form.get('description').value;
+    const itemName:string=this.addEqform.get('itemName').value;
+    const pricePerDayEQ : string=this.addEqform.get('pricePerDayEQ').value;
+    const description:string=this.addEqform.get('description').value;
 
     this.adminService.AddEquipment(itemName,pricePerDayEQ,description).subscribe(
       (data: any) => {

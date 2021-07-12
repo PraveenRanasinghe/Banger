@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap/modal';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
 
@@ -11,7 +11,7 @@ import { AdminServiceService } from 'src/app/services/admin-service.service';
 })
 export class AddVehicleComponent implements OnInit {
 
-  form : FormGroup;
+  addVehicleform : FormGroup;
 
   constructor(private modalRef: BsModalRef,
               private adminService:AdminServiceService,
@@ -25,15 +25,15 @@ export class AddVehicleComponent implements OnInit {
             imageName: any;
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      'vehicleType':new  FormControl(null),
-      'vehicleModel':new  FormControl(null),
-      'seat':new  FormControl(null),
-      'fuelType':new  FormControl(null),
-      'pricePerDay':new  FormControl(null),
-      'transmission':new  FormControl(null),
-      'airbags':new  FormControl(null),
-      'ac':new  FormControl(null)
+    this.addVehicleform = new FormGroup({
+      'vehicleType':new  FormControl(null, Validators.required),
+      'vehicleModel':new  FormControl(null, Validators.required),
+      'seat':new  FormControl(null, [Validators.required,Validators.pattern('^[0-9]*$')]),
+      'fuelType':new  FormControl(null, Validators.required),
+      'pricePerDay':new  FormControl(null, [Validators.required,Validators.pattern('^[0-9]*$')]),
+      'transmission':new  FormControl(null, Validators.required),
+      'airbags':new  FormControl(null, Validators.required),
+      'ac':new  FormControl(null, Validators.required)
     })
   }
 
@@ -55,14 +55,14 @@ export class AddVehicleComponent implements OnInit {
   }
 
   addVehicle(){
-    const vehicleType:string=this.form.get('vehicleType').value;
-    const vehicleModel : string=this.form.get('vehicleModel').value;
-    const seat:string=this.form.get('seat').value;
-    const fuelType : string=this.form.get('fuelType').value;
-    const pricePerDay:string=this.form.get('pricePerDay').value;
-    const transmission : string=this.form.get('transmission').value;
-    const airbags:string=this.form.get('airbags').value;
-    const ac : string=this.form.get('ac').value;
+    const vehicleType:string=this.addVehicleform.get('vehicleType').value;
+    const vehicleModel : string=this.addVehicleform.get('vehicleModel').value;
+    const seat:string=this.addVehicleform.get('seat').value;
+    const fuelType : string=this.addVehicleform.get('fuelType').value;
+    const pricePerDay:string=this.addVehicleform.get('pricePerDay').value;
+    const transmission : string=this.addVehicleform.get('transmission').value;
+    const airbags:string=this.addVehicleform.get('airbags').value;
+    const ac : string=this.addVehicleform.get('ac').value;
     const uploadImageData = new FormData();
 
     uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);

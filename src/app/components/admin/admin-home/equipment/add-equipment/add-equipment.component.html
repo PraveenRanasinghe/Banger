@@ -6,20 +6,24 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
   </div>
 
   <div class="modal-body">
-    <form [formGroup]="form"  (ngSubmit)="onAddEquipment()">
+    <form [formGroup]="addEqform"  (ngSubmit)="onAddEquipment()">
       <div class="form-group">
         <div class="row">
           <div class="col">
             <label for="itemName"><b>Item Name</b></label>
             <input class="form-control" type="text" id="itemName"
             placeholder="Item Name (Ex:- Wine-Chiller)"  [formControlName]="'itemName'">
+            <span *ngIf="!addEqform.get('itemName').valid && addEqform.get('itemName').touched"
+            style="margin-top: 3px; color:red; font-size: 12px;">Please Enter the Item Name!</span>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <label for="price"><b>Price Per One for one Day</b></label>
+            <label for="price"><b>Price Per One Item for one Day</b></label>
             <input class="form-control" type="text" id="price"
             placeholder="RS:500.00" [formControlName]="'pricePerDayEQ'">
+            <span *ngIf="!addEqform.get('pricePerDayEQ').valid && addEqform.get('pricePerDayEQ').touched"
+            style="margin-top: 3px; color:red; font-size: 12px;">Please Enter the Price Per Item</span>
           </div>
         </div>
         <div class="row">
@@ -28,6 +32,8 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
             <textarea class="form-control" rows="4" id="description"
                       placeholder="About the Item" style="resize:none;"
                       [formControlName]="'description'"></textarea>
+                      <span *ngIf="!addEqform.get('description').valid && addEqform.get('description').touched"
+                      style="margin-top: 3px; color:red; font-size: 12px;">Please Enter the Description about item!</span>
           </div>
         </div>
       </div>
