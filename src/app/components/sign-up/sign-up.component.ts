@@ -17,7 +17,8 @@ export class SignUpComponent implements OnInit {
     private httpClient: HttpClient,
     private userService:UserServiceService) {}
 
-  selectedFile: File;
+  liscenceImg: File;
+  profileImage:File;
   retrievedImage: any;
   base64Data: any;
   retrieveResonse: any;
@@ -37,7 +38,9 @@ export class SignUpComponent implements OnInit {
       'passwordValidator': new FormControl(null, [Validators.required, Validators.minLength(6)]),
       'contactNumber':new FormControl(null, [Validators.required, Validators.pattern('(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})')],),
       'dob':new  FormControl('',Validators.required),
-      'nicNumber':new  FormControl('',Validators.required)
+      'nicNumber':new  FormControl('',Validators.required),
+      'profileImage':new FormControl('',Validators.required),
+      'licenceImg':new FormControl('',Validators.required)
     })
   }
 
@@ -53,9 +56,11 @@ export class SignUpComponent implements OnInit {
     const nicNumber:string=this.signupForm.get('nicNumber').value;
     const dob : string=this.signupForm.get('dob').value;
     const password : string=this.signupForm.get('password').value;
+    const profileImage:File=this.signupForm.get('profileImage').value;
+    const licenceImg:File=this.signupForm.get('licenceImg').value;
 
 
-    this.userService.userRegistration(fName,lName,email,contactNumber,nicNumber,dob,password).subscribe(
+    this.userService.userRegistration(fName,lName,email,contactNumber,nicNumber,dob,password,this.liscenceImg,this.profileImage).subscribe(
       (data:any)=>{
         console.log(data);
         localStorage.setItem('token',data.token);
@@ -67,11 +72,13 @@ export class SignUpComponent implements OnInit {
   }
 
 
-  public onFileChanged(event) {
-
-    this.selectedFile = event.target.files[0];
+  public onFileChangedToLiscence(event) {
+    this.liscenceImg = event.target.files[0];
   }
 
+  public onFileChangedToProfile(event) {
+    this.profileImage = event.target.files[0];
+  }
 
   // onUpload() {
   //   console.log(this.selectedFile);

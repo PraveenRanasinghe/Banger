@@ -108,7 +108,7 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
           <label><b>Upload Your Profile Image:</b></label>
         </div>
         <div class="col">
-          <input type="file" accept="image/*" (change)="onFileChanged($event)" multiple="false">
+          <input type="file" accept="image/*" (change)="onFileChangedToProfile($event)" multiple="false" [formControlName]="'profileImage'">
         </div>
       </div>
       <div class="row mb-3 mt-3">
@@ -116,7 +116,7 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
           <label><b>Upload Your Liscence Image:</b></label>
         </div>
         <div class="col">
-          <input type="file" accept="image/*" (change)="onFileChanged($event)" multiple="false">
+          <input type="file" accept="image/*" (change)="onFileChangedToLiscence($event)" multiple="false" [formControlName]="'licenceImg'">
           <!-- <span *ngIf="!form.get('lName').valid && form.get('lName').touched"
           style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your First Name!</span> -->
         </div>

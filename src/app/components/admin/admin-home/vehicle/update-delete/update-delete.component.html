@@ -2,27 +2,41 @@
   <h3 style="color: #130a02;"><b>Available Vehicles in our Organization!</b></h3>
 </div>
 
-<div class="container">
-  <div class="row mt-5 ml-4">
-    <div class="card" style="width: 24rem;"  *ngFor="let vehicle of List">
-      <!-- <img src="https://www.lankabusinessonline.com/wp-content/uploads/2016/05/vehicle.jpg" class="card-img-top"> -->
-      <div class="card-body">
-        <h5 class="card-title">{{vehicle.vehicleType}}</h5>
-        <p class="card-text">{{vehicle.fuelType}}</p>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-sm-4 mb-4" *ngFor="let vehicle of List">
+      <div class="card" style="width: 22rem;">
+        <img class="card-img-top" [src]="vehicle.vehicleImg" height="220px">
+        <div class="card-body">
 
-        <div class="row">
-          <!-- <div class="col">
-            <a class="btn btn-success" (click)="viewMoreVehicle()">View More</a>
-          </div> -->
-          <div class="col">
-            <a class="btn btn-primary" (click)="openUpdate(vehicle.vehicleId)">Update Vehicle</a>
-          </div>
-          <div class="col">
-            <a class="btn btn-danger" (click)="openDelete()">Delete Vehicle</a>
+          <div class="row justify-content-center">
+            <label><b>Vehicle ID</b></label>
+         </div>
+
+        <div class="row justify-content-center">
+           <h1><b>{{vehicle.vehicleId}}</b></h1>
+        </div>
+
+        <div class="row justify-content-center">
+          <label><b>Vehicle Model</b></label>
+       </div>
+
+      <div class="row justify-content-center">
+         <h3><b>{{vehicle.vehicleModel}}</b></h3>
+      </div>
+
+
+          <div class="row mt-4">
+
+            <div class="col">
+              <a class="btn btn-primary" (click)="openUpdate(vehicle.vehicleId)">Update Vehicle</a>
+            </div>
+            <div class="col">
+              <a class="btn btn-danger" (click)="openDelete()">Delete Vehicle</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>

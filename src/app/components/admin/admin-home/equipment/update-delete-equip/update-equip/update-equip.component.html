@@ -10,7 +10,7 @@
         <div class="row">
           <div class="col">
             <label for="itemName"><b>Item Name</b></label>
-            <input class="form-control" type="text" name ="itemName" type="text" [(ngModel)] = "selectedEquipment.itemName" #equipmentId="ngModel" readonly>
+            <input class="form-control" type="text" name ="itemName" type="text" [(ngModel)] = "selectedEquipment.itemName" #equipmentId="ngModel">
           </div>
           <!-- <div class="col">
             <label for="totalItems"><b>Number of Items</b></label>
@@ -20,13 +20,13 @@
         <div class="row">
           <div class="col">
             <label for="price"><b>Price Per One</b></label>
-            <input class="form-control" type="text" name ="pricePerDayEQ" type="text" [(ngModel)] = "selectedEquipment.pricePerDayEQ" #equipmentId="ngModel" readonly>
+            <input class="form-control" type="text" name ="pricePerDayEQ" type="text" [(ngModel)] = "selectedEquipment.pricePerDayEQ" #equipmentId="ngModel">
           </div>
         </div>
         <div class="row">
           <div class="col">
             <label for="description"><b>Description</b></label>
-            <textarea class="form-control" rows="4" name ="itemDescription" type="text" [(ngModel)] = "selectedEquipment.itemDescription" #equipmentId="ngModel" readonly
+            <textarea class="form-control" rows="4" name ="itemDescription" type="text" [(ngModel)] = "selectedEquipment.itemDescription" #equipmentId="ngModel"
                       placeholder="About the Item" style="resize:none;"></textarea>
           </div>
         </div>

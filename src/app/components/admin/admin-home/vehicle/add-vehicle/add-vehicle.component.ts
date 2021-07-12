@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { Byte } from '@angular/compiler/src/util';
 import {Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap/modal';
@@ -33,7 +34,8 @@ export class AddVehicleComponent implements OnInit {
       'pricePerDay':new  FormControl(null, [Validators.required,Validators.pattern('^[0-9]*$')]),
       'transmission':new  FormControl(null, Validators.required),
       'airbags':new  FormControl(null, Validators.required),
-      'ac':new  FormControl(null, Validators.required)
+      'ac':new  FormControl(null, Validators.required),
+      'vehicleImage': new FormControl(null, Validators.required)
     })
   }
 
@@ -43,12 +45,20 @@ export class AddVehicleComponent implements OnInit {
 
 
 
-  onUpload(){
-    console.log(this.selectedFile);
-
-
-
-  }
+  // onUpload(){
+  //   console.log(this.selectedFile);
+  //   const uploadImageData = new FormData();
+  //   uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+  //   this.httpClient.post('http://localhost:8080/admin/addVehicle', uploadImageData, { observe: 'response' })
+  //     .subscribe((response) => {
+  //       if (response.status === 200) {
+  //         console.log('Image uploaded successfully');
+  //       } else {
+  //         console.log('Image not uploaded successfully');
+  //       }
+  //     }
+  //     );
+  // }
 
   hideForm() {
     this.modalRef.hide();
@@ -63,20 +73,11 @@ export class AddVehicleComponent implements OnInit {
     const transmission : string=this.addVehicleform.get('transmission').value;
     const airbags:string=this.addVehicleform.get('airbags').value;
     const ac : string=this.addVehicleform.get('ac').value;
-    const uploadImageData = new FormData();
+    const vehicleImage :File= this.addVehicleform.get('vehicleImage').value;
 
-    uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
-    this.httpClient.post('http://localhost:8080/admin/addVehicle', uploadImageData, { observe: 'response' })
-      .subscribe((response) => {
-        if (response.status === 200) {
-          console.log('Image uploaded successfully');
-        } else {
-          console.log('Image not uploaded successfully');
-        }
-      }
-      );
 
-    this.adminService.AddVehicle(vehicleModel,vehicleType,seat,fuelType,pricePerDay,transmission,airbags,ac).subscribe(
+
+    this.adminService.AddVehicle(vehicleModel,vehicleType,seat,fuelType,pricePerDay,transmission,airbags,ac,this.selectedFile).subscribe(
       (data: any) => {
         console.log(data);
         localStorage.setItem('token', data.token);

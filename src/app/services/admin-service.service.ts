@@ -1,6 +1,8 @@
 import {HttpClient, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import { Byte } from '@angular/compiler/src/util';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
+import {map} from 'rxjs/Operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,7 @@ export class AdminServiceService{
   constructor(private Http:HttpClient) {}
 
   AddVehicle(vehicleType:string, vehicleModel:string,
-     seat:string, fuelType:string, pricePerDay:string, transmission:string,airbags:string,ac:string){
+     seat:string, fuelType:string, pricePerDay:string, transmission:string,airbags:string,ac:string,vehicleImage:File){
 
       const vehicleInfo={
         vehicleType:vehicleType,
@@ -23,7 +25,11 @@ export class AdminServiceService{
         ac:ac
       };
 
-      return this.Http.post("http://localhost:8080/admin/addVehicle",vehicleInfo);
+    const formData: FormData = new FormData();
+    formData.append('vehicleInfo', JSON.stringify(vehicleInfo));
+    formData.append('vehicleImage', vehicleImage);
+
+      return this.Http.post("http://localhost:8080/admin/addVehicle",formData);
   }
 
   AddEquipment(itemName:string, pricePerDay:string,description:string){
@@ -43,7 +49,12 @@ export class AdminServiceService{
 
 
   viewAllPendingUsers(){
-    return this.Http.get<any>("http://localhost:8080/admin/viewPendingUsers");
+    return this.Http.get<any>("http://localhost:8080/admin/viewPendingUsers").pipe(map((item)=>{
+      item.forEach(element=>{
+        element.licenceImg=`data:image/jpeg;base64,${element.licenceImg}`;
+      })
+      return item;
+    }));
   }
 
   viewAllUsers(){
@@ -51,7 +62,12 @@ export class AdminServiceService{
   }
 
   viewAllVehicles(){
-    return this.Http.get<any>("http://localhost:8080/admin/viewAllVehicles");
+    return this.Http.get<any>("http://localhost:8080/admin/viewAllVehicles").pipe(map((item)=>{
+      item.forEach(element => {
+        element.vehicleImg=`data:image/jpeg;base64,${element.vehicleImg}`;
+      })
+      return item;
+    }))
   }
 
   viewAllEquipments(){
@@ -69,7 +85,11 @@ export class AdminServiceService{
 
 
   getUserByID(email:string){
-    return this.Http.get<any>("http://localhost:8080/admin/getSingleUser/"+email);
+    return this.Http.get<any>("http://localhost:8080/admin/getSingleUser/"+email).pipe(map((item)=>{
+        item.licenceImg=`data:image/jpeg;base64,${item.licenceImg}`;
+
+      return item;
+    }));
   }
 
   getVehicleById(vId:number){
