@@ -41,4 +41,9 @@ export class UserServiceService {
     }))
   }
 
+
+  getEquipmentList(){
+    return this.Http.get<any>("http://localhost:8080/customer/getEquipmentList");
+  }
+
 }

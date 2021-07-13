@@ -25,7 +25,7 @@
 
 
   <div class="row justify-content-center mt-3">
-    <h5 style="color: rgb(248, 34, 34);"><b>* You must return the booked vehicle before 4:00 PM of the Return Date. If Not Your account will be added to the BlackList</b>
+    <h5 style="color: rgb(248, 34, 34);">* You must return the booked vehicle before 4:00 PM of the Return Date. If Not Your account will be added to the <b style="color: black;">BlackList.</b>
     </h5>
   </div>
 
@@ -33,14 +33,15 @@
   <div class="container mt-3">
     <div class="row">
       <div class="col-sm-4 mb-4" *ngFor="let vehicle of List">
-        <div class="card" style="width: 22rem;">
+        <div class="card" style="width: 22rem; background-color: rgb(169, 196, 154);">
           <img class="card-img-top" [src]="vehicle.vehicleImg" style="width: 22rem; height: 13rem">
               <div class="ml-4 mr-4 mt-3">
                 <div class="row">
                   <div class="col">
                     <label style="margin-left: 25%;"><b>Price Per Day : </b></label>
-
-                     <input class="form-control" type="text" name ="pricePerDay" type="text" [(ngModel)] = "vehicle.pricePerDay" #vehicleId="ngModel" readonly>
+                    <div class="row justify-content-center">
+                      <h2>RS:<b>{{vehicle.pricePerDay}}.00</b></h2>
+                    </div>
                   </div>
                 </div>
                 <div class="row mt-3">

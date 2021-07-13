@@ -32,6 +32,7 @@ export class UpdateDeleteComponent implements OnInit {
   openUpdate(vehicleId:number) {
    this.bsModalRef= this.bsModal.show(UpdateComponent, {
       class: 'modal-dialog-centered modal-lg',
+      ignoreBackdropClick:true,
       initialState: {
         vId:vehicleId
       }
@@ -40,7 +41,8 @@ export class UpdateDeleteComponent implements OnInit {
 
   openDelete() {
     this.bsModal.show(DeleteComponent, {
-      class: 'modal-dialog-centered'
+      class: 'modal-dialog-centered',
+      ignoreBackdropClick:true,
     })
   }
 

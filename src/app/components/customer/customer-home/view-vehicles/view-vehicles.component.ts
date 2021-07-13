@@ -29,6 +29,7 @@ export class ViewVehiclesComponent implements OnInit {
 
   openBooking() {
     this.bsModal.show(MakeBookingComponent, {
+      ignoreBackdropClick:true,
       class: 'modal-dialog-centered modal-lg'
     })
   }

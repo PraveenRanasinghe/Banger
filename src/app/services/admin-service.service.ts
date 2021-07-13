@@ -49,12 +49,7 @@ export class AdminServiceService{
 
 
   viewAllPendingUsers(){
-    return this.Http.get<any>("http://localhost:8080/admin/viewPendingUsers").pipe(map((item)=>{
-      item.forEach(element=>{
-        element.licenceImg=`data:image/jpeg;base64,${element.licenceImg}`;
-      })
-      return item;
-    }));
+    return this.Http.get<any>("http://localhost:8080/admin/viewPendingUsers");
   }
 
   viewAllUsers(){
@@ -90,6 +85,25 @@ export class AdminServiceService{
 
       return item;
     }));
+  }
+
+  // accepetUser(status:string){
+  //   const accepting={
+  //     status
+  //   }
+  //   return this.Http.post(""+accepting);
+  // }
+
+  updateVehicleDetails(vehicleId:number, ac:string, airBag:string, transmissionType:string,pricePerDay:string,fuelType:string){
+    const updateInfo={
+      vehicleId:vehicleId,
+      ac:ac,
+      airBag:airBag,
+      transmissionType:transmissionType,
+      pricePerDay:pricePerDay,
+      fuelType:fuelType
+    }
+    return this.Http.put("http://localhost:8080/admin/updateVehicle/"+vehicleId,updateInfo);
   }
 
   getVehicleById(vId:number){
