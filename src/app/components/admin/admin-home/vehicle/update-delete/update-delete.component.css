@@ -1,4 +1,5 @@
 .card {
-  background-color: rgb(238, 250, 173);
+  background-color: rgb(223, 252, 214);
   border-color: black;
+  box-shadow: 5px 5px 15px black;
 }

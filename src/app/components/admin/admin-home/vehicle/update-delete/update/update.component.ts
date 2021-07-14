@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
 
@@ -11,17 +11,17 @@ import { AdminServiceService } from 'src/app/services/admin-service.service';
 export class UpdateComponent implements OnInit {
   constructor(private bsModal: BsModalService,
               private modalRef: BsModalRef,
-              private adminService:AdminServiceService) {
+              private adminService:AdminServiceService,
+              ) {
   }
 
   vId:any;
   selectedVehicle:any;
-  updateVehicleForm:any;
+  updateVehicleForm:FormGroup;
 
   ngOnInit(): void {
-
-    this.getSelectedVehicle();
     this.updateInfo();
+    this.getSelectedVehicle();
   }
 
   hideForm() {
@@ -31,6 +31,13 @@ export class UpdateComponent implements OnInit {
   getSelectedVehicle(){
     this.adminService.getVehicleById(this.vId).subscribe((data)=>{
       this.selectedVehicle=data;
+      this.updateVehicleForm.patchValue({
+        'fuelType': data.fuelType,
+        'pricePerDay': data.pricePerDay,
+        'transmission': data.transmissionType,
+        'airbags': data.airBag,
+        'ac': data.ac
+      })
     })
   }
 

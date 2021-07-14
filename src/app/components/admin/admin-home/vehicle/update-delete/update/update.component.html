@@ -11,44 +11,49 @@
         <div class="row">
           <div class="col">
             <label for="vehicleType"><b>Vehicle Type</b></label>
-            <input class="form-control" type="text"   name ="vehicleModel" type="text" value="{{selectedVehicle.vehicleType}}"   readonly>
+            <input class="form-control" type="text" name="vehicleModel" type="text"
+              value="{{selectedVehicle.vehicleType}}" readonly>
           </div>
           <div class="col">
             <label for="vehicleModel"><b>Vehicle Model & Name</b></label>
-            <input class="form-control" type="text"  name ="vehicleType" type="text" value="{{selectedVehicle.vehicleModel}}" readonly>
+            <input class="form-control" type="text" name="vehicleType" type="text"
+              value="{{selectedVehicle.vehicleModel}}" readonly>
           </div>
         </div>
 
         <div class="row mt-3">
           <div class="col">
             <label for="seat"><b>Number of Seats</b></label>
-            <input class="form-control" type="text"  name ="numOfSeats" type="text" value="{{selectedVehicle.numOfSeats}}"   readonly>
+            <input class="form-control" type="text" name="numOfSeats" type="text" value="{{selectedVehicle.numOfSeats}}"
+              readonly>
           </div>
           <div class="col">
             <label for="fuelType"><b>Fuel Type</b></label>
-            <input class="form-control" type="text"  name ="fuelType" value="{{selectedVehicle.fuelType}}" type="text" >
+            <input class="form-control" type="text" [formControlName]="'fuelType'" name="fuelType"  type="text">
           </div>
           <div class="col">
             <label for="fuelType"><b>Price Per Day</b></label>
-            <input class="form-control" type="text"  name ="pricePerDay" value="{{selectedVehicle.pricePerDay}}" type="text" >
+            <input class="form-control" type="text" name="pricePerDay" [formControlName]="'pricePerDay'"
+              type="text">
           </div>
         </div>
         <div class="row mt-3">
           <div class="col">
             <label for="transmission"><b>Transmission Type</b></label><br>
-            <input class="form-control" type="text"  name ="transmissionType" type="text" value="{{selectedVehicle.transmissionType}}" >
+            <input class="form-control" type="text" name="transmission" [formControlName]="'transmission'" type="text"
+               >
           </div>
           <div class="col">
             <label for="airbags"><b>Air Bags</b></label><br>
-            <input class="form-control" type="text"   name ="airBag" type="text" value="{{selectedVehicle.airBag}}">
+            <input class="form-control" type="text" name="airbags" [formControlName]="'airbags'" type="text"  >
           </div>
           <div class="col">
             <label for="ac"><b>Air-Conditioned</b></label><br>
-            <input class="form-control" type="text"  name ="ac" type="text" value="{{selectedVehicle.ac}}" >
+            <input class="form-control" type="text" name="ac" [formControlName]="'ac'" type="text">
           </div>
         </div>
 
-        <button type="button" class="btn btn-success mt-4" style="width: 40%;">Update Vehicle Details</button>
+        <button type="submit" class="btn btn-success mt-4" style="width: 40%;">Update Vehicle Details</button>
       </div>
 
     </form>
