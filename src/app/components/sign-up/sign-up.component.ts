@@ -80,23 +80,5 @@ export class SignUpComponent implements OnInit {
     this.profileImage = event.target.files[0];
   }
 
-  // onUpload() {
-  //   console.log(this.selectedFile);
-
-  //   //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
-  //   const uploadImageData = new FormData();
-  //   uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
-
-  //   this.httpClient.post('http://localhost:8080/image/upload', uploadImageData, { observe: 'response' })
-  //     .subscribe((response) => {
-  //       if (response.status === 200) {
-  //         this.message = 'Image uploaded successfully';
-  //       } else {
-  //         this.message = 'Image not uploaded successfully';
-  //       }
-  //     }
-  //     );
-  // }
-
 
 }

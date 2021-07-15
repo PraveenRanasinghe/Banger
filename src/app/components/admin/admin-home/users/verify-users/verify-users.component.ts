@@ -28,13 +28,6 @@ export class VerifyUsersComponent implements OnInit {
     })
   }
 
-  // openViewMore(userEmail:string) {
-  //   this.bsModal.show(VerifyViewMoreComponent, {
-  //     ignoreBackdropClick:true,
-  //     class: 'modal-dialog-centered modal-lg',
-  //     email:userEmail
-  //   })
-  // }
 
 
   openViewMore(email:string) {
