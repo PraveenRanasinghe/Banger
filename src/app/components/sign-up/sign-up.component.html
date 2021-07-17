@@ -117,13 +117,20 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
         </div>
         <div class="col">
           <input type="file" accept="image/*" (change)="onFileChangedToLiscence($event)" multiple="false" [formControlName]="'licenceImg'">
-          <!-- <span *ngIf="!form.get('lName').valid && form.get('lName').touched"
-          style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your First Name!</span> -->
+        </div>
+      </div>
+
+      <div class="row mb-3 mt-3">
+        <div class="col">
+          <label><b>Upload Your Utility Bill Here:</b></label>
+        </div>
+        <div class="col">
+          <input type="file" accept="image/*" (change)="onFileChangedToUtility($event)" multiple="false" [formControlName]="'utilityBill'">
         </div>
       </div>
       <span style="font-size: 13px; color: brown;">Once You Sign Up, Your account will send to the Adminstration Department to the Acceptance. Once Your Account is Accepted You will get an email!</span>
       <hr style="background-color: rgb(13, 104, 1);">
-      <button class="btn btn-success mb-3"  type="submit">Create Account</button>
+      <button class="btn btn-success mb-3" [disabled]="!signupForm.valid"  type="submit">Create Account</button>
     </form>
     <div class="modal-footer">
       <button type="button" class="btn btn-danger" (click)="hideForm()" style="width: 30%;">Close</button>

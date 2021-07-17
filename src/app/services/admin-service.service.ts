@@ -106,6 +106,24 @@ export class AdminServiceService{
     return this.Http.put("http://localhost:8080/admin/updateVehicle/"+vehicleId,updateInfo);
   }
 
+  updateEquipmentDetails(equipmentId:number, pricePerDayEQ:string,itemDescription:string){
+    const updateInfo={
+      equipmentId:equipmentId,
+      pricePerDayEQ:pricePerDayEQ,
+      itemDescription:itemDescription
+    }
+    return this.Http.put("http://localhost:8080/admin/updateEquipment/"+equipmentId,updateInfo);
+  }
+
+
+  acceptUserAccount(email:string, status:string){
+    const acceptingUserAccount={
+      email:email,
+      status:status
+    }
+    return this.Http.put("http://localhost:8080/admin/acceptUser/"+email,acceptingUserAccount);
+  }
+
   getVehicleById(vId:number){
     return this.Http.get<any>("http://localhost:8080/admin/getSingleVehicle/"+vId);
   }

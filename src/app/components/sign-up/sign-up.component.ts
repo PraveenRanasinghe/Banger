@@ -19,6 +19,7 @@ export class SignUpComponent implements OnInit {
 
   liscenceImg: File;
   profileImage:File;
+  utilityBill:File;
   retrievedImage: any;
   base64Data: any;
   retrieveResonse: any;
@@ -40,7 +41,8 @@ export class SignUpComponent implements OnInit {
       'dob':new  FormControl('',Validators.required),
       'nicNumber':new  FormControl('',Validators.required),
       'profileImage':new FormControl('',Validators.required),
-      'licenceImg':new FormControl('',Validators.required)
+      'licenceImg':new FormControl('',Validators.required),
+      'utilityBill':new FormControl('',Validators.required)
     })
   }
 
@@ -58,9 +60,10 @@ export class SignUpComponent implements OnInit {
     const password : string=this.signupForm.get('password').value;
     const profileImage:File=this.signupForm.get('profileImage').value;
     const licenceImg:File=this.signupForm.get('licenceImg').value;
+    const utilityBill:File= this.signupForm.get('utilityBill').value;
 
 
-    this.userService.userRegistration(fName,lName,email,contactNumber,nicNumber,dob,password,this.liscenceImg,this.profileImage).subscribe(
+    this.userService.userRegistration(fName,lName,email,contactNumber,nicNumber,dob,password,this.liscenceImg,this.profileImage,this.utilityBill).subscribe(
       (data:any)=>{
         console.log(data);
         localStorage.setItem('token',data.token);
@@ -78,6 +81,10 @@ export class SignUpComponent implements OnInit {
 
   public onFileChangedToProfile(event) {
     this.profileImage = event.target.files[0];
+  }
+
+  public onFileChangedToUtility(event){
+    this.utilityBill=event.target.files[0];
   }
 
 

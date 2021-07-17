@@ -9,7 +9,7 @@ export class UserServiceService {
 
   constructor(private Http:HttpClient) { }
 
-  userRegistration(fName:string, lName:string,emailAddress:string,contactNumber:string,nic:string,dob:string,password:string,licenceImg:File,profileImage:File){
+  userRegistration(fName:string, lName:string,emailAddress:string,contactNumber:string,nic:string,dob:string,password:string,licenceImg:File,profileImage:File,utilityBill:File){
      const signUpInfo={
        fName:fName,
        lName:lName,
@@ -26,6 +26,7 @@ export class UserServiceService {
      formData.append('signUpInfo',JSON.stringify(signUpInfo));
      formData.append('licenceImg',licenceImg);
      formData.append('profileImage',profileImage);
+     formData.append('utilityBill',utilityBill);
 
      return this.Http.post("http://localhost:8080/customer/createAccount",formData);
 
