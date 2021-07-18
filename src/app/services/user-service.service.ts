@@ -33,6 +33,17 @@ export class UserServiceService {
   }
 
 
+  userMakeABooking(vehicleId:number,email:string,pickupTime:string, returnTime:string,equipmentId:number){
+    const makeBooking={
+      vehicleId:vehicleId,
+      email:email,
+      pickupTime:pickupTime,
+      returnTime:returnTime,
+      equipmentId:equipmentId
+    }
+    return this.Http.post("http://localhost:8080/customer/makeBooking/"+vehicleId,makeBooking);
+  }
+
   viewVehicles(){
     return this.Http.get<any>("http://localhost:8080/customer/viewAllVehicles").pipe(map((item)=>{
       item.forEach(element => {

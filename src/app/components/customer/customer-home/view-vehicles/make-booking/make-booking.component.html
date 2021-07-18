@@ -6,26 +6,14 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
   </div>
 
   <div class="modal-body">
-
-    <div class="row" style="font-size: larger;">
-      <div class="col">
-        <label>Select PickUp Date:</label>
-        <input type="date"  class="form-control" name="pickupDate">
-      </div>
-      <div class="col">
-        <label>Select Return Date:</label>
-        <input  class="form-control" type="date" name="returnDate">
-      </div>
-    </div>
-
     <div class="row mt-3" style="font-size: larger;">
       <div class="col">
         <label>Select PickUp Time:</label>
-        <input type="time"  class="form-control" name="pickupTime">
+        <input type="datetime-local"  class="form-control" name="pickupTime">
       </div>
       <div class="col">
         <label>Select Return Time:</label>
-        <input type="time"  class="form-control" name="returnTime">
+        <input type="datetime-local"  class="form-control" name="returnTime">
       </div>
     </div>
 
@@ -42,19 +30,13 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
       </div>
 
       <div class="col">
-        <label>Select Additional Equipments(If Needed):</label>
+        <!-- <label>Select Additional Equipments(If Needed):</label>
         <select class="form-control" type="text" id="equipments">
           <option>1</option><option>2</option><option>3</option>
           <option>4</option><option>5</option><option>6</option>
           <option>7</option><option>8</option><option>9</option><option>10</option>
-        </select>
+        </select> -->
       </div>
-    </div>
-
-    <div class="col mt-3">
-      <label><b>Add an image of an Utility Bill </b></label>
-      <input type="file" accept="image/*" (change)="onFileChanged($event)" multiple="false">
-      <div style="color: rgb(238, 73, 32);"> [The Utility bill should be a valid one within three months]</div>
     </div>
 
     <button type="button" class="btn btn-success mt-4 mb-3 ml-4" style="width: 30%;">Make Booking</button>
