@@ -8,7 +8,11 @@
   <div class="modal-body mb">
     <form [formGroup]="acceptUserForm">
       <div class="form-group">
-        <div class="row">
+        <div class="row justify-content-center">
+          <img  [src]="selectedUser.profileImage"  height="200px;" width="200px;" style="border-radius: 150px;">
+        </div>
+
+        <div class="row mt-3">
           <div class="col-lg-4">
             <label><b>First Name</b></label>
             <input class="form-control" name="fName" type="text" value="{{selectedUser.fName}}" readonly>
@@ -25,7 +29,7 @@
         <div class="row mt-3">
           <div class="col-lg-4">
             <label><b>Age</b></label>
-            <input class="form-control" name="dob" type="text"  value="{{selectedUser.dob}}" readonly>
+            <input class="form-control" name="dob" type="text" pattern="yyyy-MM-dd"  value="{{selectedUser.dob}}"  readonly>
           </div>
           <div class="col-lg-4">
             <label><b>Email</b></label>
@@ -39,11 +43,17 @@
         <input class="form-control" name="status" type="hidden"  value="{{selectedUser.status}}">
         <div class="row justify-content-center mt-3">
           <div class="col">
-            <label><b>License Image</b></label>
-            <img  [src]="selectedUser.licenceImg"  height="250px;" width="500px;" style="border-color: black; border-style: double;">
+            <div>
+              <label><b>License Image</b></label>
+            </div>
+            <img  [src]="selectedUser.licenceImg"  height="250px;" width="350px;" style="border-color: black; border-style: double; border-radius: 15px;">
           </div>
-          <div class="col">
 
+          <div class="col">
+            <div>
+              <label><b>Utility Bill</b></label>
+            </div>
+            <img  [src]="selectedUser.utilityBill"  height="250px;" width="350px;" style="border-color: black; border-style: double; border-radius: 15px;">
           </div>
         </div>
       </div>

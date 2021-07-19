@@ -4,6 +4,11 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
     <h4 class="modal-title">Be a Member of <b style="color: rgb(241,240,234);">BANGER & Co</b></h4>
     <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
   </div>
+  <div class="mt-4 mb-4" *ngIf="message">
+    <div class="row justify-content-center">
+      <alert class="alert" style="background-color: rgb(159, 250, 117); font-weight: 650;" [type]="getMessage()" [dismissible]="true"><span [innerHtml]="message"></span></alert>
+    </div>
+    </div>
 
   <div class="modal-body">
     <form name="form" [formGroup]="signupForm" (ngSubmit)="onSignUP()">

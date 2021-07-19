@@ -33,17 +33,17 @@
   <div class="container mt-3">
     <div class="row">
       <div class="col-sm-4 mb-4" *ngFor="let vehicle of List">
-        <div class="card" style="width: 22rem; background-color: rgb(255, 255, 255);">
+        <div class="card cd" style="width: 22rem; background-color: rgb(255, 255, 255);">
           <img class="card-img-top" [src]="vehicle.vehicleImg" style="width: 22rem; height: 13rem">
               <div class="ml-4 mr-4 mt-3">
-                <div class="row">
-                  <div class="col">
-                    <label style="margin-left: 25%;"><b>Price Per Day : </b></label>
-                    <div class="row justify-content-center">
-                      <h2>Rs:<b>{{vehicle.pricePerDay}}.00</b></h2>
-                    </div>
-                  </div>
+                <div class="row justify-content-center">
+                  <h3><b>{{vehicle.vehicleType}}</b></h3>
                 </div>
+
+                    <div class="row justify-content-center">
+                      <h3>Rs:<b>{{vehicle.pricePerDay}}.00</b></h3>
+                  </div>
+
                 <div class="row mt-3">
                   <div class="col">
                      Vehicle Model :

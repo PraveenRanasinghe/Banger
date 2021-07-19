@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {map} from 'rxjs/Operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,14 @@ export class GuestService {
     };
 
     return this.Http.post("http://localhost:8080/customer/addInq",inquiryInfo);
+  }
+
+  viewVehicles(){
+    return this.Http.get<any>("http://localhost:8080/customer/viewAllVehicles").pipe(map((item)=>{
+      item.forEach(element => {
+        element.vehicleImg=`data:image/jpeg;base64,${element.vehicleImg}`;
+      })
+      return item;
+    }))
   }
 }

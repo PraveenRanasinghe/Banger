@@ -48,7 +48,7 @@ export class ContactUsComponent implements OnInit {
         this.inqService.addInquiry(fullName,email,contactNum,message).subscribe(
           (data:any)=>{
             console.log(data);
-            this.message='Inquiry Submitted Successfully!'
+            this.message='Inquiry Submitted Successfully!. We Will Get In Touch With You Regarding Your Concern'
             this.spinner.hide();
             this.contactForm.reset();
             localStorage.setItem('token',data.token);
@@ -67,31 +67,14 @@ export class ContactUsComponent implements OnInit {
 
   }
 
-  getType(){
-    if (this.message === "Inquiry Recorded Successfully, We Will Get In Touch With You Regarding Your Concern") {
+  getMessage(){
+    if (this.message === "Inquiry Submitted Successfully!. We Will Get In Touch With You Regarding Your Concern") {
       return "success";
     }
     else {
       return "danger";
     }
   }
+
 }
 
-
-// onSubmitInq(){
-//   const fullName:string=this.contactForm.get('fullName').value;
-//   const email:string=this.contactForm.get('email').value;
-//   const contactNum:string=this.contactForm.get('contactNum').value;
-//   const message:string=this.contactForm.get('message').value;
-
-
-//   this.inqService.addInquiry(fullName,email,contactNum,message).subscribe(
-//     (data:any)=>{
-//       console.log(data);
-//       localStorage.setItem('token',data.token);
-//     },
-//     (error)=>{
-//       console.log("Cannot send the Inquiry!",error);
-//     }
-//   )
-// }

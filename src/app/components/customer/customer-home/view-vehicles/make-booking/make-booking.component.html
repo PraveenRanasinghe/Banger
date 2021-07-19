@@ -5,15 +5,35 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
     <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
   </div>
 
+  <div class="mt-4 mb-4" *ngIf="message">
+    <div class="row justify-content-center">
+      <alert class="alert" style="background-color: rgb(159, 250, 117); font-weight: 650;" [type]="getMessage()" [dismissible]="true"><span [innerHtml]="message"></span></alert>
+    </div>
+    </div>
+
   <div class="modal-body">
+    <form name="form" [formGroup]="bookingForm" (ngSubmit)="onBooking()">
     <div class="row mt-3" style="font-size: larger;">
+
       <div class="col">
+
         <label>Select PickUp Time:</label>
-        <input type="datetime-local"  class="form-control" name="pickupTime">
+
+        <input type="datetime-local"  class="form-control" [formControlName]="'pickupTime'" name="pickupTime">
+
+        <span *ngIf="!bookingForm.get('pickupTime').valid && bookingForm.get('pickupTime').touched"
+        style="margin-top: 3px; color:red; font-size: 12px;">Please Enter the PickUp Time!</span>
+
       </div>
+
       <div class="col">
+
         <label>Select Return Time:</label>
-        <input type="datetime-local"  class="form-control" name="returnTime">
+
+        <input type="datetime-local"  class="form-control" [formControlName]="'returnTime'" name="returnTime">
+
+        <span *ngIf="!bookingForm.get('returnTime').valid && bookingForm.get('returnTime').touched"
+        style="margin-top: 3px; color:red; font-size: 12px;">Please Enter the Return Time!</span>
       </div>
     </div>
 
@@ -21,7 +41,7 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
       <div class="col">
 
         <label>Select Additional Equipments(If Needed):</label>
-        <select class="form-control" type="text">
+        <select class="form-control" type="text" [formControlName]="'equipments'">
           <option>Wine-Chiller</option>
           <option>Baby-seats</option>
           <option>Freezer</option>
@@ -30,20 +50,16 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
       </div>
 
       <div class="col">
-        <!-- <label>Select Additional Equipments(If Needed):</label>
-        <select class="form-control" type="text" id="equipments">
-          <option>1</option><option>2</option><option>3</option>
-          <option>4</option><option>5</option><option>6</option>
-          <option>7</option><option>8</option><option>9</option><option>10</option>
-        </select> -->
+
       </div>
     </div>
 
-    <button type="button" class="btn btn-success mt-4 mb-3 ml-4" style="width: 30%;">Make Booking</button>
+    <button type="button" class="btn btn-success mt-4 mb-3 ml-4" [disabled]="!bookingForm.valid" style="width: 30%;">Make Booking</button>
 
     <div class="modal-footer">
       <button type="button" class="btn btn-danger" (click)="hideForm()" style="width: 30%;">Close</button>
     </div>
+  </form>
   </div>
 </div>
 

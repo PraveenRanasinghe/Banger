@@ -1,0 +1,62 @@
+<app-nav-bar></app-nav-bar>
+<app-page-position [pageName]="'Our Vehicles'"></app-page-position>
+
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-sm-4 mb-4" *ngFor="let vehicle of List">
+      <div class="card" style="width: 22rem; background-color: rgb(255, 255, 255);">
+        <img class="card-img-top" [src]="vehicle.vehicleImg" style="width: 22rem; height: 13rem">
+            <div class="ml-4 mr-4 mt-3">
+              <div class="row">
+                <div class="col">
+                  <label style="margin-left: 25%;"><b>Price Per Day : </b></label>
+                  <div class="row justify-content-center">
+                    <h2>Rs:<b>{{vehicle.pricePerDay}}.00</b></h2>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col">
+                   Vehicle Model :
+
+                  <input class="form-control" type="text" name ="vehicleModel" type="text" [(ngModel)] = "vehicle.vehicleModel" #vehicleId="ngModel" readonly>
+                </div>
+                <div class="col">
+                  Transmission :
+
+                  <input class="form-control" type="text" name ="transmissionType" type="text" [(ngModel)] = "vehicle.transmissionType" #vehicleId="ngModel" readonly>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                   Capacity :
+
+                  <input class="form-control" type="text" name ="numOfSeats" type="text" [(ngModel)] = "vehicle.numOfSeats" #vehicleId="ngModel" readonly>
+                </div>
+                <div class="col">
+                  Fuel Type :
+
+                  <input class="form-control" type="text" name ="fuelType" type="text" [(ngModel)] = "vehicle.fuelType" #vehicleId="ngModel" readonly>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                   Air Conditioned :
+
+                  <input class="form-control" type="text" name ="ac" type="text" [(ngModel)] = "vehicle.ac" #vehicleId="ngModel" readonly>
+                </div>
+                <div class="col">
+                  Air Bags :
+
+                  <input class="form-control" type="text" name ="airBag" type="text" [(ngModel)] = "vehicle.airBag" #vehicleId="ngModel" readonly>
+                </div>
+              </div>
+              <button type="button" class="btn btn-success mb-3 mt-4" style="width: 70%; margin-left: 15%;"
+                      (click)="openBooking()">Make a Booking
+              </button>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>

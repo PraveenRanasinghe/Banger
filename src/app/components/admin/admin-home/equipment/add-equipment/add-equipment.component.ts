@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap/modal';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
 
 @Component({
@@ -11,9 +12,12 @@ import { AdminServiceService } from 'src/app/services/admin-service.service';
 export class AddEquipmentComponent implements OnInit {
 
   addEqform : FormGroup;
-  constructor(private modalRef: BsModalRef,
-    private adminService:AdminServiceService) {
-  }
+  message:string;
+
+  constructor
+  ( private modalRef: BsModalRef,
+    private adminService:AdminServiceService,
+    private spinner :NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.addEqform = new FormGroup({
@@ -28,20 +32,42 @@ export class AddEquipmentComponent implements OnInit {
   }
 
   onAddEquipment(){
-    const itemName:string=this.addEqform.get('itemName').value;
-    const pricePerDayEQ : string=this.addEqform.get('pricePerDayEQ').value;
-    const description:string=this.addEqform.get('description').value;
 
-    this.adminService.AddEquipment(itemName,pricePerDayEQ,description).subscribe(
-      (data: any) => {
-        console.log(data);
-        localStorage.setItem('token', data.token);
-      },
-      (error) => {
-        console.log('Process Cannot do this moment. Please Try Again!', error);
+    try{
+      this.message=undefined;
+      this.spinner.show();
+
+      if(this.addEqform.valid){
+        const itemName:string=this.addEqform.get('itemName').value;
+        const pricePerDayEQ : string=this.addEqform.get('pricePerDayEQ').value;
+        const description:string=this.addEqform.get('description').value;
+
+        this.adminService.AddEquipment(itemName,pricePerDayEQ,description).subscribe(
+          (data: any) => {
+            console.log(data);
+            this.message='New Equipment has been added to the system successfully!'
+            this.spinner.hide();
+            this.addEqform.reset();
+            localStorage.setItem('token', data.token);
+          },
+          (error) => {
+            console.log('Process Cannot do this moment. Please Try Again!', error);
+          }
+        );
       }
-    );
+    }
+    catch(error){
+      this.message = 'An Unexpected Error Occurred. Please Try Again !';
+    }
+  }
 
+  getMessage(){
+    if (this.message === "New Equipment has been added to the system successfully!") {
+      return "success";
+    }
+    else {
+      return "danger";
+    }
   }
 
 

@@ -11,6 +11,7 @@ import { VerifyUsersComponent } from './components/admin/admin-home/users/verify
 import { ViewUsersComponent } from './components/admin/admin-home/users/view-users/view-users.component';
 import {UpdateDeleteComponent} from './components/admin/admin-home/vehicle/update-delete/update-delete.component';
 import {VehicleComponent} from './components/admin/admin-home/vehicle/vehicle.component';
+import { BangerVehiclesComponent } from './components/banger-vehicles/banger-vehicles.component';
 import {ContactUsComponent} from './components/contact-us/contact-us.component';
 import {CustomerHomeComponent} from './components/customer/customer-home/customer-home.component';
 import {UserAccountComponent} from './components/customer/customer-home/user-account/user-account.component';
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'aboutUs',
     component: AboutUsComponent
+  },
+  {
+    path:'BangerVehicles',
+    component:BangerVehiclesComponent
   },
   {
     path: 'admin',

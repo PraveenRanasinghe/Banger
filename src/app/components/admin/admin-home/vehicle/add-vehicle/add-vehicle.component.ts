@@ -3,6 +3,7 @@ import { Byte } from '@angular/compiler/src/util';
 import {Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap/modal';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
 
 @Component({
@@ -13,16 +14,17 @@ import { AdminServiceService } from 'src/app/services/admin-service.service';
 export class AddVehicleComponent implements OnInit {
 
   addVehicleform : FormGroup;
+  message:string;
+
 
   constructor(private modalRef: BsModalRef,
               private adminService:AdminServiceService,
-              private httpClient: HttpClient) {}
+              private spinner: NgxSpinnerService) {}
 
             selectedFile :File;
             retrievedImage: any;
             base64Data: any;
             retrieveResonse: any;
-            message: string;
             imageName: any;
 
   ngOnInit(): void {
@@ -45,47 +47,57 @@ export class AddVehicleComponent implements OnInit {
 
 
 
-  // onUpload(){
-  //   console.log(this.selectedFile);
-  //   const uploadImageData = new FormData();
-  //   uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
-  //   this.httpClient.post('http://localhost:8080/admin/addVehicle', uploadImageData, { observe: 'response' })
-  //     .subscribe((response) => {
-  //       if (response.status === 200) {
-  //         console.log('Image uploaded successfully');
-  //       } else {
-  //         console.log('Image not uploaded successfully');
-  //       }
-  //     }
-  //     );
-  // }
+
 
   hideForm() {
     this.modalRef.hide();
   }
 
   addVehicle(){
-    const vehicleType:string=this.addVehicleform.get('vehicleType').value;
-    const vehicleModel : string=this.addVehicleform.get('vehicleModel').value;
-    const seat:string=this.addVehicleform.get('seat').value;
-    const fuelType : string=this.addVehicleform.get('fuelType').value;
-    const pricePerDay:string=this.addVehicleform.get('pricePerDay').value;
-    const transmission : string=this.addVehicleform.get('transmission').value;
-    const airbags:string=this.addVehicleform.get('airbags').value;
-    const ac : string=this.addVehicleform.get('ac').value;
-    const vehicleImage :File= this.addVehicleform.get('vehicleImage').value;
+    try{
+      this.message = undefined;
+      this.spinner.show();
+
+      if(this.addVehicleform.valid){
+        const vehicleType:string=this.addVehicleform.get('vehicleType').value;
+        const vehicleModel : string=this.addVehicleform.get('vehicleModel').value;
+        const seat:string=this.addVehicleform.get('seat').value;
+        const fuelType : string=this.addVehicleform.get('fuelType').value;
+        const pricePerDay:string=this.addVehicleform.get('pricePerDay').value;
+        const transmission : string=this.addVehicleform.get('transmission').value;
+        const airbags:string=this.addVehicleform.get('airbags').value;
+        const ac : string=this.addVehicleform.get('ac').value;
+        const vehicleImage :File= this.addVehicleform.get('vehicleImage').value;
 
 
 
-    this.adminService.AddVehicle(vehicleModel,vehicleType,seat,fuelType,pricePerDay,transmission,airbags,ac,this.selectedFile).subscribe(
-      (data: any) => {
-        console.log(data);
-        localStorage.setItem('token', data.token);
-      },
-      (error) => {
-        console.log('Error Occured!', error);
+        this.adminService.AddVehicle(vehicleModel,vehicleType,seat,fuelType,pricePerDay,transmission,airbags,ac,this.selectedFile).subscribe(
+          (data: any) => {
+            console.log(data);
+            this.message='New Vehicle has been added to the system successfully!';
+            this.spinner.hide();
+            this.addVehicleform.reset();
+            localStorage.setItem('token', data.token);
+          },
+          (error) => {
+            console.log('Error Occured!', error);
+          }
+        );
       }
-    );
+    }
+    catch(error){
+      this.message = 'An Unexpected Error Occurred. Please Try Again !';
+    }
+
+  }
+
+  getMessage(){
+    if (this.message === "New Vehicle has been added to the system successfully!") {
+      return "success";
+    }
+    else {
+      return "danger";
+    }
   }
 
 }

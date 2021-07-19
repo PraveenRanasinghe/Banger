@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap/modal';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
@@ -12,10 +13,13 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 export class SignUpComponent implements OnInit {
 
   signupForm : FormGroup;
+  message :string;
+
   constructor(
     private modalRef: BsModalRef,
     private httpClient: HttpClient,
-    private userService:UserServiceService) {}
+    private userService:UserServiceService,
+    private spinner: NgxSpinnerService) {}
 
   liscenceImg: File;
   profileImage:File;
@@ -23,7 +27,6 @@ export class SignUpComponent implements OnInit {
   retrievedImage: any;
   base64Data: any;
   retrieveResonse: any;
-  message: string;
   imageName: any;
 
   ngOnInit(): void {
@@ -51,29 +54,51 @@ export class SignUpComponent implements OnInit {
   }
 
   onSignUP(){
-    const fName:string=this.signupForm.get('fName').value;
-    const lName : string=this.signupForm.get('lName').value;
-    const email:string=this.signupForm.get('emailAddress').value;
-    const contactNumber : string=this.signupForm.get('contactNumber').value;
-    const nicNumber:string=this.signupForm.get('nicNumber').value;
-    const dob : string=this.signupForm.get('dob').value;
-    const password : string=this.signupForm.get('password').value;
-    const profileImage:File=this.signupForm.get('profileImage').value;
-    const licenceImg:File=this.signupForm.get('licenceImg').value;
-    const utilityBill:File= this.signupForm.get('utilityBill').value;
+    try{
+      this.message = undefined;
+      this.spinner.show();
+
+      if(this.signupForm.valid){
+        const fName:string=this.signupForm.get('fName').value;
+        const lName : string=this.signupForm.get('lName').value;
+        const email:string=this.signupForm.get('emailAddress').value;
+        const contactNumber : string=this.signupForm.get('contactNumber').value;
+        const nicNumber:string=this.signupForm.get('nicNumber').value;
+        const dob : string=this.signupForm.get('dob').value;
+        const password : string=this.signupForm.get('password').value;
+        const profileImage:File=this.signupForm.get('profileImage').value;
+        const licenceImg:File=this.signupForm.get('licenceImg').value;
+        const utilityBill:File= this.signupForm.get('utilityBill').value;
 
 
-    this.userService.userRegistration(fName,lName,email,contactNumber,nicNumber,dob,password,this.liscenceImg,this.profileImage,this.utilityBill).subscribe(
-      (data:any)=>{
-        console.log(data);
-        localStorage.setItem('token',data.token);
-      },
-      (error)=>{
-        console.log("Cannot Login",error);
+        this.userService.userRegistration(fName,lName,email,contactNumber,nicNumber,dob,password,this.liscenceImg,this.profileImage,this.utilityBill).subscribe(
+          (data:any)=>{
+            console.log(data);
+            this.message='You have been registered in our organization successfully! Your account is under verification process. You will be notify once it Done!';
+          this.signupForm.reset();
+          localStorage.setItem('token',data.token);
+          },
+          (error)=>{
+            console.log("Cannot Login",error);
+          }
+        );
       }
-    );
+    }
+    catch(error){
+      this.message = 'An Unexpected Error Occurred. Please Try Again !';
+    }
+
   }
 
+
+ getMessage(){
+    if (this.message === "You have been registered in our organization successfully! Your account is under verification process. You will be notify once it Done!") {
+      return "success";
+    }
+    else {
+      return "danger";
+    }
+  }
 
   public onFileChangedToLiscence(event) {
     this.liscenceImg = event.target.files[0];

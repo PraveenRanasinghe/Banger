@@ -81,18 +81,14 @@ export class AdminServiceService{
 
   getUserByID(email:string){
     return this.Http.get<any>("http://localhost:8080/admin/getSingleUser/"+email).pipe(map((item)=>{
-        item.licenceImg=`data:image/jpeg;base64,${item.licenceImg}`;
+        item.licenceImg=`data:image/jpeg;base64,${item.licenceImg}`,
+        item.profileImage=`data:image/jpeg;base64,${item.profileImage}`,
+        item.utilityBill=`data:image/jpeg;base64,${item.utilityBill}`;
 
       return item;
     }));
   }
 
-  // accepetUser(status:string){
-  //   const accepting={
-  //     status
-  //   }
-  //   return this.Http.post(""+accepting);
-  // }
 
   updateVehicleDetails(vehicleId:number, ac:string, airBag:string, transmissionType:string,pricePerDay:string,fuelType:string){
     const updateInfo={
