@@ -3,6 +3,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
 import { AddToBlacklistComponent } from './add-to-blacklist/add-to-blacklist.component';
 import { RemoveUserComponent } from './remove-user/remove-user.component';
+import { VmvUsersComponent } from './vmv-users/vmv-users.component';
 
 @Component({
   selector: 'app-view-users',
@@ -22,6 +23,13 @@ export class ViewUsersComponent implements OnInit {
     this.bsModal.show(AddToBlacklistComponent, {
       ignoreBackdropClick:true,
       class: 'modal-dialog-centered'
+    })
+  }
+
+  viewMore(){
+    this.bsModal.show(VmvUsersComponent, {
+      ignoreBackdropClick:true,
+      class: 'modal-dialog-centered modal-lg'
     })
   }
 

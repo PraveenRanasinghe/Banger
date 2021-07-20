@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
 
 @Component({
@@ -10,7 +11,10 @@ import { AdminServiceService } from 'src/app/services/admin-service.service';
 })
 export class VerifyViewMoreComponent implements OnInit {
 
-  constructor(private modalRef: BsModalRef,private bsModal: BsModalService, private adminService:AdminServiceService) {
+  constructor(private modalRef: BsModalRef,
+    private bsModal: BsModalService,
+    private adminService:AdminServiceService,
+    private spinner :NgxSpinnerService) {
   }
 
   ngOnInit(): void {
@@ -21,6 +25,7 @@ export class VerifyViewMoreComponent implements OnInit {
   userEmail:any;
   selectedUser:any;
   acceptUserForm:any;
+  message:string;
 
 
 
@@ -34,18 +39,34 @@ export class VerifyViewMoreComponent implements OnInit {
     });
   }
 
-  OnAcccpetUser(){
-    const status:string=this.acceptUserForm.get('status').value;
+  OnAcccpetUser(email:string){
+    try{
+      this.message=undefined;
+      this.spinner.show();
 
-    this.adminService.acceptUserAccount(this.userEmail,status).subscribe(
-      (data:any)=>{
-        console.log(data);
-        localStorage.setItem('token', data.token);
-      },
-      (error) => {
-        console.log('Error Occured!', error);
+      if(this.acceptUserForm.valid){
+        console.log(email);
+        this.adminService.acceptUserAccount(email, 'Accepted').subscribe(
+          (data:any)=>{
+            console.log(data);
+            this.message='User Account has been Accepted!'
+            this.spinner.hide();
+          });
       }
-    );
+    }
+    catch(error){
+      this.message = 'An Unexpected Error Occurred. Please Try Again !';
+    }
+
+  }
+
+  getMessage(){
+    if (this.message === "User Account has been Accepted!") {
+      return "success";
+    }
+    else {
+      return "danger";
+    }
   }
 
   updateStatus(){
@@ -53,6 +74,7 @@ export class VerifyViewMoreComponent implements OnInit {
       'status':new FormControl('',Validators.required)
     })
   }
+
   hideForm() {
     this.modalRef.hide();
   }

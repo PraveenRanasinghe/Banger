@@ -51,15 +51,9 @@ export class ContactUsComponent implements OnInit {
             this.message='Inquiry Submitted Successfully!. We Will Get In Touch With You Regarding Your Concern'
             this.spinner.hide();
             this.contactForm.reset();
-            localStorage.setItem('token',data.token);
           },
-          (error)=>{
-            console.log("Cannot send the Inquiry!",error);
-          }
         )
-
       }
-
     }
     catch(error){
       this.message = 'An Unexpected Error Occurred. Please Try Again !';

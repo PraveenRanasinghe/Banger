@@ -120,6 +120,7 @@ export class AdminServiceService{
     return this.Http.put("http://localhost:8080/admin/acceptUser/"+email,acceptingUserAccount);
   }
 
+
   getVehicleById(vId:number){
     return this.Http.get<any>("http://localhost:8080/admin/getSingleVehicle/"+vId);
   }
