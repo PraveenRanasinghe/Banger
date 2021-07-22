@@ -21,11 +21,13 @@ export class GuestService {
   }
 
   viewVehicles(){
-    return this.Http.get<any>("http://localhost:8080/customer/viewAllVehicles").pipe(map((item)=>{
+    return this.Http.get<any>("http://localhost:8080/guestViewVehicles").pipe(map((item)=>{
       item.forEach(element => {
         element.vehicleImg=`data:image/jpeg;base64,${element.vehicleImg}`;
       })
       return item;
     }))
   }
+
+
 }

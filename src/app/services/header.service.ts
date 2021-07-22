@@ -20,6 +20,7 @@ export class HeaderService implements HttpInterceptor {
       'http://localhost:8080/authenticate',
       'http://localhost:8080/customer/createAccount',
       'http://localhost:8080/customer/addInq',
+      'http://localhost:8080/guestViewVehicles'
 
     ];
 

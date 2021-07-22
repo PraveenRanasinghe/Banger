@@ -15,7 +15,7 @@ export class AdminNavComponent implements OnInit {
   }
 
   signout(){
-    localStorage.removeItem('jwtToken');
+    sessionStorage.removeItem('jwttoken');
     this.router.navigate(['/home']);
 
   }

@@ -48,9 +48,11 @@ export class LoginComponent implements OnInit {
         console.log(data.userRole);
 
         if(data.userRole=="Admin"){
+          this.hideForm();
           this.route.navigate(['/admin']);
         }
         else if(data.userRole=="Customer"){
+          this.hideForm();
           this.route.navigate(['/customer']);
         }
 
@@ -62,9 +64,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  onSubmit(){
 
-  }
 
   openSignUp() {
     this.bsModal.show(SignUpComponent, {
