@@ -26,10 +26,13 @@ export class ViewUsersComponent implements OnInit {
     })
   }
 
-  viewMore(){
+  viewMore(email:string){
     this.bsModal.show(VmvUsersComponent, {
       ignoreBackdropClick:true,
-      class: 'modal-dialog-centered modal-lg'
+      class: 'modal-dialog-centered modal-lg',
+      initialState: {
+        userEmail:email
+      },
     })
   }
 

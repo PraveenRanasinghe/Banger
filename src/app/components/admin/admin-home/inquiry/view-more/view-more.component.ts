@@ -32,11 +32,6 @@ export class ViewMoreComponent implements OnInit {
     })
   }
 
-  removeInquiry(){
-    this.modalRef=this.bsModal.show(RemoveInqComponent,{
-      ignoreBackdropClick:true,
-      class:'modal-dialog-centered'
-    });
-  }
+
 
 }

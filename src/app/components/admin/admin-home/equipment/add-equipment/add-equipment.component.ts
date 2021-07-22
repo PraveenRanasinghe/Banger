@@ -23,7 +23,8 @@ export class AddEquipmentComponent implements OnInit {
     this.addEqform = new FormGroup({
       'itemName':new  FormControl(null, Validators.required),
       'pricePerDayEQ':new  FormControl(null,Validators.required),
-      'description':new  FormControl(null,Validators.required)
+      'description':new  FormControl(null,Validators.required),
+      'quantity':new FormControl(null, Validators.required)
     })
   }
 
@@ -41,8 +42,9 @@ export class AddEquipmentComponent implements OnInit {
         const itemName:string=this.addEqform.get('itemName').value;
         const pricePerDayEQ : string=this.addEqform.get('pricePerDayEQ').value;
         const description:string=this.addEqform.get('description').value;
+        const quantity:number=this.addEqform.get('quantity').value;
 
-        this.adminService.AddEquipment(itemName,pricePerDayEQ,description).subscribe(
+        this.adminService.AddEquipment(itemName,pricePerDayEQ,description,quantity).subscribe(
           (data: any) => {
             console.log(data);
             this.message='New Equipment has been added to the system successfully!'

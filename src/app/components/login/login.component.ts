@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { LoginService } from 'src/app/services/login.service';
 import { SignUpComponent } from '../sign-up/sign-up.component';
@@ -14,10 +15,12 @@ export class LoginComponent implements OnInit {
 
   form:FormGroup;
 
+
   constructor(
     private bsModal: BsModalService,
     private modalRef: BsModalRef,
-    private service: LoginService
+    private service: LoginService,
+    private route:Router
   ) {}
 
   ngOnInit(): void {
@@ -38,8 +41,19 @@ export class LoginComponent implements OnInit {
 
     this.service.UserAuthentication(email, password).subscribe(
       (data: any) => {
-        console.log(data);
-        localStorage.setItem('token', data.token);
+        sessionStorage.setItem("jwttoken",data.token);
+        console.log(data.token);
+        sessionStorage.setItem("data",JSON.stringify(data.token));
+
+        console.log(data.userRole);
+
+        if(data.userRole=="Admin"){
+          this.route.navigate(['/admin']);
+        }
+        else if(data.userRole=="Customer"){
+          this.route.navigate(['/customer']);
+        }
+
       },
       (error) => {
         console.log('Authentication Failed! Please Try Again!', error);

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { AdminServiceService } from 'src/app/services/admin-service.service';
 
 @Component({
   selector: 'app-remove-inq',
@@ -8,16 +9,24 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class RemoveInqComponent implements OnInit {
 
-  constructor(private modalRef: BsModalRef) {
+  constructor(private modalRef: BsModalRef,private adminService:AdminServiceService) {
   }
   selectedInquiry:any
+  inqId:any;
 
   ngOnInit(): void {
+    this.removeSelectedInquiry();
+    console.log(this.inqId);
   }
 
   hideForm() {
     this.modalRef.hide();
   }
 
+  removeSelectedInquiry(){
+    this.adminService.removeInquiry(this.inqId).subscribe((data)=>{
+      console.log(data);
+    })
+  }
 
 }

@@ -27,25 +27,33 @@
 
   <div class="row" style="border-radius: 15px;">
     <div class="ml-5" style="width: 100%;">
-      <table class="table table-info" style="border-radius: 15px;">
+      <table class="table table-secondary" style="border-radius: 15px;">
         <thead class="justify-content-center">
         <tr style="height: 70px; background-color: #f5a99d; font-size: larger">
           <th scope="col">#</th>
           <th scope="col">Item Name</th>
           <th scope="col">Price Per-Day</th>
-          <th scope="col">About Item</th>
+
+          <th scope="col">Quantity</th>
+          <th></th>
           <th scope="col">Update Item</th>
+          <th></th>
           <th scope="col">Remove Item</th>
+
         </tr>
         </thead>
         <tbody>
-        <tr style="font-size: medium" *ngFor="let equipment of List">
+        <tr style="font-size: medium; height: 70px;" *ngFor="let equipment of List">
           <td>{{$index+1|number}}</td>
           <td>{{equipment.itemName}}</td>
           <td>RS:{{equipment.pricePerDayEQ}}</td>
-          <td>{{equipment.itemDescription}}</td>
-          <td class="btn btn-primary" (click)="openUpdateEquip(equipment.equipmentId)">Update Item</td>
-          <td class="btn btn-danger" (click)="openDeleteEquip()">Remove Item</td>
+
+          <td>{{equipment.quantity}}</td>
+          <td></td>
+          <td class="btn btn-outline-primary mt-2" (click)="openUpdateEquip(equipment.equipmentId)">Update Item</td>
+          <td></td>
+          <td class="btn btn-outline-danger mt-2" (click)="openDeleteEquip()">Remove Item</td>
+
         </tr>
         </tbody>
       </table>

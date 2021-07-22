@@ -23,23 +23,19 @@ export class HeaderService implements HttpInterceptor {
 
     ];
 
-    let needToken: boolean = false;
+    let needToken: boolean = true;
 
     for (const CheckedUrl of noNeedToken) {
       if (CheckedUrl.toLowerCase() === req.url.toLowerCase()) {
         needToken = false;
-      }else{
-        needToken = true;
-        break;
       }
     }
 
-    if (!needToken) {
-      console.log('Token!');
+    if (needToken) {
       req = req.clone({
         headers: req.headers.append(
           'Authorization',
-          'Bearer ' + localStorage.getItem('token')
+          'Bearer ' + sessionStorage.getItem('jwttoken')
         ),
       });
     }

@@ -4,12 +4,15 @@
     <div class="ml-5" style="width: 950px;">
       <table class="table table-success">
         <thead>
-        <tr style="height: 70px; background-color: #ffc42f; font-size: larger">
+        <tr style="height: 70px; width: 100%; background-color: #ffc42f; font-size: larger">
           <th scope="col">#</th>
           <th scope="col">Inquirer Name</th>
           <th scope="col">Inquirer Email</th>
           <th scope="col">Contact Number</th>
+          <th></th>
           <th scope="col">View More</th>
+          <th></th>
+          <th scope="col">Remove Inquiry</th>
         </tr>
         </thead>
         <tbody>
@@ -18,7 +21,10 @@
           <td>{{user.inquirerName}}</td>
           <td>{{user.inquirerEmail}}</td>
           <td>{{user.contactNum}}</td>
-          <td class="btn btn-primary" style="width: 150px;" (click)="openViewMore(user.inquiryId)">View More</td>
+          <td></td>
+          <td class="btn btn-primary" style="width: 170px;" (click)="openViewMore(user.inquiryId)">View More<i class="fas fa-info ml-2"></i></td>
+          <td></td>
+          <td class="btn btn-danger" style="width: 170px;" (click)="removeInquiy(user.inquiryId)">Remove Inquiry<i class="fas fa-trash-alt ml-2"></i></td>
         </tr>
         </tbody>
       </table>

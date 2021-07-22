@@ -42,4 +42,14 @@ export class InquiryComponent implements OnInit {
 
   }
 
+  removeInquiy(inquiryId:number){
+    this.bsModalRef=this.bsModal.show(RemoveInqComponent,{
+      ignoreBackdropClick:true,
+      class:'modal-dialog-centered',
+      initialState:{
+        inqId:inquiryId
+      },
+    });
+  }
+
 }
