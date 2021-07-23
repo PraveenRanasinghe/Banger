@@ -74,9 +74,8 @@ export class SignUpComponent implements OnInit {
         this.userService.userRegistration(fName,lName,email,contactNumber,nicNumber,dob,password,this.liscenceImg,this.profileImage,this.utilityBill).subscribe(
           (data:any)=>{
 
-            this.message='You have been registered in our organization successfully! Your account is under verification process. You will be notify once it Done!';
+          this.message='You have been registered in our organization successfully! Your account is under verification process. You will be notify once it Done!';
           this.signupForm.reset();
-          localStorage.setItem('token',data.token);
           },
           (error)=>{
             console.log("Cannot Login",error);

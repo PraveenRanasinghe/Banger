@@ -14,6 +14,7 @@ import { SignUpComponent } from '../sign-up/sign-up.component';
 export class LoginComponent implements OnInit {
 
   form:FormGroup;
+  message:string;
 
 
   constructor(
@@ -36,34 +37,45 @@ export class LoginComponent implements OnInit {
 
 
   onLogin() {
-    const email:string=this.form.get('emailAddress').value;
-    const password : string=this.form.get('password').value;
+    try{
+      const email:string=this.form.get('emailAddress').value;
+      const password : string=this.form.get('password').value;
 
-    this.service.UserAuthentication(email, password).subscribe(
-      (data: any) => {
-        sessionStorage.setItem("jwttoken",data.token);
-        console.log(data.token);
-        sessionStorage.setItem("data",JSON.stringify(data.token));
+      this.service.UserAuthentication(email, password).subscribe(
+        (data: any) => {
+          sessionStorage.setItem("jwttoken",data.token);
+          console.log(data.token);
+          sessionStorage.setItem("data",JSON.stringify(data.token));
 
-        console.log(data.userRole);
+          console.log(data.userRole);
 
-        if(data.userRole=="Admin"){
-          this.hideForm();
-          this.route.navigate(['/admin']);
-        }
-        else if(data.userRole=="Customer"){
-          this.hideForm();
-          this.route.navigate(['/customer']);
-        }
-
-      },
-      (error) => {
-        console.log('Authentication Failed! Please Try Again!', error);
-      }
-    );
-
+          if(data.userRole=="Admin"){
+            this.hideForm();
+            this.route.navigate(['/admin']);
+          }
+          else if(data.userRole=="Customer"){
+            this.hideForm();
+            this.route.navigate(['/customer']);
+          }
+          else {
+            this.message='Authentication Failed! Please Try Again!';
+          }
+        },
+      );
+    }
+    catch(error){
+      this.message='Authentication Failed! Please Try Again!';
+    }
   }
 
+  getMessage(){
+    if (this.message === "Authentication Failed! Please Try Again!") {
+      return "danger";
+    }
+    else {
+      return "success";
+    }
+  }
 
 
   openSignUp() {
