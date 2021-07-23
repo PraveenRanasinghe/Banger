@@ -17,6 +17,7 @@ export class VehicleComponent implements OnInit {
 
   openAddVehicle() {
     this.bsModal.show(AddVehicleComponent, {
+      ignoreBackdropClick: true,
       class: 'modal-dialog-centered modal-lg'
     })
   }

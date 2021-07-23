@@ -1,0 +1,30 @@
+<div class="row justify-content-center">
+  <h3 style="color: #130a02;"><b>Users To be Verified!</b></h3>
+</div>
+
+<div class="row" style="border-radius: 15px;">
+  <div class="ml-5" style="width: 100%;">
+    <table class="table table-info" style="border-radius: 15px;">
+      <thead class="justify-content-center">
+      <tr style="height: 70px; background-color: #e7a867; font-size: larger">
+        <th scope="col">#</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Contact Number</th>
+        <th scope="col">View More</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr style="font-size: medium"  *ngFor="let user of List">
+        <th scope="row">1</th>
+        <td>{{user.fName}}</td>
+        <td>{{user.lName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.contactNum}}</td>
+        <td class="btn btn-primary"(click)="openViewMore(user.email)" >View More</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

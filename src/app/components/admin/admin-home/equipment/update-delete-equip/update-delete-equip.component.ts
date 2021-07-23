@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {BsModalService} from 'ngx-bootstrap/modal';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
+import { AdminServiceService } from 'src/app/services/admin-service.service';
 import {DeleteEquipComponent} from './delete-equip/delete-equip.component';
 import {UpdateEquipComponent} from './update-equip/update-equip.component';
 
@@ -10,20 +11,37 @@ import {UpdateEquipComponent} from './update-equip/update-equip.component';
 })
 export class UpdateDeleteEquipComponent implements OnInit {
 
-  constructor(private bsModal: BsModalService) {
+  List : any;
+  bsModalRef:BsModalRef
+
+  constructor(private bsModal: BsModalService,private adminService:AdminServiceService) {
   }
 
   ngOnInit(): void {
+    this.getAllEquipments();
   }
 
-  openUpdateEquip() {
+
+  getAllEquipments(){
+    this.adminService.viewAllEquipments().subscribe((data)=>{
+      console.log(data);
+      this.List=data;
+    })
+  }
+
+  openUpdateEquip(equipmentId:number) {
     this.bsModal.show(UpdateEquipComponent, {
-      class: 'modal-dialog-centered modal-lg'
+      ignoreBackdropClick:true,
+      class: 'modal-dialog-centered modal-lg',
+      initialState: {
+        equipId:equipmentId
+      },
     })
   }
 
   openDeleteEquip() {
-    this.bsModal.show(DeleteEquipComponent, {
+    this.bsModalRef=this.bsModal.show(DeleteEquipComponent, {
+      ignoreBackdropClick:true,
       class: 'modal-dialog-centered'
     })
   }

@@ -18,12 +18,14 @@ export class BookingComponent implements OnInit {
 
   openAccept() {
     this.bsModal.show(AcceptComponent, {
+      ignoreBackdropClick:true,
       class: 'modal-dialog-centered'
     })
   }
 
   openReject() {
     this.bsModal.show(RejectComponent, {
+      ignoreBackdropClick:true,
       class: 'modal-dialog-centered'
     })
   }

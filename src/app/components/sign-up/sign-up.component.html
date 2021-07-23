@@ -1,24 +1,38 @@
 <div class="formatting-modal fm">
-  <div class="modal-header">
-    <h4 class="modal-title">Be a Member of <b style="color: rgb(228, 134, 11);">BANGER</b></h4>
+  <div class="modal-header" style="background-color: rgb(71,144,135);
+background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);">
+    <h4 class="modal-title">Be a Member of <b style="color: rgb(241,240,234);">BANGER & Co</b></h4>
     <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
   </div>
+  <div class="mt-4 mb-4" *ngIf="message">
+    <div class="row justify-content-center">
+      <alert class="alert" style="background-color: rgb(159, 250, 117); font-weight: 650;" [type]="getMessage()" [dismissible]="true"><span [innerHtml]="message"></span></alert>
+    </div>
+    </div>
 
   <div class="modal-body">
-    <form>
+    <form name="form" [formGroup]="signupForm" (ngSubmit)="onSignUP()">
       <div class="row">
         <div class="col">
           <div class="form-group">
             <label for="fName"><b>First Name</b></label>
-            <input type="text" id="fName" class="form-control"
-                   placeholder="Enter Your First Name">
+
+            <input type="text" class="form-control"
+                  [formControlName]="'fName'"
+                  placeholder="Enter Your First Name">
+                  <span *ngIf="!signupForm.get('fName').valid && signupForm.get('fName').touched"
+                style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your First Name!</span>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
             <label for="lName"><b>Last Name</b></label>
+
             <input type="text" id="lName" class="form-control"
-                   placeholder="Enter Your Last Name">
+                  [formControlName]="'lName'"
+                  placeholder="Enter Your Last Name">
+                  <span *ngIf="!signupForm.get('lName').valid && signupForm.get('lName').touched"
+                  style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your Last Name!</span>
           </div>
         </div>
       </div>
@@ -27,15 +41,23 @@
         <div class="col">
           <div class="form-group">
             <label for="emailAddress"><b>Email Address</b></label>
-            <input type="email" id="emailAddress" class="form-control"
-                   placeholder="Enter Your Email Address">
+
+            <input type="email" class="form-control"
+                  [formControlName]="'emailAddress'"
+                  placeholder="Enter Your Email Address">
+                  <span *ngIf="!signupForm.get('emailAddress').valid && signupForm.get('emailAddress').touched"
+                  style="margin-top: 3px; color:red; font-size: 12px;">Please Enter a valid Email Address</span>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
-            <label for="age"><b>Your Age</b></label>
-            <input type="text" id="age" class="form-control"
-                   placeholder="Enter Your Age">
+            <label for="age"><b>Date of Birth</b></label>
+
+            <input type="date" class="form-control"
+                  [formControlName]="'dob'"
+                  placeholder="Enter Your Birthday">
+                  <span *ngIf="!signupForm.get('dob').valid && signupForm.get('dob').touched"
+                  style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your Date Of Birth!</span>
           </div>
         </div>
       </div>
@@ -44,35 +66,81 @@
         <div class="col">
           <div class="form-group">
             <label for="contactNumber"><b>Contact Number</b></label>
-            <input type="text" id="contactNumber" class="form-control"
-                   placeholder="Enter Your Contact Number">
+
+            <input type="text" class="form-control"
+                  [formControlName]="'contactNumber'"
+                  placeholder="Enter Your Contact Number (+94-777777777)">
+                  <span *ngIf="!signupForm.get('contactNumber').valid && signupForm.get('contactNumber').touched"
+                  style="margin-top: 3px; color:red; font-size: 12px;">Please Enter a Valid Contact Number!</span>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
             <label for="contactNumber"><b>NIC Number</b></label>
-            <input type="text" id="nicNumber" class="form-control"
-                   placeholder="Enter Your NIC Number">
+
+            <input type="text" class="form-control"
+                  [formControlName]="'nicNumber'"
+                  placeholder="Enter Your NIC Number">
+                  <span *ngIf="!signupForm.get('nicNumber').valid && signupForm.get('nicNumber').touched"
+                  style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your NIC Number!</span>
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label><b>Create your password</b></label>
+          <input type="password"
+          class="form-control"
+          [formControlName]="'password'"
+          placeholder="Enter Your Password">
+        </div>
+
+        <div class="col">
+          <label><b>Verify your password</b></label>
+          <input type="password" class="form-control"
+                [formControlName]="'passwordValidator'"
+                placeholder="Re-Enter Your Password">
+
+                <span *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched"
+                style="margin-top: 3px; color:red; font-size: 12px;">Please Enter
+                a Valid Password (Minimum Length is 6 characters) &nbsp;</span>
+              <span *ngIf="signupForm.get('password').value !== signupForm.get('passwordValidator').value"
+                style="margin-top: 3px; color:red; font-size: 12px;">Passwords Do Not Match</span>
         </div>
       </div>
       <div class="row mb-3 mt-3">
         <div class="col">
-          <label for="password"><b>Create your password</b></label>
-          <input type="password" class="form-control" placeholder="Enter Your Password">
+          <label><b>Upload Your Profile Image:</b></label>
         </div>
         <div class="col">
-          <label for="password"><b>Verify your password</b></label>
-          <input type="password" class="form-control" placeholder="Re-Enter Your Password">
+          <input type="file" accept="image/*" (change)="onFileChangedToProfile($event)" multiple="false" [formControlName]="'profileImage'">
         </div>
       </div>
-      <span style="font-size: 13px; color: brown;">Once You Sign Up, You Will Get an Email. Follow The Instructions to Verify Your Account</span>
+      <div class="row mb-3 mt-3">
+        <div class="col">
+          <label><b>Upload Your Liscence Image:</b></label>
+        </div>
+        <div class="col">
+          <input type="file" accept="image/*" (change)="onFileChangedToLiscence($event)" multiple="false" [formControlName]="'licenceImg'">
+        </div>
+      </div>
+
+      <div class="row mb-3 mt-3">
+        <div class="col">
+          <label><b>Upload Your Utility Bill Here:</b></label>
+        </div>
+        <div class="col">
+          <input type="file" accept="image/*" (change)="onFileChangedToUtility($event)" multiple="false" [formControlName]="'utilityBill'">
+        </div>
+      </div>
+      <span style="font-size: 13px; color: brown;">Once You Sign Up, Your account will send to the Adminstration Department to the Acceptance. Once Your Account is Accepted You will get an email!</span>
       <hr style="background-color: rgb(13, 104, 1);">
-      <button class="btn btn-success mb-3">Create Account</button>
+      <button class="btn btn-success mb-3" [disabled]="!signupForm.valid"  type="submit">Create Account</button>
     </form>
     <div class="modal-footer">
       <button type="button" class="btn btn-danger" (click)="hideForm()" style="width: 30%;">Close</button>
     </div>
   </div>
 </div>
+
 

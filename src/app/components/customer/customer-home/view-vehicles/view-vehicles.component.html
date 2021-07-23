@@ -1,95 +1,91 @@
-<div class="container">
-  <div class="row">
-    <h5 style="color: rgb(247, 83, 19);"><b>* You must return the booked vehicle before 4:00 PM of the Return Date</b>
+
+
+  <div class="row justify-content-center">
+    <p style="color: darkgreen;"><b>Enter your Pickup date and Return date to view the available vehicles.</b></p>
+  </div>
+
+    <div class="row justify-content-center mt-1">
+      <form>
+        <div class="row">
+        <div class="col">
+          <label><b>PickUp Date </b></label>
+          <input class="form-control me-2" type="date">
+        </div>
+       <div class="col">
+        <label><b>Return Date</b></label>
+        <input class="form-control me-2" type="date">
+       </div>
+      </div>
+      <div class="row justify-content-center mt-4">
+        <button class="btn btn-primary" type="submit" style="width: 50%;">Search</button>
+      </div>
+
+      </form>
+  </div>
+
+
+  <div class="row justify-content-center mt-3">
+    <h5 style="color: rgb(248, 34, 34);">* You must return the booked vehicle before 4:00 PM of the Return Date. If Not Your account will be added to the <b style="color: black;">BlackList.</b>
     </h5>
   </div>
 
-  <div class="row">
-    <div class="col">
-      <!-- Begining of the card -->
-      <div class="card mb-5" style="width: 25rem; border-color: black;">
-        <img src="https://img4.goodfon.com/wallpaper/big/3/3b/skyline-gtr-skyline-gtr-r33-midnight-purple.jpg"
-             class="card-img-top">
 
-        <div class="ml-4 mr-4 mt-3" style="font-weight: 500; font-size: larger;">
-          <div class="row">
-            <div class="col">
-              <p class="form-control"><b>Vehicle Model</b></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <p class="form-control">Two Wheel Drive</p>
-            </div>
-            <div class="col">
-              <p class="form-control">Transmission Type</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <p class="form-control">Number Of Seats</p>
-            </div>
-            <div class="col">
-              <p class="form-control">Fuel Type</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <p class="form-control">Air Conditioned</p>
-            </div>
-            <div class="col">
-              <p class="form-control">Air Bags</p>
-            </div>
-          </div>
-          <button type="button" class="btn btn-success mb-3" style="width: 40%; margin-left: 27%;"
-                  (click)="openBooking()">Make a Booking
-          </button>
-        </div>
-      </div>
-      <!-- Ending of the card -->
-    </div>
-    <div class="col">
-      <div class="card mb-5" style="width: 25rem; border-color: black;">
-        <img src="https://img4.goodfon.com/wallpaper/big/3/3b/skyline-gtr-skyline-gtr-r33-midnight-purple.jpg"
-             class="card-img-top">
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-sm-4 mb-4" *ngFor="let vehicle of List">
+        <div class="card cd" style="width: 22rem; background-color: rgb(255, 255, 255);">
+          <img class="card-img-top" [src]="vehicle.vehicleImg" style="width: 22rem; height: 13rem">
+              <div class="ml-4 mr-4 mt-3">
+                <div class="row justify-content-center">
+                  <h3><b>{{vehicle.vehicleType}}</b></h3>
+                </div>
 
-        <div class="ml-4 mr-4 mt-3" style="font-weight: 500; font-size: larger;">
-          <div class="row">
-            <div class="col">
-              <p class="form-control"><b>Vehicle Model</b></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <p class="form-control">Two Wheel Drive</p>
-            </div>
-            <div class="col">
-              <p class="form-control">Transmission Type</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <p class="form-control">Number Of Seats</p>
-            </div>
-            <div class="col">
-              <p class="form-control">Fuel Type</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <p class="form-control">Air Conditioned</p>
-            </div>
-            <div class="col">
-              <p class="form-control">Air Bags</p>
-            </div>
-          </div>
-          <button type="button" class="btn btn-success mb-3" style="width: 40%; margin-left: 27%;"
-                  (click)="openBooking()">Make a Booking
-          </button>
+                    <div class="row justify-content-center">
+                      <h3>Rs:<b>{{vehicle.pricePerDay}}.00</b></h3>
+                  </div>
+
+                <div class="row mt-3">
+                  <div class="col">
+                     Vehicle Model :
+
+                    <input class="form-control" type="text" name ="vehicleModel" type="text" [(ngModel)] = "vehicle.vehicleModel" #vehicleId="ngModel" readonly>
+                  </div>
+                  <div class="col">
+                    Transmission :
+
+                    <input class="form-control" type="text" name ="transmissionType" type="text" [(ngModel)] = "vehicle.transmissionType" #vehicleId="ngModel" readonly>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                     Capacity :
+
+                    <input class="form-control" type="text" name ="numOfSeats" type="text" [(ngModel)] = "vehicle.numOfSeats" #vehicleId="ngModel" readonly>
+                  </div>
+                  <div class="col">
+                    Fuel Type :
+
+                    <input class="form-control" type="text" name ="fuelType" type="text" [(ngModel)] = "vehicle.fuelType" #vehicleId="ngModel" readonly>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                     Air Conditioned :
+
+                    <input class="form-control" type="text" name ="ac" type="text" [(ngModel)] = "vehicle.ac" #vehicleId="ngModel" readonly>
+                  </div>
+                  <div class="col">
+                    Air Bags :
+
+                    <input class="form-control" type="text" name ="airBag" type="text" [(ngModel)] = "vehicle.airBag" #vehicleId="ngModel" readonly>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-success mb-3 mt-4" style="width: 70%; margin-left: 15%;"
+                        (click)="openBooking()">Make a Booking
+                </button>
+              </div>
         </div>
       </div>
     </div>
   </div>
 
-
-</div>

@@ -1,7 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding: 10px;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding: 10px; height: 90px; background-color:rgb(71,144,135);
+background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);">
   <div class="container">
 
-    <ul id="dropdown-animated" class="navbar-nav">
+    <ul id="dropdown-animated" class="navbar-nav" style="font-size: larger">
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active">Home</a>
       </li>
@@ -16,14 +17,18 @@
           Us</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/BangerVehicles']" routerLinkActive="active">View
+        Vehicles</a>
+      </li>
+      <!-- <li class="nav-item">
         <a class="nav-link" [routerLink]="['/admin']" routerLinkActive="active">Admin Login</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/customer']" routerLinkActive="active">User Login</a>
-      </li>
+      </li> -->
     </ul>
 
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto" style="font-size: larger">
       <li class="nav-item Linkhover">
         <a class="nav-link nl" (click)="openSignUp()">Sign Up</a>
       </li>

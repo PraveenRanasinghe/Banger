@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+  <h3 style="color: #130a02;"><b>Available Users in our Organization!</b></h3>
+</div>
+
+  <div class="row" style="border-radius: 15px;">
+    <div class="ml-5" style="width: 100%;">
+      <table class="table table-info" style="border-radius: 15px;">
+        <thead class="justify-content-center">
+        <tr style="height: 70px; background-color: #aae49e; font-size: larger">
+          <th scope="col">#</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Contact Number</th>
+          <th scope="col">View Users</th>
+          <th></th>
+          <th scope="col">Add to Black List</th>
+          <th></th>
+          <th scope="col" class="ml-3">Remove User</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="font-size: medium; width: 100%; height: 30px;" *ngFor="let user of List">
+          <td>{{$index+1|number}}</td>
+          <td>{{user.fName}}</td>
+          <td>{{user.lName}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.contactNum}}</td>
+          <td class="btn btn-primary" style="width: 150px;" (click)="viewMore(user.email)">View User</td>
+          <td></td>
+          <td class="btn btn-dark" (click)="addToBlackList()">Add To Black-List</td>
+          <td></td>
+          <td class="btn btn-danger" (click)="removeUser()">Remove User</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

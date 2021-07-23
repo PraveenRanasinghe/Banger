@@ -1,1 +1,30 @@
-<p>view-bookings works!</p>
+<div class="container">
+  <div class="row">
+    <div class="ml-5" style="width: 950px;">
+      <table class="table table-success" style="border-radius: 15px">
+        <thead>
+        <tr style="height: 70px; background-color: #ffc42f; font-size: larger">
+          <th scope="col">#</th>
+          <th scope="col">Booking Id</th>
+          <th scope="col">PickUp Date</th>
+          <th scope="col">PickUp Time</th>
+          <th scope="col">Return Date</th>
+          <th scope="col">Vehicle Type</th>
+          <th scope="col">Extend Booking</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="height: 60px; font-size: large">
+          <th scope="row">1</th>
+          <td>Booking_001</td>
+          <td>06/15/2021</td>
+          <td>8.30 AM</td>
+          <td>06/21/2021</td>
+          <td>Land-Cruiser V8</td>
+          <td class="btn btn-primary mt-2 mb-2" (click)="openExtendBooking()" style="width: 150px;">Extend Booking</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

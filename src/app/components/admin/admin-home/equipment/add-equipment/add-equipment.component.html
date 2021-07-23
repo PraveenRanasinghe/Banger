@@ -1,46 +1,58 @@
 <div class="formatting-modal fm">
-  <div class="modal-header">
+  <div class="modal-header" style="background-color: rgb(71,144,135);
+background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);">
     <h4 class="modal-title">Add EQUIPMENT to <b style="color: rgb(228, 134, 11);">BANGER</b></h4>
     <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
   </div>
+  <div class="mt-4 mb-4" *ngIf="message">
+    <div class="row justify-content-center">
+      <alert class="alert" style="background-color: rgb(159, 250, 117); font-weight: 650;" [type]="getMessage()" [dismissible]="true"><span [innerHtml]="message"></span></alert>
+    </div>
+    </div>
 
   <div class="modal-body">
-    <form>
+    <form [formGroup]="addEqform"  (ngSubmit)="onAddEquipment()">
       <div class="form-group">
         <div class="row">
           <div class="col">
             <label for="itemName"><b>Item Name</b></label>
-            <input class="form-control" type="text" id="itemName" placeholder="Item Name (Ex:- Wine-Chiller)">
-          </div>
-          <div class="col">
-            <label for="totalItems"><b>Number of Items</b></label>
-            <input class="form-control" type="text" id="totalItems" placeholder="Total Number Of Items">
+            <input class="form-control" type="text" id="itemName"
+            placeholder="Item Name (Ex:- Wine-Chiller)"  [formControlName]="'itemName'">
+            <span *ngIf="!addEqform.get('itemName').valid && addEqform.get('itemName').touched"
+            style="margin-top: 3px; color:red; font-size: 12px;">Please Enter the Item Name!</span>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <label for="price"><b>Price Per One</b></label>
-            <input class="form-control" type="text" id="price" placeholder="RS:500.00">
+            <label for="price"><b>Price Per Day</b></label>
+            <input class="form-control" type="text" id="price"
+            placeholder="RS:500" [formControlName]="'pricePerDayEQ'">
+            <span *ngIf="!addEqform.get('pricePerDayEQ').valid && addEqform.get('pricePerDayEQ').touched"
+            style="margin-top: 3px; color:red; font-size: 12px;">Please Enter the Price Per Item</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="price"><b>Enter the number of items</b></label>
+            <input class="form-control" type="number" id="quantity"
+            placeholder="Quantity of Equipment" [formControlName]="'quantity'">
+            <span *ngIf="!addEqform.get('quantity').valid && addEqform.get('quantity').touched"
+            style="margin-top: 3px; color:red; font-size: 12px;">Please Enter the Number of Items!</span>
           </div>
         </div>
         <div class="row">
           <div class="col">
             <label for="description"><b>Description</b></label>
             <textarea class="form-control" rows="4" id="description"
-                      placeholder="About the Item" style="resize:none;"></textarea>
-          </div>
-        </div>
-        <div class="row mt-3">
-          <div class="col">
-            <label for="addImg"><b>Add Images of the Equipment</b></label>
-            <button class="btn btn-outline-dark ml-4" style="width: 50%;">Click Here To Add Images</button>
-            <input type="file" accept="image/*" style="display: none;"
-                   multiple="false">
+                      placeholder="About the Item" style="resize:none;"
+                      [formControlName]="'description'"></textarea>
+                      <span *ngIf="!addEqform.get('description').valid && addEqform.get('description').touched"
+                      style="margin-top: 3px; color:red; font-size: 12px;">Please Enter the Description about item!</span>
           </div>
         </div>
       </div>
       <hr style="background-color: black;">
-      <button class="btn btn-success mb-3 mt-1">Add Equipment</button>
+      <button class="btn btn-success mb-3 mt-1" [disabled]="!addEqform.valid" type="submit">Add Equipment</button>
 
     </form>
 

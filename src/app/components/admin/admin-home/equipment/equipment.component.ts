@@ -17,7 +17,8 @@ export class EquipmentComponent implements OnInit {
 
   openAddEquipment() {
     this.bsModal.show(AddEquipmentComponent, {
-      class: 'modal-dialog-centered modal-lg'
+      ignoreBackdropClick:true,
+      class: 'modal-dialog-centered modal-md'
     })
   }
 

@@ -1,0 +1,29 @@
+<div class="formatting-modal fm">
+  <div class="modal-header">
+    <h4 class="modal-title"><b>Oops!</b></h4>
+    <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
+  </div>
+
+  <div class="modal-body">
+    <h6>Make sure to signup in Banger & Co Organization to Rent Vehicles!</h6>
+
+    <span style="font-size: 14px;">Click Here to Login! <a
+      style="text-decoration: none; color: rgba(221, 186, 29, 0.938); cursor: pointer;"
+      (click)="openLogin()">Login Here</a></span>
+      <br>
+    <span style="font-size: 14px;">Not a User at BANGER? <a
+      style="text-decoration: none; color: rgba(161, 89, 22, 0.938); cursor: pointer;"
+      (click)="openSignUp()">Sign Up Here</a></span>
+    <div class="modal-footer">
+      <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-danger" style="width: 90px;" (click)="hideForm()">Cancel</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

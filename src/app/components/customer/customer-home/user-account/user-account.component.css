@@ -1,6 +1,11 @@
 .contact-form {
   border-color: black;
-  background-color: beige;
+  /*background: rgba(148,187,233,1);*/
+  /*background: radial-gradient(circle, rgba(148,187,233,1) 0%, rgba(148,187,233,1) 100%);*/
+  background-color: rgb(198, 233, 212);
+  border-color: black;
+  border-style: double;
+  box-shadow: 10px 10px 25px black;
 }
 
 .contact-image {

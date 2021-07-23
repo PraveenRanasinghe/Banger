@@ -1,38 +1,42 @@
-<div class="container">
-  <div class="row mt-5 ml-4">
-    <div class="card" style="width: 21rem;">
-      <img src="https://www.lankabusinessonline.com/wp-content/uploads/2016/05/vehicle.jpg" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title">Range Rover</h5>
-        <p class="card-text">Super Luxuery Vehicle</p>
+<div class="row justify-content-center">
+  <h3 style="color: #130a02;"><b>Available Vehicles in our Organization!</b></h3>
+</div>
 
-        <div class="row">
-          <div class="col">
-            <a class="btn btn-primary" (click)="openUpdate()">Update Vehicle</a>
-          </div>
-          <div class="col">
-            <a class="btn btn-danger" (click)="openDelete()">Delete Vehicle</a>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-sm-4 mb-4" *ngFor="let vehicle of List">
+      <div class="card" style="width: 22rem;">
+        <img class="card-img-top" [src]="vehicle.vehicleImg" height="220px">
+        <div class="card-body">
+
+          <div class="row justify-content-center">
+            <label><b>Vehicle Model</b></label>
+         </div>
+
+        <div class="row justify-content-center">
+           <h2><b>{{vehicle.vehicleType}}</b></h2>
+        </div>
+
+        <div class="row justify-content-center">
+          <label><b>Price Per Day</b></label>
+       </div>
+
+      <div class="row justify-content-center">
+         <h3><b>RS:{{vehicle.pricePerDay}}.00</b></h3>
+      </div>
+
+
+          <div class="row mt-4">
+
+            <div class="col">
+              <a class="btn btn-outline-success" (click)="openUpdate(vehicle.vehicleId)">View Vehicle</a>
+            </div>
+            <div class="col">
+              <a class="btn btn-outline-danger" (click)="openDelete()">Delete Vehicle</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="card ml-3" style="width: 21rem;">
-      <img src="https://www.lankabusinessonline.com/wp-content/uploads/2016/05/vehicle.jpg" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title">Range Rover</h5>
-        <p class="card-text">Super Luxuery Vehicle</p>
-
-        <div class="row">
-          <div class="col">
-            <a class="btn btn-primary" (click)="openUpdate()">Update Vehicle</a>
-          </div>
-          <div class="col">
-            <a class="btn btn-danger" (click)="openDelete()">Delete Vehicle</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
   </div>
 </div>

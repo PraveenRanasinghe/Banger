@@ -1,17 +1,20 @@
 <div class="container ">
-  <div class="row">
-    <div class="contact-form mb-4" style="width: 750px;">
+    <div class="row justify-content-center">
+      <h3>Update Your Account Here!</h3>
+    </div>
+  <div class="row justify-content-center">
+    <div class="contact-form mb-4 mt-3" style="width: 750px; border-radius: 15px;">
       <div class="contact-image justify-content-center">
-        <i class="fas fa-user" style="font-size: 50px;"></i>
+        <i class="fas fa-user mt-4" style="font-size: 50px;"></i>
       </div>
       <form>
         <div class="row mt-4 mb-4">
           <div class="col ml-3">
-            <label><b>First Name:</b> <b style="color: red; font-size: larger;">#</b></label>
+            <label><b>First Name:</b> <b style="color: red; font-size: larger;">*</b></label>
             <input type="text" class="form-control" name="fName">
           </div>
           <div class="col mr-3">
-            <label><b>Last Name:</b><b style="color: red; font-size: larger;">#</b></label>
+            <label><b>Last Name:</b><b style="color: red; font-size: larger;">*</b></label>
             <input type="text" class="form-control" name="lName">
           </div>
         </div>
@@ -22,7 +25,7 @@
             <input type="email" class="form-control" name="email" [readonly]="true">
           </div>
           <div class="col mr-3">
-            <label><b>Contact Number</b><b style="color: red; font-size: larger;">#</b></label>
+            <label><b>Contact Number</b><b style="color: red; font-size: larger;">*</b></label>
             <input type="text" class="form-control" name="contactNum">
           </div>
         </div>

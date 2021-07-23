@@ -1,0 +1,6 @@
+.c2{
+  background: rgb(221,228,96);
+  background: radial-gradient(circle, rgba(221,228,96,1) 0%, rgba(246,245,195,1) 100%);
+  border-radius: 15px;
+  box-shadow: 10px 10px 25px black;
+}

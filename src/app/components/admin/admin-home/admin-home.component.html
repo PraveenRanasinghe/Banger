@@ -1,8 +1,8 @@
 <app-admin-nav></app-admin-nav>
-<app-bread-crumb [pageName]="'Admin-Home'"></app-bread-crumb>
+<app-page-position [pageName]="'Admin-Home'"></app-page-position>
 
 <div class="container">
-  <div class="row mt-5">
+  <div class="row mt-1">
     <div class="col-lg-4">
       <div class="card cb" style="width: 18rem; height: 8rem;" [routerLink]="['/admin','viewVehicle']"
            routerLinkActive="active">
@@ -77,8 +77,8 @@
     </div>
 
   </div>
-  <hr style="background-color: rgb(8, 8, 8);">
-  <div class="row mt-5 justify-content-center">
+  <hr class="mt-4" style="background-color: rgb(8, 8, 8);">
+  <div class="row justify-content-center">
     <router-outlet></router-outlet>
   </div>
 </div>

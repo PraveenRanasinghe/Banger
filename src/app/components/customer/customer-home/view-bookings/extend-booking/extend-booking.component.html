@@ -1,0 +1,50 @@
+<div class="formatting-modal fm">
+  <div class="modal-header">
+    <h4 class="modal-title">Your Booking in <b style="color: rgb(228, 134, 11);">BANGER & Co</b></h4>
+    <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
+  </div>
+
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <label><b>Booking Id</b></label>
+            <input class="form-control" type="text" readonly="true">
+          </div>
+          <div class="col">
+            <label><b>PickUp Date</b></label>
+            <input class="form-control" type="date">
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <label><b>PickUp Time</b></label>
+            <input class="form-control" type="time">
+          </div>
+          <div class="col">
+            <label><b>Return Date</b></label>
+            <input class="form-control" type="date">
+          </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+          <div class="col">
+            <label><b>Vehicle Type</b></label>
+            <input class="form-control" type="text">
+          </div>
+          <div class="col">
+            <label><b>Return Time</b></label>
+            <input class="form-control" type="time">
+          </div>
+        </div>
+      </div>
+      <hr style="background-color: black;">
+      <button class="btn btn-success mb-3 mt-1">Update Changes</button>
+
+    </form>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="hideForm()" style="width: 30%;">Close</button>
+    </div>
+  </div>
+</div>
