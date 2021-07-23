@@ -53,6 +53,7 @@ import { RemoveInqComponent } from './components/admin/admin-home/inquiry/view-m
 import { BangerVehiclesComponent } from './components/banger-vehicles/banger-vehicles.component';
 import { OpenBookingComponent } from './components/banger-vehicles/open-booking/open-booking.component';
 import { VmvUsersComponent } from './components/admin/admin-home/users/view-users/vmv-users/vmv-users.component';
+import { MyAccountComponent } from './components/admin/my-account/my-account.component';
 
 // @ts-ignore
 @NgModule({
@@ -101,6 +102,7 @@ import { VmvUsersComponent } from './components/admin/admin-home/users/view-user
     BangerVehiclesComponent,
     OpenBookingComponent,
     VmvUsersComponent,
+    MyAccountComponent,
 
   ],
   imports: [

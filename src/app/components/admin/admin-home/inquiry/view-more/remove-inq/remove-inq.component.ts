@@ -26,6 +26,7 @@ export class RemoveInqComponent implements OnInit {
     this.adminService.removeInquiry(this.inqId).subscribe((data)=>{
       console.log(data);
     })
+    this.hideForm();
   }
 
 }

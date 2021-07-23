@@ -29,6 +29,7 @@ export class UpdateDeleteComponent implements OnInit {
       this.List=data;
     })
   }
+
   openUpdate(vehicleId:number) {
    this.bsModalRef= this.bsModal.show(UpdateComponent, {
       class: 'modal-dialog-centered modal-lg',

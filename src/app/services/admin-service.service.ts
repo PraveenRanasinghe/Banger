@@ -79,6 +79,10 @@ export class AdminServiceService{
     return this.Http.delete("http://localhost:8080/admin/removeInquiry/"+inqId);
   }
 
+  removeEquipment(equipId:number){
+    return this.Http.delete("http://localhost:8080/admin/removeEquipment/"+equipId);
+  }
+
 
   getUserByID(email:string){
     return this.Http.get<any>("http://localhost:8080/admin/getSingleUser/"+email).pipe(map((item)=>{
@@ -129,4 +133,9 @@ export class AdminServiceService{
   getEquipmentById(equipId:number){
     return this.Http.get<any>("http://localhost:8080/admin/getSingleEquipment/"+equipId);
   }
+
+  getLoggedInUser(email:string){
+    return this.Http.get<any>("http://localhost:8080/admin/getLoggedInUser/"+email);
+  }
+
 }

@@ -39,10 +39,13 @@ export class UpdateDeleteEquipComponent implements OnInit {
     })
   }
 
-  openDeleteEquip() {
+  openDeleteEquip(equipmentId:number) {
     this.bsModalRef=this.bsModal.show(DeleteEquipComponent, {
       ignoreBackdropClick:true,
-      class: 'modal-dialog-centered'
+      class: 'modal-dialog-centered',
+      initialState:{
+        equipId:equipmentId
+      },
     })
   }
 }

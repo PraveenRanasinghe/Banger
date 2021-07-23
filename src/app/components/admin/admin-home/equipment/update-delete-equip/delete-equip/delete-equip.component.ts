@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {BsModalRef} from 'ngx-bootstrap/modal';
+import { AdminServiceService } from 'src/app/services/admin-service.service';
 
 @Component({
   selector: 'app-delete-equip',
@@ -8,7 +9,10 @@ import {BsModalRef} from 'ngx-bootstrap/modal';
 })
 export class DeleteEquipComponent implements OnInit {
 
-  constructor(private bsModal: BsModalRef) {
+  equipId:number;
+
+  constructor(private bsModal: BsModalRef,
+    private adminService:AdminServiceService) {
   }
 
   ngOnInit(): void {
@@ -16,5 +20,12 @@ export class DeleteEquipComponent implements OnInit {
 
   hideForm() {
     this.bsModal.hide();
+  }
+
+  removeSelectedEquipment(){
+    this.adminService.removeEquipment(this.equipId).subscribe((data)=>{
+      console.log(data);
+    })
+    this.hideForm();
   }
 }
