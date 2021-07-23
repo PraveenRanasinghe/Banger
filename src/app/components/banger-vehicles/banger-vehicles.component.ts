@@ -20,7 +20,6 @@ export class BangerVehiclesComponent implements OnInit {
 
   getAllVehicles(){
     this.guestService.viewVehicles().subscribe((data)=>{
-      console.log(data);
       this.List=data;
     })
   }
