@@ -4,40 +4,40 @@
     </div>
   <div class="row justify-content-center">
     <div class="contact-form mb-4 mt-3" style="width: 750px; border-radius: 15px;">
-      <div class="contact-image justify-content-center">
-        <i class="fas fa-user mt-4" style="font-size: 50px;"></i>
+      <div class="row justify-content-center">
+        <img  [src]="userInfo.profileImage"  height="200px;" width="200px;" style="border-radius: 150px;">
       </div>
       <form>
         <div class="row mt-4 mb-4">
           <div class="col ml-3">
             <label><b>First Name:</b> <b style="color: red; font-size: larger;">*</b></label>
-            <input type="text" class="form-control" name="fName">
+            <input type="text" class="form-control" name="fName" value="{{userInfo.fName}}">
           </div>
           <div class="col mr-3">
             <label><b>Last Name:</b><b style="color: red; font-size: larger;">*</b></label>
-            <input type="text" class="form-control" name="lName">
+            <input type="text" class="form-control" name="lName" value="{{userInfo.lName}}">
           </div>
         </div>
 
         <div class="row mt-4 mb-4">
           <div class="col ml-3">
             <label><b>Email:</b></label>
-            <input type="email" class="form-control" name="email" [readonly]="true">
+            <input type="email" class="form-control" name="email"  value="{{userInfo.email}}" [readonly]="true">
           </div>
           <div class="col mr-3">
             <label><b>Contact Number</b><b style="color: red; font-size: larger;">*</b></label>
-            <input type="text" class="form-control" name="contactNum">
+            <input type="text" class="form-control" name="contactNum" value="{{userInfo.contactNum}}">
           </div>
         </div>
 
         <div class="row mt-4 mb-4">
           <div class="col ml-3">
             <label><b>Age:</b></label>
-            <input type="text" class="form-control" name="age" [readonly]="true">
+            <input type="text" class="form-control" name="age" value="{{userInfo.dob}}" [readonly]="true">
           </div>
           <div class="col mr-3">
             <label><b>NIC Number</b></label>
-            <input type="text" class="form-control" name="nic" [readOnly]="true">
+            <input type="text" class="form-control" name="nic" value="{{userInfo.nicNumber}}" [readOnly]="true">
           </div>
         </div>
       </form>

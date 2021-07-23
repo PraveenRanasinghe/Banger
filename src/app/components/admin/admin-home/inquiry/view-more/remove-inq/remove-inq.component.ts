@@ -15,7 +15,6 @@ export class RemoveInqComponent implements OnInit {
   inqId:any;
 
   ngOnInit(): void {
-    this.removeSelectedInquiry();
     console.log(this.inqId);
   }
 

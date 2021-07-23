@@ -19,7 +19,7 @@ export class UserAccountComponent implements OnInit {
   }
 
   getLoggedInUser(){
-    this.userService.getLoggedInUser(this.email).subscribe((data)=>{
+    this.userService.getLoggedInUser(JSON.parse(sessionStorage.getItem("data")).email).subscribe((data)=>{
       console.log(data);
       this.userInfo=data;
     })

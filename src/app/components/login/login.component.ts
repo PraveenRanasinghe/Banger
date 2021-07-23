@@ -45,9 +45,10 @@ export class LoginComponent implements OnInit {
         (data: any) => {
           sessionStorage.setItem("jwttoken",data.token);
           console.log(data.token);
-          sessionStorage.setItem("data",JSON.stringify(data.token));
+          sessionStorage.setItem("data",JSON.stringify(data));
 
           console.log(data.userRole);
+          console.log(data.email);
 
           if(data.userRole=="Admin"){
             this.hideForm();

@@ -35,27 +35,48 @@
           </div>
           <div class="col">
             <label for="fuelType"><b>Fuel Type</b></label>
-            <input class="form-control" type="text" [formControlName]="'fuelType'" name="fuelType"  type="text">
+            <select class="form-control" type="text"  [formControlName]="'fuelType'" required="required">
+              <option selected> {{selectedVehicle.fuelType}}</option>
+              <option>Petrol</option>
+              <option>Diesel</option>
+            </select>
+            <!-- <input class="form-control" type="text" [formControlName]="'fuelType'" name="fuelType"  type="text"> -->
           </div>
           <div class="col">
             <label for="fuelType"><b>Price Per Day</b></label>
             <input class="form-control" type="text" name="pricePerDay" [formControlName]="'pricePerDay'"
               type="text">
+              <span *ngIf="!selectedVehicle.get('pricePerDay').valid && selectedVehicle.get('pricePerDay').touched"
+              style="margin-top: 3px; color:red; font-size: 12px;">Please Enter a valid Price!</span>
           </div>
         </div>
         <div class="row mt-3">
           <div class="col">
             <label for="transmission"><b>Transmission Type</b></label><br>
-            <input class="form-control" type="text" name="transmission" [formControlName]="'transmission'" type="text"
-               >
+            <select class="form-control" type="text"  [formControlName]="'transmission'" required="required">
+              <option selected> {{selectedVehicle.transmission}}</option>
+              <option>auto</option>
+              <option>manual</option>
+            </select>
+            <!-- <input class="form-control" type="text" name="transmission" [formControlName]="'transmission'" type="text"> -->
           </div>
           <div class="col">
             <label for="airbags"><b>Air Bags</b></label><br>
-            <input class="form-control" type="text" name="airbags" [formControlName]="'airbags'" type="text"  >
+            <select class="form-control" type="text"  [formControlName]="'airbags'" required="required">
+              <option selected> {{selectedVehicle.airbags}}</option>
+              <option>yes</option>
+              <option>no</option>
+            </select>
+            <!-- <input class="form-control" type="text" name="airbags" [formControlName]="'airbags'" type="text"  > -->
           </div>
           <div class="col">
             <label for="ac"><b>Air-Conditioned</b></label><br>
-            <input class="form-control" type="text" name="ac" [formControlName]="'ac'" type="text">
+            <select class="form-control" type="text"  [formControlName]="'ac'" required="required">
+              <option selected> {{selectedVehicle.ac}}</option>
+              <option>yes</option>
+              <option>no</option>
+            </select>
+            <!-- <input class="form-control" type="text" name="ac" [formControlName]="'ac'" type="text"> -->
           </div>
         </div>
 

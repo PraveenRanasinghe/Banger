@@ -1,35 +1,12 @@
-<!-- <div class="container">
-  <div class="row mt-5 ml-4" *ngFor="let equipment of List">
-    <div class="card ml-3 c2" style="width: 21rem;">
-      <div class="card-body">
-        <h5 class="card-title">{{equipment.itemName}}</h5>
-        <p class="card-text">RS:{{equipment.pricePerDayEQ}}</p>
-        <p class="card-text">{{equipment.itemDescription}}</p>
-        <div class="row">
-          <div class="col">
-            <a class="btn btn-primary" (click)="openUpdateEquip()">Update Item</a>
-          </div>
-          <div class="col">
-            <a class="btn btn-danger" (click)="openDeleteEquip()">Delete Item</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-  </div>
-</div> -->
-
-
 <div class="row justify-content-center">
   <h3 style="color: #130a02;"><b>Available Equipments in our Organization!</b></h3>
 </div>
 
   <div class="row" style="border-radius: 15px;">
     <div class="ml-5" style="width: 100%;">
-      <table class="table table-secondary" style="border-radius: 15px;">
+      <table class="table table-success" style="border-radius: 15px;">
         <thead class="justify-content-center">
-        <tr style="height: 70px; background-color: #f5a99d; font-size: larger">
+        <tr style="height: 70px; background-color: #dbf59d; font-size: larger">
           <th scope="col">#</th>
           <th scope="col">Item Name</th>
           <th scope="col">Price Per-Day</th>
@@ -50,9 +27,9 @@
 
           <td>{{equipment.quantity}}</td>
           <td></td>
-          <td class="btn btn-outline-primary mt-2" (click)="openUpdateEquip(equipment.equipmentId)">Update Item</td>
+          <td class="btn btn-outline-primary mt-2" (click)="openUpdateEquip(equipment.equipmentId)">Update<i class="fas fa-wrench ml-3"></i></td>
           <td></td>
-          <td class="btn btn-outline-danger mt-2" (click)="openDeleteEquip()">Remove Item</td>
+          <td class="btn btn-outline-danger mt-2" (click)="openDeleteEquip()">Remove<i class="fas fa-trash-alt ml-3"></i></td>
 
         </tr>
         </tbody>
