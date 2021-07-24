@@ -26,12 +26,17 @@ export class UpdateEquipComponent implements OnInit {
     this.getSelectedEquipment();
   }
 
+  reloadPage(){
+    window.location.reload();
+  }
+
   getSelectedEquipment() {
     this.adminService.getEquipmentById(this.equipId).subscribe((data) => {
       this.selectedEquipment = data;
       this.updateEquipmentForm.patchValue({
         pricePerDayEQ: data.pricePerDayEQ,
         itemDescription: data.itemDescription,
+        quantity:data.quantity,
       });
     });
   }
@@ -46,9 +51,11 @@ export class UpdateEquipComponent implements OnInit {
         this.updateEquipmentForm.get('pricePerDayEQ').value;
       const description: string =
         this.updateEquipmentForm.get('itemDescription').value;
+      const quantity :number=
+        this.updateEquipmentForm.get('quantity').value;
       console.log(pricePerDayEQ, description);
       this.adminService
-        .updateEquipmentDetails(this.equipId, pricePerDayEQ, description)
+        .updateEquipmentDetails(this.equipId, pricePerDayEQ, description,quantity)
         .subscribe((data) => {
           console.log(data);
           this.message='Equipment Details has been updated Successfully!'
@@ -76,6 +83,7 @@ export class UpdateEquipComponent implements OnInit {
     this.updateEquipmentForm = new FormGroup({
       pricePerDayEQ: new FormControl(null, Validators.required),
       itemDescription: new FormControl(null, Validators.required),
+      quantity:new FormControl(null,Validators.required)
     });
   }
 

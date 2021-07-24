@@ -107,11 +107,12 @@ export class AdminServiceService{
     return this.Http.put("http://localhost:8080/admin/updateVehicle/"+vehicleId,updateInfo);
   }
 
-  updateEquipmentDetails(equipmentId:number, pricePerDayEQ:string,itemDescription:string){
+  updateEquipmentDetails(equipmentId:number, pricePerDayEQ:string,itemDescription:string, quantity:number){
     const updateInfo={
       equipmentId:equipmentId,
       pricePerDayEQ:pricePerDayEQ,
-      itemDescription:itemDescription
+      itemDescription:itemDescription,
+      quantity:quantity
     }
     return this.Http.put("http://localhost:8080/admin/updateEquipment/"+equipmentId,updateInfo);
   }

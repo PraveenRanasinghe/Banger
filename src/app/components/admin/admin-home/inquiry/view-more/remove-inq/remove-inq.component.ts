@@ -29,4 +29,8 @@ export class RemoveInqComponent implements OnInit {
     this.hideForm();
   }
 
+  reloadPage(){
+    window.location.reload();
+  }
+
 }

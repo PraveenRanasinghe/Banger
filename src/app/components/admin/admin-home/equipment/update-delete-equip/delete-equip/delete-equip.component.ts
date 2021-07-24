@@ -28,4 +28,9 @@ export class DeleteEquipComponent implements OnInit {
     })
     this.hideForm();
   }
+
+  reloadPage(){
+    window.location.reload();
+  }
+
 }

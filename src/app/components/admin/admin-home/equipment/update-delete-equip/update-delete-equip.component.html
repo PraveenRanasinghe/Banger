@@ -10,21 +10,18 @@
           <th scope="col">#</th>
           <th scope="col">Item Name</th>
           <th scope="col">Price Per-Day</th>
-
           <th scope="col">Quantity</th>
           <th></th>
           <th scope="col">Update Item</th>
           <th></th>
           <th scope="col">Remove Item</th>
-
         </tr>
         </thead>
         <tbody>
         <tr style="font-size: medium; height: 70px;" *ngFor="let equipment of List">
           <td>{{$index+1|number}}</td>
           <td>{{equipment.itemName}}</td>
-          <td>RS:{{equipment.pricePerDayEQ}}</td>
-
+          <td>RS:{{equipment.pricePerDayEQ}}.00</td>
           <td>{{equipment.quantity}}</td>
           <td></td>
           <td class="btn btn-outline-primary mt-2" (click)="openUpdateEquip(equipment.equipmentId)">Update<i class="fas fa-wrench ml-3"></i></td>
