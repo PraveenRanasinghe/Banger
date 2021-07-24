@@ -13,6 +13,7 @@ export class MakeBookingComponent implements OnInit {
 
   bookingForm: FormGroup;
   message:string;
+  equipList:any;
 
   constructor(private modalRef: BsModalRef,
     private spinner: NgxSpinnerService,
@@ -21,6 +22,15 @@ export class MakeBookingComponent implements OnInit {
 
   ngOnInit(): void {
     this.bookingInfo();
+    this.getEquipmentListToModal();
+  }
+
+
+  getEquipmentListToModal(){
+    this.customerService.getEquipmentList().subscribe((data)=>{
+      console.log(data);
+      this.equipList=data;
+    })
   }
 
   bookingInfo(){

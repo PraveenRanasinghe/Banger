@@ -4,8 +4,8 @@
     </div>
   <div class="row justify-content-center">
     <div class="contact-form mb-4 mt-3" style="width: 750px; border-radius: 15px;">
-      <div class="row justify-content-center">
-        <img  [src]="userInfo.profileImage"  height="200px;" width="200px;" style="border-radius: 150px;">
+      <div class="row justify-content-center mt-3">
+        <img [src]="userInfo.profileImage"  height="200px;" width="200px;" style="border-radius: 150px; border-style: double;">
       </div>
       <form>
         <div class="row mt-4 mb-4">
@@ -36,8 +36,19 @@
             <input type="text" class="form-control" name="age" value="{{userInfo.dob}}" [readonly]="true">
           </div>
           <div class="col mr-3">
-            <label><b>NIC Number</b></label>
+            <label><b>License Number</b></label>
             <input type="text" class="form-control" name="nic" value="{{userInfo.nicNumber}}" [readOnly]="true">
+          </div>
+        </div>
+
+        <div class="row mt-4 mb-4">
+          <div class="col ml-3">
+            <label><b>Your License Image:</b></label>
+            <img [src]="userInfo.licenceImg"  height="200px;" width="300px;" style="border-color: black; border-style: double;">
+          </div>
+          <div class="col">
+            <label><b>Your Utility Bill:</b></label>
+            <img [src]="userInfo.utilityBill"  height="200px;" width="300px;" style="border-color: black; border-style: double;">
           </div>
         </div>
       </form>

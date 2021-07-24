@@ -22,6 +22,8 @@ export class UserAccountComponent implements OnInit {
     this.userService.getLoggedInUser(JSON.parse(sessionStorage.getItem("data")).email).subscribe((data)=>{
       console.log(data);
       data.profileImage=`data:image/jpeg;base64,${data.profileImage}`;
+      data.licenceImg=`data:image/jpeg;base64,${data.licenceImg}`;
+      data.utilityBill=`data:image/jpeg;base64,${data.utilityBill}`;
       this.userInfo=data;
     })
   }
