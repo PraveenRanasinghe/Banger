@@ -14,15 +14,18 @@ export class MakeBookingComponent implements OnInit {
   bookingForm: FormGroup;
   message:string;
   equipList:any;
+  userInfo:any;
 
   constructor(private modalRef: BsModalRef,
     private spinner: NgxSpinnerService,
     private customerService:UserServiceService) {
   }
 
+
   ngOnInit(): void {
     this.bookingInfo();
     this.getEquipmentListToModal();
+    this.getLoggedInUser();
   }
 
 
@@ -30,6 +33,13 @@ export class MakeBookingComponent implements OnInit {
     this.customerService.getEquipmentList().subscribe((data)=>{
       console.log(data);
       this.equipList=data;
+    })
+  }
+
+  getLoggedInUser(){
+    this.customerService.getLoggedInUser(JSON.parse(sessionStorage.getItem("data")).email).subscribe((data)=>{
+      console.log(data);
+      this.userInfo=data;
     })
   }
 
