@@ -12,7 +12,7 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
     </div>
 
   <div class="modal-body">
-    <input class="form-control" type="hidden" name ="vehicleId" value="{{selectedVehicle.vehicleId}}">
+    <!-- <input class="form-control" type="text" name ="vehicleId" value="{{selectedVehicle.vehicleId}}"> -->
 
     <form name="form" [formGroup]="bookingForm" (ngSubmit)="onBooking()">
 
@@ -54,7 +54,7 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
                 <th scope="col">#</th>
                 <th scope="col">Equipment Name</th>
                 <th scope="col">Price Per Day</th>
-                <th scope="col">Add</th>
+                <th scope="col">Add to Booking</th>
               </tr>
             </thead>
             <tbody>
@@ -70,7 +70,7 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
       </div>
     </div>
 
-    <button type="button" class="btn btn-success mt-4 mb-3 ml-4" [disabled]="!bookingForm.valid" style="width: 30%;">Make Booking</button>
+    <button type="submit" class="btn btn-success mt-4 mb-3 ml-4" [disabled]="!bookingForm.valid" style="width: 30%;">Make Booking</button>
 
     <div class="modal-footer">
       <button type="button" class="btn btn-danger" (click)="hideForm()" style="width: 30%;">Close</button>

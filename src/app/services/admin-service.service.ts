@@ -32,6 +32,8 @@ export class AdminServiceService{
       return this.Http.post("http://localhost:8080/admin/addVehicle",formData);
   }
 
+
+
   AddEquipment(itemName:string, pricePerDay:string,description:string,quantity:number){
     const equipmentInfo={
       itemName:itemName,

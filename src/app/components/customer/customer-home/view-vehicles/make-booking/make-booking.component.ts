@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import {Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap/modal';
@@ -50,6 +51,7 @@ export class MakeBookingComponent implements OnInit {
   getSelectedVehicle(){
     this.customerService.getVehicleById(this.vId).subscribe((data)=>{
       this.selectedVehicle=data;
+      console.log(this.vId);
     })
   }
 
@@ -63,22 +65,18 @@ export class MakeBookingComponent implements OnInit {
   onBooking(){
     try{
       this.message=undefined;
-      this.spinner.show();
-
-      if(this.bookingForm.valid){
         const pickupTime:string=this.bookingForm.get('pickupTime').value;
         const returnTime:string=this.bookingForm.get('returnTime').value;
-
-        this.customerService.userMakeABooking(this.selectedVehicle,pickupTime,returnTime,this.userInfo.email).subscribe(
+        console.log(this.userInfo.email);
+        this.customerService.userMakeABooking(this.selectedVehicle.vehicleId,this.userInfo.email,pickupTime,returnTime).subscribe(
           (data:any)=>{
             console.log(data);
             this.message='Booking Successfull!'
-            this.spinner.hide();
             this.bookingForm.reset();
           },
         )
       }
-    }
+
     catch(error){
       this.message = 'An Unexpected Error Occurred. Please Try Again !';
     }

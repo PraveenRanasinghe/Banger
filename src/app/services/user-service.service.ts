@@ -40,7 +40,8 @@ export class UserServiceService {
       pickupTime:pickupTime,
       returnTime:returnTime,
     }
-    return this.Http.post("http://localhost:8080/customer/makeBooking/"+vehicleId,makeBooking);
+    console.log(makeBooking);
+    return this.Http.post("http://localhost:8080/customer/makeBooking/",makeBooking);
   }
 
   viewVehicles(){
@@ -51,7 +52,6 @@ export class UserServiceService {
       return item;
     }))
   }
-
 
   getEquipmentList(){
     return this.Http.get<any>("http://localhost:8080/customer/getEquipmentList");
