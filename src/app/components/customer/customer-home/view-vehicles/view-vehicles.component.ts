@@ -27,10 +27,13 @@ export class ViewVehiclesComponent implements OnInit {
     })
   }
 
-  openBooking() {
+  openBooking(vehicleId:number) {
     this.bsModal.show(MakeBookingComponent, {
       ignoreBackdropClick:true,
-      class: 'modal-dialog-centered modal-lg'
+      class: 'modal-dialog-centered modal-lg',
+      initialState: {
+        vId:vehicleId
+      }
     })
   }
 }
