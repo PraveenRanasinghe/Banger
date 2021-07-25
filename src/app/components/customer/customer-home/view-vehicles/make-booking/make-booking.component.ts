@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap/modal';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { AdminServiceService } from 'src/app/services/admin-service.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
@@ -15,6 +16,8 @@ export class MakeBookingComponent implements OnInit {
   message:string;
   equipList:any;
   userInfo:any;
+  selectedVehicle:any;
+  vId:number;
 
   constructor(private modalRef: BsModalRef,
     private spinner: NgxSpinnerService,
@@ -26,6 +29,7 @@ export class MakeBookingComponent implements OnInit {
     this.bookingInfo();
     this.getEquipmentListToModal();
     this.getLoggedInUser();
+    this.getSelectedVehicle();
   }
 
 
@@ -40,6 +44,12 @@ export class MakeBookingComponent implements OnInit {
     this.customerService.getLoggedInUser(JSON.parse(sessionStorage.getItem("data")).email).subscribe((data)=>{
       console.log(data);
       this.userInfo=data;
+    })
+  }
+
+  getSelectedVehicle(){
+    this.customerService.getVehicleById(this.vId).subscribe((data)=>{
+      this.selectedVehicle=data;
     })
   }
 
