@@ -1,18 +1,18 @@
 <div class="formatting-modal fm">
-  <div class="modal-header">
+  <div class="modal-header" style="background-color: rgb(252, 252, 200);">
     <h4 class="modal-title"><b>Accept Booking</b></h4>
     <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
   </div>
 
   <div class="modal-body">
-    <h4>Are you Sure to Accept this Booking?</h4>
+    <h5>Are you Sure to Accept this Booking?</h5>
     <div class="modal-footer">
       <div class="row">
         <div class="col">
-          <button type="button" class="btn btn-success" style="width: 150px;">Accept Booking</button>
+          <button type="button" class="btn btn-outline-success" style="width: 150px;">Yes</button>
         </div>
         <div class="col">
-          <button type="button" class="btn btn-danger" style="width: 90px;" (click)="hideForm()">Close</button>
+          <button type="button" class="btn btn-outline-danger" style="width: 90px;" (click)="hideForm()">Close</button>
         </div>
       </div>
 

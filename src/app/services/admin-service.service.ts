@@ -55,6 +55,10 @@ export class AdminServiceService{
     return this.Http.get<any>("http://localhost:8080/admin/viewPendingUsers");
   }
 
+  viewAllPendingBookings(){
+    return this.Http.get<any>("http://localhost:8080/admin/viewAllBookings");
+  }
+
   viewAllUsers(){
     return this.Http.get<any>("http://localhost:8080/admin/viewAllUsers");
   }
