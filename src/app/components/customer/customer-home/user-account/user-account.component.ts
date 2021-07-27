@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
@@ -16,9 +17,14 @@ export class UserAccountComponent implements OnInit {
   liscenceImg: File;
   profileImage:File;
   utilityBill:File;
+  updateProfileForm:FormGroup
 
   ngOnInit(): void {
     this.getLoggedInUser();
+  }
+
+  onUpdateProfileDetails(){
+
   }
 
   getLoggedInUser(){
@@ -35,9 +41,6 @@ export class UserAccountComponent implements OnInit {
     this.liscenceImg = event.target.files[0];
   }
 
-  public onFileChangedToProfile(event) {
-    this.profileImage = event.target.files[0];
-  }
 
   public onFileChangedToUtility(event){
     this.utilityBill=event.target.files[0];

@@ -4,6 +4,8 @@ import { AdminServiceService } from 'src/app/services/admin-service.service';
 import {AcceptComponent} from './accept/accept.component';
 import {RejectComponent} from './reject/reject.component';
 import { UInfoComponent } from './u-info/u-info.component';
+import { ViewAcceptedBookingsComponent } from './view-accepted-bookings/view-accepted-bookings.component';
+import { ViewRejectedBookingsComponent } from './view-rejected-bookings/view-rejected-bookings.component';
 
 @Component({
   selector: 'app-booking',
@@ -50,6 +52,20 @@ export class BookingComponent implements OnInit {
       initialState: {
          userInfo:email
       },
+    })
+  }
+
+  viewAcceptedBookings(){
+    this.bsModal.show(ViewAcceptedBookingsComponent,{
+      ignoreBackdropClick:true,
+      class: 'modal-dialog-centered modal-xl'
+    })
+  }
+
+  viewRejectedBookings(){
+    this.bsModal.show(ViewRejectedBookingsComponent,{
+      ignoreBackdropClick:true,
+      class: 'modal-dialog-centered modal-xl'
     })
   }
 

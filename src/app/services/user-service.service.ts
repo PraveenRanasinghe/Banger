@@ -47,8 +47,9 @@ export class UserServiceService {
     formData.append('profileImage',profileImage);
     formData.append('utilityBill',utilityBill);
 
-    return this.Http.put("http://localhost:8080/customer/userUpdateProfile"+email,formData);
+    return this.Http.put("http://localhost:8080/customer/userUpdateProfile/"+email,formData);
   }
+
 
   userMakeABooking(vehicleId:number,email:string,pickupTime:string, returnTime:string){
     const makeBooking={

@@ -55,6 +55,8 @@ import { OpenBookingComponent } from './components/banger-vehicles/open-booking/
 import { VmvUsersComponent } from './components/admin/admin-home/users/view-users/vmv-users/vmv-users.component';
 import { MyAccountComponent } from './components/admin/my-account/my-account.component';
 import { UInfoComponent } from './components/admin/admin-home/booking/u-info/u-info.component';
+import { ViewAcceptedBookingsComponent } from './components/admin/admin-home/booking/view-accepted-bookings/view-accepted-bookings.component';
+import { ViewRejectedBookingsComponent } from './components/admin/admin-home/booking/view-rejected-bookings/view-rejected-bookings.component';
 
 // @ts-ignore
 @NgModule({
@@ -105,6 +107,8 @@ import { UInfoComponent } from './components/admin/admin-home/booking/u-info/u-i
     VmvUsersComponent,
     MyAccountComponent,
     UInfoComponent,
+    ViewAcceptedBookingsComponent,
+    ViewRejectedBookingsComponent,
 
   ],
   imports: [
