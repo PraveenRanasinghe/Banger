@@ -36,8 +36,8 @@
             <input type="text" class="form-control" name="age" value="{{userInfo.dob}}" [readonly]="true">
           </div>
           <div class="col mr-3">
-            <label><b>License Number</b></label>
-            <input type="text" class="form-control" name="nic" value="{{userInfo.nicNumber}}" [readOnly]="true">
+            <label><b>License Number</b><b style="color: red; font-size: larger;">*</b></label>
+            <input type="text" class="form-control" name="nic" value="{{userInfo.nicNumber}}">
           </div>
         </div>
 
@@ -45,11 +45,17 @@
           <div class="col ml-3">
             <label><b>Your License Image:</b></label>
             <img [src]="userInfo.licenceImg"  height="200px;" width="300px;" style="border-color: black; border-style: double;">
+            <label class="mt-3">Upload Your new License Image:<b style="color: red; font-size: larger;">*</b></label>
+            <input class="mt-2" type="file" accept="image/*" (change)="onFileChangedToLiscence($event)" multiple="false" [formControlName]="'licenceImg'">
           </div>
+
           <div class="col">
             <label><b>Your Utility Bill:</b></label>
             <img [src]="userInfo.utilityBill"  height="200px;" width="300px;" style="border-color: black; border-style: double;">
+            <label class="mt-3">Upload Your new Utility Bill:<b style="color: red; font-size: larger;">*</b></label>
+            <input class="mt-2" type="file" accept="image/*" (change)="onFileChangedToUtility($event)" multiple="false" [formControlName]="'utilityBill'">
           </div>
+
         </div>
       </form>
       <button class="btn btn-primary mb-3" style="width: 30%; margin-left: 35%;" type="submit"> Save Changes</button>

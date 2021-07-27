@@ -33,6 +33,23 @@ export class UserServiceService {
   }
 
 
+  updateUserProfile(email:string,fName:string,lName:string, contactNumber:string,nic:string,licenceImg:File,profileImage:File,utilityBill:File){
+    const updatedInfo={
+      email:email,
+      fName:fName,
+      lName:lName,
+      contactNum:contactNumber,
+      nicNumber:nic,
+    };
+    const formData : FormData= new FormData();
+    formData.append('',JSON.stringify(updatedInfo));
+    formData.append('licenceImg',licenceImg);
+    formData.append('profileImage',profileImage);
+    formData.append('utilityBill',utilityBill);
+
+    return this.Http.put("http://localhost:8080/customer/userUpdateProfile"+email,formData);
+  }
+
   userMakeABooking(vehicleId:number,email:string,pickupTime:string, returnTime:string){
     const makeBooking={
       vehicleId:vehicleId,

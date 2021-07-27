@@ -24,10 +24,10 @@ export class SignUpComponent implements OnInit {
   liscenceImg: File;
   profileImage:File;
   utilityBill:File;
-  retrievedImage: any;
-  base64Data: any;
-  retrieveResonse: any;
-  imageName: any;
+  // retrievedImage: any;
+  // base64Data: any;
+  // retrieveResonse: any;
+  // imageName: any;
 
   ngOnInit(): void {
     this.signupInfo();

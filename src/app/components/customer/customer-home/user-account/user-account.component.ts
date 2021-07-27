@@ -13,6 +13,9 @@ export class UserAccountComponent implements OnInit {
 
   userInfo:any;
   email:string;
+  liscenceImg: File;
+  profileImage:File;
+  utilityBill:File;
 
   ngOnInit(): void {
     this.getLoggedInUser();
@@ -27,5 +30,18 @@ export class UserAccountComponent implements OnInit {
       this.userInfo=data;
     })
   }
+
+  public onFileChangedToLiscence(event) {
+    this.liscenceImg = event.target.files[0];
+  }
+
+  public onFileChangedToProfile(event) {
+    this.profileImage = event.target.files[0];
+  }
+
+  public onFileChangedToUtility(event){
+    this.utilityBill=event.target.files[0];
+  }
+
 
 }
