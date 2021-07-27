@@ -74,7 +74,7 @@ export class SignUpComponent implements OnInit {
         this.userService.userRegistration(fName,lName,email,contactNumber,nicNumber,dob,password,this.liscenceImg,this.profileImage,this.utilityBill).subscribe(
           (data:any)=>{
 
-          this.message='You have been registered in our organization successfully! Your account is under verification process. You will be notify once it Done!';
+          this.message='You have been registered in our organization successfully! Now You can make Bookings in Our Organization!';
           this.signupForm.reset();
           },
           (error)=>{
@@ -91,7 +91,7 @@ export class SignUpComponent implements OnInit {
 
 
  getMessage(){
-    if (this.message === "You have been registered in our organization successfully! Your account is under verification process. You will be notify once it Done!") {
+    if (this.message === "You have been registered in our organization successfully! Now You can make Bookings in Our Organization!") {
       return "success";
     }
     else {

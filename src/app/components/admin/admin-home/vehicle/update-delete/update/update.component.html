@@ -1,6 +1,6 @@
 <div class="formatting-modal fm">
   <div class="modal-header">
-    <h4 class="modal-title">Update Vehicles In <b style="color: rgb(228, 134, 11);">BANGER</b></h4>
+    <h4 class="modal-title">Update Vehicles In <b style="color: rgb(228, 134, 11);">BANGER & Co</b></h4>
     <button type="button" (click)="hideForm();" (click)="reloadPage()" class="close float-right"><span>&times;</span></button>
   </div>
 
@@ -46,8 +46,8 @@
             <label for="fuelType"><b>Price Per Day</b></label>
             <input class="form-control" type="text" name="pricePerDay" [formControlName]="'pricePerDay'"
               type="text">
-              <!-- <span *ngIf="!selectedVehicle.get('pricePerDay').valid && selectedVehicle.get('pricePerDay').touched"
-              style="margin-top: 3px; color:red; font-size: 12px;">Please Enter a valid Price!</span> -->
+              <span *ngIf="!updateVehicleForm.get('pricePerDay').valid && updateVehicleForm.get('pricePerDay').touched"
+              style="margin-top: 3px; color:red; font-size: 12px;">Please Enter the hiring Price!</span>
           </div>
         </div>
         <div class="row mt-3">
@@ -58,6 +58,8 @@
               <option>auto</option>
               <option>manual</option>
             </select>
+            <span *ngIf="!updateVehicleForm.get('transmission').valid && updateVehicleForm.get('transmission').touched"
+            style="margin-top: 3px; color:red; font-size: 12px;">Please Select the Transmission Type</span>
             <!-- <input class="form-control" type="text" name="transmission" [formControlName]="'transmission'" type="text"> -->
           </div>
           <div class="col">
@@ -67,6 +69,8 @@
               <option>yes</option>
               <option>no</option>
             </select>
+            <span *ngIf="!updateVehicleForm.get('airbags').valid && updateVehicleForm.get('airbags').touched"
+            style="margin-top: 3px; color:red; font-size: 12px;">Please Select the Option!</span>
             <!-- <input class="form-control" type="text" name="airbags" [formControlName]="'airbags'" type="text"  > -->
           </div>
           <div class="col">
@@ -80,7 +84,7 @@
           </div>
         </div>
 
-        <button type="submit" class="btn btn-success mt-4" style="width: 40%;">Update Vehicle Details</button>
+        <button type="submit" class="btn btn-success mt-4" style="width: 40%;" [disabled]="!updateVehicleForm.valid">Update Vehicle Details</button>
       </div>
 
     </form>

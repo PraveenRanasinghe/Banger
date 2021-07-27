@@ -100,7 +100,8 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
         <div class="row mt-4">
           <div class="col">
             <label><b>Add Images of the Vehicle</b></label>
-            <input type="file" (change)="onFileChanged($event)" multiple="false"  [formControlName]="'vehicleImage'">
+            <input class="addBtn" type="file" (change)="onFileChanged($event)"    multiple="false"  [formControlName]="'vehicleImage'">
+            <span class="file-custom"></span>
           </div>
         </div>
 
