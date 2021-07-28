@@ -21,7 +21,7 @@ export class ViewRejectedBookingsComponent implements OnInit {
   }
 
   getAllBookings(){
-    this.adminService.viewAllPendingBookings().subscribe((data)=>{
+    this.adminService.viewAllRejectedBookings().subscribe((data)=>{
       console.log(data);
       this.List=data;
     })

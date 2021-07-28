@@ -10,7 +10,7 @@ import { AdminServiceService } from 'src/app/services/admin-service.service';
 export class UInfoComponent implements OnInit {
 
   constructor(private modalRef: BsModalRef,
-    private adminService:AdminServiceService,) { }
+    private adminService:AdminServiceService) { }
   acceptUserForm:any;
   selectedUser:any;
   message:string;

@@ -67,6 +67,7 @@ export class MakeBookingComponent implements OnInit {
       this.message=undefined;
         const pickupTime:string=this.bookingForm.get('pickupTime').value;
         const returnTime:string=this.bookingForm.get('returnTime').value;
+
         console.log(this.userInfo.email);
         this.customerService.userMakeABooking(this.selectedVehicle.vehicleId,this.userInfo.email,pickupTime,returnTime).subscribe(
           (data:any)=>{
