@@ -97,6 +97,14 @@ export class AdminServiceService{
     return this.Http.delete("http://localhost:8080/admin/removeEquipment/"+equipId);
   }
 
+  removeVehicle(vehicleId:number){
+    return this.Http.delete("http://localhost:8080/admin/removeVehicle/"+vehicleId);
+  }
+
+
+  removeUser(email:string){
+    return this.Http.delete("http://localhost:8080/admin/removeUser/"+email);
+  }
 
   getUserByID(email:string){
     return this.Http.get<any>("http://localhost:8080/admin/getSingleUser/"+email).pipe(map((item)=>{

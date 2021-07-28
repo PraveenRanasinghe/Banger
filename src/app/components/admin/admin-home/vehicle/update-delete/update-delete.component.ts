@@ -40,10 +40,13 @@ export class UpdateDeleteComponent implements OnInit {
     })
   }
 
-  openDelete() {
+  openDelete(vehicleId:number){
     this.bsModal.show(DeleteComponent, {
       class: 'modal-dialog-centered',
       ignoreBackdropClick:true,
+      initialState: {
+        vId:vehicleId
+      }
     })
   }
 

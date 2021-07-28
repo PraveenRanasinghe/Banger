@@ -43,8 +43,6 @@ export class UserServiceService {
     };
     const formData : FormData= new FormData();
     formData.append('',JSON.stringify(updatedInfo));
-    formData.append('licenceImg',licenceImg);
-    formData.append('profileImage',profileImage);
     formData.append('utilityBill',utilityBill);
 
     return this.Http.put("http://localhost:8080/customer/userUpdateProfile/"+email,formData);

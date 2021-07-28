@@ -29,6 +29,7 @@ export class AcceptComponent implements OnInit {
   getBookingById(){
     this.adminService.getBookingById(this.bookingId).subscribe((data)=>{
       console.log(data);
+      this.selectedBooking=data;
       this.acceptBookingForm.patchValue({
         'status':data.status
       })
