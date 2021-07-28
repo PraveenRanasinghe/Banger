@@ -32,11 +32,11 @@
         </div>
 
         <div class="row justify-content-center">
-          <label><b>Pickup Time:{{bookings.pickupTime}}</b></label>
+          <label><b>Pickup Time:{{bookings.pickupTime  | date:'short'}}</b></label>
        </div>
 
        <div class="row justify-content-center">
-        <label><b>Return Time: {{bookings.returnTime}}</b></label>
+        <label><b>Return Time: {{bookings.returnTime  | date:'short'}}</b></label>
        </div>
 
       <div class="row justify-content-center">

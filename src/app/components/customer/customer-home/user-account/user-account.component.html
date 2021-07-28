@@ -32,8 +32,8 @@
 
         <div class="row mt-4 mb-4">
           <div class="col ml-3">
-            <label><b>Age:</b></label>
-            <input type="text" class="form-control" name="age" value="{{userInfo.dob}}" [readonly]="true">
+            <label><b>Date of Birth:</b></label>
+            <input type="text" class="form-control" name="age" value="{{userInfo.dob  | date:'mediumDate'}}" [readonly]="true">
           </div>
           <div class="col mr-3">
             <label><b>License Number</b><b style="color: red; font-size: larger;">*</b></label>
