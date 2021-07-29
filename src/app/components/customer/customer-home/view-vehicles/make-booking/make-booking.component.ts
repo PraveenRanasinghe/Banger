@@ -62,6 +62,10 @@ export class MakeBookingComponent implements OnInit {
     })
   }
 
+  addEquipments(){
+
+  }
+
   onBooking(){
     try{
       this.message=undefined;

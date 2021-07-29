@@ -57,7 +57,7 @@ export class UserServiceService {
       returnTime:returnTime,
     }
     console.log(makeBooking);
-    return this.Http.post("http://localhost:8080/customer/makeBooking/",makeBooking);
+    return this.Http.post("http://localhost:8080/customer/makeBooking",makeBooking);
   }
 
   viewVehicles(){
