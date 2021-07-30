@@ -19,25 +19,19 @@ export class AcceptComponent implements OnInit {
   selectedBooking:any
 
   ngOnInit(): void {
-    this.getBookingById();
+    console.log(this.bookingId);
   }
 
   hideForm() {
     this.modalRef.hide();
   }
 
-  getBookingById(){
-    this.adminService.getBookingById(this.bookingId).subscribe((data)=>{
-      console.log(data);
-      this.selectedBooking=data;
-      this.acceptBookingForm.patchValue({
-        'status':data.status
-      })
-    })
+  reloadPage(){
+    window.location.reload();
   }
 
-  acceptBooking(bookingId:number){
-    this.adminService.acceptBooking(bookingId,'Accepted').subscribe(
+  acceptBooking(){
+    this.adminService.acceptBooking(this.bookingId).subscribe(
       (data:any)=>{
         console.log(data);
       }

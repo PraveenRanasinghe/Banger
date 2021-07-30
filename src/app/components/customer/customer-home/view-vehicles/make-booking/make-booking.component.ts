@@ -62,8 +62,8 @@ export class MakeBookingComponent implements OnInit {
     })
   }
 
-  addEquipments(){
-
+  getSelectedEquipments(){
+    this.customerService
   }
 
   onBooking(){

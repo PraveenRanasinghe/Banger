@@ -7,18 +7,16 @@
   <div class="modal-body">
     <h5>Are you Sure to Accept this Booking?</h5>
     <div class="modal-footer">
+
       <div class="row">
-        <form  >
         <div class="col">
-          <!-- <button type="button" class="btn btn-outline-success" (click)="acceptBooking(selectedBooking.bookingId)" style="width: 150px;">Yes</button> -->
+          <button type="button" class="btn btn-outline-success" (click)="acceptBooking()" (click)="reloadPage()" style="width: 150px;">Yes</button>
         </div>
         <div class="col">
           <button type="button" class="btn btn-outline-danger" style="width: 90px;" (click)="hideForm()">Close</button>
         </div>
-      </form>
+
       </div>
-
-
     </div>
   </div>
 </div>

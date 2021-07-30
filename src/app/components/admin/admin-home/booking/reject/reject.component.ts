@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {BsModalRef} from 'ngx-bootstrap/modal';
+import { AdminServiceService } from 'src/app/services/admin-service.service';
 
 @Component({
   selector: 'app-reject',
@@ -8,13 +9,28 @@ import {BsModalRef} from 'ngx-bootstrap/modal';
 })
 export class RejectComponent implements OnInit {
 
-  constructor(private modalRef: BsModalRef) {
+  constructor(private modalRef: BsModalRef,
+    private adminService:AdminServiceService) {
   }
+
+  bookingId:any;
 
   ngOnInit(): void {
   }
 
   hideForm() {
     this.modalRef.hide();
+  }
+
+  reloadPage(){
+    window.location.reload();
+  }
+
+  rejectBooking(){
+    this.adminService.rejectBooking(this.bookingId).subscribe(
+      (data:any)=>{
+        console.log(data);
+      }
+    )
   }
 }

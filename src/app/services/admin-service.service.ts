@@ -148,22 +148,19 @@ export class AdminServiceService{
     return this.Http.put("http://localhost:8080/admin/acceptUser/"+email,acceptingUserAccount);
   }
 
-  acceptBooking(bookingId:number, status:string){
+  acceptBooking(bookingId:number){
     const acceptBooking={
       bookingId:bookingId,
-      status:status
     }
-    return this.Http.put("http://localhost:8080/admin/acceptBooing/"+bookingId,acceptBooking);
+    return this.Http.post("http://localhost:8080/admin/acceptBooking",acceptBooking);
   }
 
 
-  rejectBooking(bookingId:number, status:string){
+  rejectBooking(bookingId:number){
     const rejectBooking={
       bookingId:bookingId,
-      status:status
     }
-
-    return this.Http.put("http://localhost:8080/admin/rejectBooing/"+bookingId,rejectBooking);
+    return this.Http.post("http://localhost:8080/admin/rejectBooing",rejectBooking);
   }
 
   getVehicleById(vId:number){

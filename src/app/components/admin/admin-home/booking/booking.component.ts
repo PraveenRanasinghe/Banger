@@ -42,10 +42,13 @@ export class BookingComponent implements OnInit {
     console.log(bookingId);
   }
 
-  openReject() {
+  openReject(bookingId:number) {
     this.bsModal.show(RejectComponent, {
       ignoreBackdropClick:true,
-      class: 'modal-dialog-centered'
+      class: 'modal-dialog-centered',
+      initialState: {
+        bookingId:bookingId
+     },
     })
   }
 
