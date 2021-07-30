@@ -85,5 +85,9 @@ export class UserServiceService {
     return this.Http.get<any>("http://localhost:8080/customer/getEquipment/"+equipId);
   }
 
+  getMyBookings(email:string){
+    return this.Http.get<any>("http://localhost:8080/customer/viewMyBookings/"+email);
+  }
+
 
 }

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { UserServiceService } from 'src/app/services/user-service.service';
 import { ExtendBookingComponent } from './extend-booking/extend-booking.component';
 
 @Component({
@@ -9,16 +10,29 @@ import { ExtendBookingComponent } from './extend-booking/extend-booking.componen
 })
 export class ViewBookingsComponent implements OnInit {
 
-  constructor(private bsModal: BsModalService) {
+  constructor(private bsModal: BsModalService,
+    private customerService :UserServiceService) {
   }
 
+  email:any;
+  List:any;
+  userInfo:any;
+
   ngOnInit(): void {
+    this.getMyBookings();
   }
 
   openExtendBooking() {
     this.bsModal.show(ExtendBookingComponent, {
       ignoreBackdropClick:true,
       class: 'modal-dialog-centered modal-lg'
+    })
+  }
+
+  getMyBookings(){
+    this.customerService.getMyBookings(JSON.parse(sessionStorage.getItem("data")).email).subscribe((data)=>{
+    console.log(data);
+    this.List=data;
     })
   }
 }
