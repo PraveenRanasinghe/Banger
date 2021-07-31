@@ -1,0 +1,52 @@
+  <div class="row mt-2 justify-content-center">
+    <div class="col-lg-4">
+      <a class="btn btn-outline-success" style="width: 300px;" (click)="viewAcceptedBookings()">View Collected Bookings<i class="far fa-check-circle ml-2"></i></a>
+    </div>
+    <div class="col-lg-4">
+      <a class="btn btn-outline-danger" style="width: 300px;" (click)=" viewRejectedBookings()">View Rejected Bookings<i class="far fa-times-circle ml-2"></i></a>
+    </div>
+    <div class="col-lg-4">
+      <a class="btn btn-outline-primary" style="width: 300px;">Requests to Extend Bookings<i class="far fa-times-circle ml-2"></i></a>
+    </div>
+  </div>
+
+<div class="row mt-5">
+  <form>
+    <div class="row" style="border-radius: 15px;">
+      <div>
+        <table class="table table-secondary" style="border-radius: 15px;">
+          <thead class="justify-content-center">
+          <tr style="background-color: #aae49e; font-size: larger">
+            <th scope="col">#</th>
+            <th scope="col">Booking Id</th>
+            <th scope="col">Pickup Time</th>
+            <th scope="col">Return Time</th>
+            <th scope="col">Vehicle Id</th>
+            <th scope="col">User Email</th>
+            <th scope="col">Change Status</th>
+            <th scope="col">Save Changes</th>
+
+          </tr>
+          </thead>
+          <tbody>
+          <tr style="font-size: medium;" *ngFor="let booking of List">
+            <td>{{$index+1|number}}</td>
+            <td>{{booking.bookingId}}</td>
+            <td>{{booking.pickupTime | date:'medium'}}</td>
+            <td>{{booking.returnTime  | date:'medium'}}</td>
+            <td>{{booking.vehicle.vehicleId}}</td>
+            <td>{{booking.email}}</td>
+            <td><select class="form-control" type="text" >
+              <option selected> {{booking.bookingStatus}}</option>
+              <option>Collected</option>
+              <option>Completed</option>
+            </select></td>
+            <td><a class="btn btn-outline-primary">Save Changes</a></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </form>
+</div>

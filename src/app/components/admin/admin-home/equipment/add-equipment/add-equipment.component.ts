@@ -33,8 +33,6 @@ export class AddEquipmentComponent implements OnInit {
   }
 
   onAddEquipment(){
-
-
       this.message=undefined;
       this.spinner.show();
 

@@ -140,6 +140,14 @@ export class AdminServiceService{
   }
 
 
+  updateBookingStatus(bookingStatus:string){
+    const updatedInfo={
+      bookingStatus:bookingStatus
+    }
+    return this.Http.put("http://localhost:8080/admin/updateBookingStatus",updatedInfo);
+  }
+
+
   acceptUserAccount(email:string, status:string){
     const acceptingUserAccount={
       email:email,

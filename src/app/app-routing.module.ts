@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {AboutUsComponent} from './components/about-us/about-us.component';
 import {AdminHomeComponent} from './components/admin/admin-home/admin-home.component';
+import { BookingOperationsComponent } from './components/admin/admin-home/booking/booking-operations/booking-operations.component';
 import {BookingComponent} from './components/admin/admin-home/booking/booking.component';
 import {EquipmentComponent} from './components/admin/admin-home/equipment/equipment.component';
 import {UpdateDeleteEquipComponent} from './components/admin/admin-home/equipment/update-delete-equip/update-delete-equip.component';
@@ -77,6 +78,10 @@ const routes: Routes = [
         path:'viewInquiries',
         component:InquiryComponent
       },
+      {
+        path:'bookingOperations',
+        component:BookingOperationsComponent
+      }
 
     ]
   },
