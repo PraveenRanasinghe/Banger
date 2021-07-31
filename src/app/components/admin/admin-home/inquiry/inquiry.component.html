@@ -1,4 +1,8 @@
-<div class="container">
+<div class="row justify-content-center">
+  <h3 style="color: #130a02;"><b>New Inquiries in our Organization!</b></h3>
+</div>
+
+<div class="container mt-3">
   <ngx-spinner [fullScreen]="false" bdColor="rgba(247, 250, 252)" color="#000000"></ngx-spinner>
   <div class="row">
     <div class="mb-5">
@@ -17,14 +21,14 @@
         </thead>
         <tbody>
         <tr style="height: 60px; font-size: large;"  *ngFor="let user of List">
-          <th scope="row">1</th>
+          <th scope="row"></th>
           <td>{{user.inquirerName}}</td>
           <td>{{user.inquirerEmail}}</td>
           <td>{{user.contactNum}}</td>
           <td></td>
-          <td class="btn btn-outline-primary mt-1" style="width: 170px;" (click)="openViewMore(user.inquiryId)">Info<i class="fas fa-info ml-2"></i></td>
+          <td class="btn btn-outline-primary mt-1" style="width: 170px; border-color: blue;" (click)="openViewMore(user.inquiryId)">Info<i class="fas fa-info ml-2"></i></td>
           <td></td>
-          <td class="btn btn-outline-danger mt-1 mr-2" style="width: 170px;" (click)="removeInquiy(user.inquiryId)">Remove<i class="fas fa-trash-alt ml-2"></i></td>
+          <td class="btn btn-outline-danger mt-1 mr-2" style="width: 170px; border-color: red;" (click)="removeInquiy(user.inquiryId)">Remove<i class="fas fa-trash-alt ml-2"></i></td>
         </tr>
         </tbody>
       </table>

@@ -1,5 +1,6 @@
+import { getLocaleDayNames } from '@angular/common';
 import {Component, OnInit} from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
@@ -14,17 +15,13 @@ export class UserAccountComponent implements OnInit {
 
   userInfo:any;
   email:string;
-  liscenceImg: File;
-  profileImage:File;
   utilityBill:File;
-  updateProfileForm:FormGroup
+  updateProfileForm:FormGroup;
+  message :any;
 
   ngOnInit(): void {
+    this.updateInfo();
     this.getLoggedInUser();
-  }
-
-  onUpdateProfileDetails(){
-
   }
 
   getLoggedInUser(){
@@ -34,17 +31,48 @@ export class UserAccountComponent implements OnInit {
       data.licenceImg=`data:image/jpeg;base64,${data.licenceImg}`;
       data.utilityBill=`data:image/jpeg;base64,${data.utilityBill}`;
       this.userInfo=data;
+      this.updateProfileForm.patchValue({
+        fName:data.fName,
+        lName:data.lName,
+        contactNum:data.contactNum,
+        utilityBill:data.utilityBill
+      })
     })
   }
 
-  public onFileChangedToLiscence(event) {
-    this.liscenceImg = event.target.files[0];
-  }
+  onUpdateProfileDetails(){
+    try{
+      this.message=undefined;
+      if(this.updateProfileForm.valid){
+        const fName:string=this. updateProfileForm.get('fName').value;
+        const lName : string=this. updateProfileForm.get('lName').value;
+        const contactNum : string=this. updateProfileForm.get('contactNum').value;
+        const utilityBill:File= this. updateProfileForm.get('utilityBill').value;
 
+        this.userService.updateUserProfile(fName,lName,contactNum,this.utilityBill).subscribe((data:any)=>{
+          this.message='You have been registered in our organization successfully! Now You can make Bookings in Our Organization!';
+
+        })
+      }
+
+    }
+    catch(error){
+
+    }
+  }
 
   public onFileChangedToUtility(event){
     this.utilityBill=event.target.files[0];
   }
 
+
+  updateInfo(){
+    this.updateProfileForm= new FormGroup({
+      fName:new FormControl(null, Validators.required),
+      lName:new FormControl(null, Validators.required),
+      contactNum: new  FormControl(null, Validators.required),
+      utilityBill: new FormControl(null, Validators.required)
+    });
+  }
 
 }

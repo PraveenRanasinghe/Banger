@@ -3,19 +3,23 @@
       <h3>Update Your Account Here!</h3>
     </div>
   <div class="row justify-content-center">
+    <form [formGroup]="updateProfileForm" (ngSubmit)="onUpdateProfileDetails()">
     <div class="contact-form mb-4 mt-3" style="width: 750px; border-radius: 15px;">
       <div class="row justify-content-center mt-3">
         <img [src]="userInfo.profileImage"  height="200px;" width="200px;" style="border-radius: 150px; border-style: double;">
       </div>
-      <form [formGroup]="updateProfileForm" (ngSubmit)="onUpdateProfileDetails()">
         <div class="row mt-4 mb-4">
           <div class="col ml-3">
             <label><b>First Name:</b> <b style="color: red; font-size: larger;">*</b></label>
-            <input type="text" class="form-control" name="fName"  value="{{userInfo.fName}}">
+            <input type="text" class="form-control" name="fName" [formControlName]="'fName'">
+            <span *ngIf="!updateProfileForm.get('fName').valid && updateProfileForm.get('fName').touched"
+            style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your First Name!</span>
           </div>
           <div class="col mr-3">
             <label><b>Last Name:</b><b style="color: red; font-size: larger;">*</b></label>
-            <input type="text" class="form-control" name="lName" value="{{userInfo.lName}}">
+            <input type="text" class="form-control" name="lName" [formControlName]="'lName'">
+            <span *ngIf="!updateProfileForm.get('lName').valid && updateProfileForm.get('lName').touched"
+            style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your Last Name!</span>
           </div>
         </div>
 
@@ -26,7 +30,9 @@
           </div>
           <div class="col mr-3">
             <label><b>Contact Number</b><b style="color: red; font-size: larger;">*</b></label>
-            <input type="text" class="form-control" name="contactNum" value="{{userInfo.contactNum}}">
+            <input type="text" class="form-control" name="contactNum" [formControlName]="'contactNum'">
+            <span *ngIf="!updateProfileForm.get('contactNum').valid && updateProfileForm.get('contactNum').touched"
+            style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your Contact Number!</span>
           </div>
         </div>
 
@@ -55,8 +61,9 @@
           </div>
         </div>
 
-      </form>
-      <button class="btn btn-primary mb-3" style="width: 30%; margin-left: 35%;" type="submit"> Save Changes</button>
+
+      <button class="btn btn-primary mb-3" style="width: 30%; margin-left: 35%;" type="submit" [disabled]="!updateProfileForm.valid"> Save Changes</button>
     </div>
+  </form>
   </div>
 </div>
