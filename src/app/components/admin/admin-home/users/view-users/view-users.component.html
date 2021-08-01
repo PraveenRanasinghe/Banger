@@ -1,3 +1,6 @@
+<div class="row justify-content-center mt-3 mb-4">
+  <a class="btn btn-outline-dark" style="width: 420px;">Click Here to View Black-Listed Users</a>
+</div>
 <div class="row justify-content-center">
   <h3 style="color: #130a02;"><b>Available Users in our Organization!</b></h3>
 </div>
@@ -14,7 +17,7 @@
           <th scope="col">Contact Number</th>
           <th scope="col">View Users</th>
           <th></th>
-          <th scope="col">Add to Black List</th>
+          <!-- <th scope="col">Add to Black List</th> -->
           <th></th>
           <th scope="col" class="ml-3">Remove User</th>
         </tr>
@@ -28,7 +31,7 @@
           <td>{{user.contactNum}}</td>
           <td class="btn btn-outline-primary mt-1 mb-1" style="width: 150px;" (click)="viewMore(user.email)">User Info <i class="fas fa-info ml-2"></i></td>
           <td></td>
-          <td class="btn btn-outline-dark mt-1 mb-1" (click)="addToBlackList()">Add To Black-List</td>
+          <!-- <td class="btn btn-outline-dark mt-1 mb-1" (click)="addToBlackList()">Add To Black-List</td> -->
           <td></td>
           <td class="btn btn-outline-danger mt-1 mb-1" (click)="removeUser(user.email)">Remove <i class="fas fa-trash-alt ml-2"></i></td>
         </tr>

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { UserServiceService } from 'src/app/services/user-service.service';
+import { BookingHistoryComponent } from './booking-history/booking-history.component';
 import { ExtendBookingComponent } from './extend-booking/extend-booking.component';
 
 @Component({
@@ -26,6 +27,13 @@ export class ViewBookingsComponent implements OnInit {
     this.bsModal.show(ExtendBookingComponent, {
       ignoreBackdropClick:true,
       class: 'modal-dialog-centered modal-lg'
+    })
+  }
+
+  bookingHistory(){
+    this.bsModal.show(BookingHistoryComponent, {
+      ignoreBackdropClick:true,
+      class: 'modal-dialog-centered modal-xl'
     })
   }
 
