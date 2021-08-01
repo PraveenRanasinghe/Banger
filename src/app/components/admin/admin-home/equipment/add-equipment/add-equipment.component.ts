@@ -22,7 +22,7 @@ export class AddEquipmentComponent implements OnInit {
   ngOnInit(): void {
     this.addEqform = new FormGroup({
       'itemName':new  FormControl(null, Validators.required),
-      'pricePerDayEQ':new  FormControl(null,Validators.required),
+      'pricePerDayEQ':new  FormControl(null, [Validators.required,Validators.pattern('^[0-9]*$')]),
       'description':new  FormControl(null,Validators.required),
       'quantity':new FormControl(null, Validators.required)
     })

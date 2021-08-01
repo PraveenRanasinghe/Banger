@@ -3,11 +3,11 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
 
 @Component({
-  selector: 'app-view-accepted-bookings',
-  templateUrl: './view-accepted-bookings.component.html',
-  styleUrls: ['./view-accepted-bookings.component.css']
+  selector: 'app-view-completed-bookings',
+  templateUrl: './view-completed-bookings.component.html',
+  styleUrls: ['./view-completed-bookings.component.css']
 })
-export class ViewAcceptedBookingsComponent implements OnInit {
+export class ViewCompletedBookingsComponent implements OnInit {
 
   constructor(private modalRef: BsModalRef,
 
@@ -21,7 +21,7 @@ export class ViewAcceptedBookingsComponent implements OnInit {
   }
 
   getAllBookings(){
-    this.adminService.viewAllCollectedBookings().subscribe((data)=>{
+    this.adminService.viewAllCompletedBookings().subscribe((data)=>{
       console.log(data);
       this.List=data;
     })

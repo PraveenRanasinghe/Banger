@@ -1,16 +1,25 @@
   <div class="row mt-2 justify-content-center">
-    <div class="col-lg-4">
-      <a class="btn btn-outline-success" style="width: 300px;" (click)="viewAcceptedBookings()">View Collected Bookings<i class="far fa-check-circle ml-2"></i></a>
+    <div class="col-lg-3">
+      <a class="btn btn-success" style="width: 200px;" (click)="viewAcceptedBookings()">View Collected Bookings<i class="far fa-check-circle ml-2"></i></a>
     </div>
-    <div class="col-lg-4">
-      <a class="btn btn-outline-danger" style="width: 300px;" (click)=" viewRejectedBookings()">View Rejected Bookings<i class="far fa-times-circle ml-2"></i></a>
+    <div class="col-lg-3">
+      <a class="btn btn-warning" style="width: 200px;" (click)="viewCompletedBookings()">View Completed Bookings<i class="far fa-check-circle ml-2"></i></a>
     </div>
-    <div class="col-lg-4">
-      <a class="btn btn-outline-primary" style="width: 300px;">Requests to Extend Bookings<i class="far fa-times-circle ml-2"></i></a>
+    <div class="col-lg-3">
+      <a class="btn btn-danger" style="width: 200px;" (click)=" viewRejectedBookings()">View Rejected Bookings<i class="far fa-times-circle ml-2"></i></a>
+    </div>
+    <div class="col-lg-3">
+      <a class="btn btn-primary" style="width: 200px;">Requests to Extend Bookings<i class="far fa-times-circle ml-2"></i></a>
     </div>
   </div>
 
-<div class="row mt-5">
+  <div class="mt-5 mb-3">
+    <div class="row justify-content-center">
+      <h4><u><i>You can Change the Booking Status according to the Current Booking Stage!</i></u></h4>
+    </div>
+  </div>
+
+<div class="row mt-4 mb-4">
   <form>
     <div class="row" style="border-radius: 15px;">
       <div>
@@ -36,12 +45,13 @@
             <td>{{booking.returnTime  | date:'medium'}}</td>
             <td>{{booking.vehicle.vehicleId}}</td>
             <td>{{booking.email}}</td>
-            <td><select class="form-control" type="text" >
+            <td><select class="form-control" #ChangeStatus type="text" >
               <option selected> {{booking.bookingStatus}}</option>
               <option>Collected</option>
+              <option>Not-Collected</option>
               <option>Completed</option>
             </select></td>
-            <td><a class="btn btn-outline-primary">Save Changes</a></td>
+            <td><a class="btn btn-outline-primary" (click)="saveBookingStatus(booking.bookingId, ChangeStatus.value)" (click)="reloadPage()">Save Changes</a></td>
           </tr>
           </tbody>
         </table>

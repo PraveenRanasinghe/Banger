@@ -63,6 +63,14 @@ export class AdminServiceService{
     return this.Http.get("http://localhost:8080/admin/viewAcceptedBookings");
   }
 
+  viewAllCollectedBookings(){
+    return this.Http.get("http://localhost:8080/admin/viewCollectedBookings");
+  }
+
+  viewAllCompletedBookings(){
+    return this.Http.get("http://localhost:8080/admin/viewCompletedBookings");
+  }
+
   viewAllRejectedBookings(){
     return this.Http.get("http://localhost:8080/admin/viewRejectedBookings");
   }
@@ -140,10 +148,12 @@ export class AdminServiceService{
   }
 
 
-  updateBookingStatus(bookingStatus:string){
+  updateBookingStatus(bookingId:number,bookingStatus:string){
     const updatedInfo={
-      bookingStatus:bookingStatus
+      status:bookingStatus,
+      bookingId:bookingId
     }
+    console.log(updatedInfo)
     return this.Http.put("http://localhost:8080/admin/updateBookingStatus",updatedInfo);
   }
 

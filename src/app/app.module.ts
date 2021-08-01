@@ -58,6 +58,7 @@ import { UInfoComponent } from './components/admin/admin-home/booking/u-info/u-i
 import { ViewAcceptedBookingsComponent } from './components/admin/admin-home/booking/view-accepted-bookings/view-accepted-bookings.component';
 import { ViewRejectedBookingsComponent } from './components/admin/admin-home/booking/view-rejected-bookings/view-rejected-bookings.component';
 import { BookingOperationsComponent } from './components/admin/admin-home/booking/booking-operations/booking-operations.component';
+import { ViewCompletedBookingsComponent } from './components/admin/admin-home/booking/view-completed-bookings/view-completed-bookings.component';
 
 // @ts-ignore
 @NgModule({
@@ -111,6 +112,7 @@ import { BookingOperationsComponent } from './components/admin/admin-home/bookin
     ViewAcceptedBookingsComponent,
     ViewRejectedBookingsComponent,
     BookingOperationsComponent,
+    ViewCompletedBookingsComponent,
 
   ],
   imports: [
