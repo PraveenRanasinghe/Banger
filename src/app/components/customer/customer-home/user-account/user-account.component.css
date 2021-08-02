@@ -1,8 +1,6 @@
 .contact-form {
   border-color: black;
-  background: rgb(172, 224, 198);
-  background: radial-gradient(circle, rgb(148, 233, 215) 0%, rgb(0, 236, 126) 100%);
-  /* background-color: rgb(63, 247, 136); */
+
   border-color: black;
   border-style: double;
   box-shadow: 10px 10px 25px black;

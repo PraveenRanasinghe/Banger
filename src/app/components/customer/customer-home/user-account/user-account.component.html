@@ -51,7 +51,8 @@
           <div class="col ml-3">
             <label><b>Your License Image:</b></label>
             <img [src]="userInfo.licenceImg"  height="200px;" width="300px;" style="border-color: black; border-style: double;">
-
+            <label class="mt-3">Upload Your new Licence Image:<b style="color: red; font-size: larger;">*</b></label>
+            <input type="file" accept="image/*" (change)="onFileChangedToLiscence($event)" multiple="false" [formControlName]="'licenceImg'">
           </div>
           <div class="col">
             <label><b>Your Utility Bill:</b></label>
@@ -61,8 +62,13 @@
           </div>
         </div>
 
+        <div class="mt-4 mb-4" *ngIf="message">
+          <div class="row justify-content-center">
+            <alert class="alert" style="background-color: rgb(159, 250, 117); font-weight: 650;" [type]="getMessage()" [dismissible]="true"><span [innerHtml]="message"></span></alert>
+          </div>
+          </div>
 
-      <button class="btn btn-primary mb-3" style="width: 30%; margin-left: 35%;" type="submit" [disabled]="!updateProfileForm.valid"> Save Changes</button>
+      <button class="btn btn-outline-primary mb-4 mt-3" style="width: 30%; margin-left: 35%;" type="submit" [disabled]="!updateProfileForm.valid"> Save Changes</button>
     </div>
   </form>
   </div>

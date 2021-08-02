@@ -16,6 +16,7 @@ export class UserAccountComponent implements OnInit {
   userInfo:any;
   email:string;
   utilityBill:File;
+  licenceImg:File;
   updateProfileForm:FormGroup;
   message :any;
 
@@ -35,29 +36,36 @@ export class UserAccountComponent implements OnInit {
         fName:data.fName,
         lName:data.lName,
         contactNum:data.contactNum,
-        utilityBill:data.utilityBill
+        utilityBill:data.utilityBill,
+        licenceImg:data.licenceImg
       })
     })
   }
 
   onUpdateProfileDetails(){
-    try{
+
       this.message=undefined;
       if(this.updateProfileForm.valid){
         const fName:string=this. updateProfileForm.get('fName').value;
         const lName : string=this. updateProfileForm.get('lName').value;
         const contactNum : string=this. updateProfileForm.get('contactNum').value;
         const utilityBill:File= this. updateProfileForm.get('utilityBill').value;
+        const licenceImg:File= this.updateProfileForm.get('licenceImg').value;
 
-        this.userService.updateUserProfile(fName,lName,contactNum,this.utilityBill).subscribe((data:any)=>{
-          this.message='You have been registered in our organization successfully! Now You can make Bookings in Our Organization!';
+        this.userService.updateUserProfile(JSON.parse(sessionStorage.getItem("data")).email,fName,lName,contactNum,this.utilityBill, this.licenceImg).subscribe((data:any)=>{
+          console.log(data);
+          this.message='Your Account has been Updated Successfully!';
 
         })
       }
+  }
 
+  getMessage(){
+    if (this.message === "Your Account has been Updated Successfully!") {
+      return "success";
     }
-    catch(error){
-
+    else {
+      return "danger";
     }
   }
 
@@ -65,13 +73,17 @@ export class UserAccountComponent implements OnInit {
     this.utilityBill=event.target.files[0];
   }
 
+  public onFileChangedToLiscence(event) {
+    this.licenceImg = event.target.files[0];
+  }
 
   updateInfo(){
     this.updateProfileForm= new FormGroup({
       fName:new FormControl(null, Validators.required),
       lName:new FormControl(null, Validators.required),
       contactNum: new  FormControl(null, Validators.required),
-      utilityBill: new FormControl(null, Validators.required)
+      utilityBill : new FormControl(null),
+      licenceImg: new FormControl(null)
     });
   }
 
