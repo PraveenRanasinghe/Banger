@@ -25,7 +25,7 @@
           <td>{{myBookings.returnTime  | date:'short'}}</td>
           <td>{{myBookings.vehicle.vehicleType}}</td>
           <td>{{myBookings.bookingStatus}}</td>
-          <td class="btn btn-outline-primary mt-2 mb-2" (click)="openExtendBooking()" style="width: 150px; border-color: black;">Extend Booking</td>
+          <td class="btn btn-outline-primary mt-2 mb-2" (click)="openExtendBooking(myBookings.bookingId)" style="width: 150px; border-color: black;">Extend Booking</td>
         </tr>
         </tbody>
       </table>

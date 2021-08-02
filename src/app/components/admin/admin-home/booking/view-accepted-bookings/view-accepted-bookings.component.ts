@@ -27,6 +27,16 @@ export class ViewAcceptedBookingsComponent implements OnInit {
     })
   }
 
+  saveBookingStatus(bookingId:number, ChangeStatus:string){
+    this.adminService.updateBookingStatus(bookingId,ChangeStatus).subscribe((data)=>{
+      console.log(data);
+    })
+  }
+
+  reloadPage(){
+    window.location.reload();
+  }
+
   hideForm() {
     this.modalRef.hide();
   }

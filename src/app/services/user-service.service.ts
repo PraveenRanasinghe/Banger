@@ -97,10 +97,9 @@ export class UserServiceService {
     return this.Http.get<any>("http://localhost:8080/customer/viewMyPreviousBookings/"+email);
   }
 
-  requestLateReturn(bookingId:number, isLateReturn:string){
+  requestLateReturn(bookingId:number){
     const requestLateReturn={
         bookingId:bookingId,
-        isLateReturn:isLateReturn
     }
     return this.Http.put("http://localhost:8080/customer/requestLateReturn",requestLateReturn);
   }

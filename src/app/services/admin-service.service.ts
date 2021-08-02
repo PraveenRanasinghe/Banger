@@ -75,6 +75,10 @@ export class AdminServiceService{
     return this.Http.get("http://localhost:8080/admin/viewRejectedBookings");
   }
 
+  viewAllExtendRequestedBookings(){
+    return this.Http.get("http://localhost:8080/admin/viewExtendRequestedBookings");
+  }
+
   viewAllUsers(){
     return this.Http.get<any>("http://localhost:8080/admin/viewAllUsers");
   }

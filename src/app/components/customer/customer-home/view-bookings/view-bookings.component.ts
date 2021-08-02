@@ -23,10 +23,13 @@ export class ViewBookingsComponent implements OnInit {
     this.getMyBookings();
   }
 
-  openExtendBooking() {
+  openExtendBooking(bookingId:number) {
     this.bsModal.show(ExtendBookingComponent, {
       ignoreBackdropClick:true,
-      class: 'modal-dialog-centered'
+      class: 'modal-dialog-centered',
+      initialState:{
+        bookingId:bookingId
+      }
     })
   }
 
