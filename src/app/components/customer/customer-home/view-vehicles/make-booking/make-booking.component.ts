@@ -20,6 +20,7 @@ export class MakeBookingComponent implements OnInit {
   selectedVehicle:any;
   vId:number;
 
+
   constructor(private modalRef: BsModalRef,
     private spinner: NgxSpinnerService,
     private customerService:UserServiceService) {
@@ -59,6 +60,7 @@ export class MakeBookingComponent implements OnInit {
     this.bookingForm=new FormGroup({
       'pickupTime':new FormControl('', Validators.required),
       'returnTime':new FormControl('', Validators.required),
+      'equipment': new FormControl(''),
     })
   }
 
@@ -71,9 +73,23 @@ export class MakeBookingComponent implements OnInit {
       this.message=undefined;
         const pickupTime:string=this.bookingForm.get('pickupTime').value;
         const returnTime:string=this.bookingForm.get('returnTime').value;
+        let filter=null;
+
+     if(this.bookingForm.value.equipment!=null){
+       filter = this.bookingForm.value.equipment
+        .map((eachID)=>{
+          console.log(eachID);
+          return {equipmentId:Number.parseInt(eachID)};
+        })
+    }
 
         console.log(this.userInfo.email);
-        this.customerService.userMakeABooking(this.selectedVehicle.vehicleId,this.userInfo.email,pickupTime,returnTime).subscribe(
+        this.customerService.userMakeABooking({
+          vehicleId: this.selectedVehicle.vehicleId,
+          email:this.userInfo.email,
+          pickupTime:pickupTime,
+          returnTime:returnTime,
+          equipments:filter}).subscribe(
           (data:any)=>{
             console.log(data);
             this.message='Booking Successfull!'

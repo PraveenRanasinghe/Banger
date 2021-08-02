@@ -48,17 +48,21 @@ export class UserServiceService {
     return this.Http.put("http://localhost:8080/customer/userUpdateProfile",formData);
   }
 
+  userMakeABooking(makeBooking: {
+    vehicleId: number,
+    email: string,
+    pickupTime: string,
+    returnTime: string,
+    equipments: [{
+      equipmentId: number
+    }]
+  },)
+  {
 
-  userMakeABooking(vehicleId:number,email:string,pickupTime:string, returnTime:string){
-    const makeBooking={
-      vehicleId:vehicleId,
-      email:email,
-      pickupTime:pickupTime,
-      returnTime:returnTime,
-    }
-    console.log(makeBooking);
-    return this.Http.post("http://localhost:8080/customer/makeBooking",makeBooking);
+    return this.Http.post("http://localhost:8080/customer/makeBooking", makeBooking);
   }
+
+
 
   viewVehicles(){
     return this.Http.get<any>("http://localhost:8080/customer/viewAllVehicles").pipe(map((item)=>{

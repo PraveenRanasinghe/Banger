@@ -45,24 +45,13 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
       <div class="col">
         <label>Select Additional Equipments(If Needed):</label>
         <div class="col" style="height: 300px; overflow:scroll;">
-          <table class="table table-info">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Equipment Name</th>
-                <th scope="col">Price Per Day</th>
-                <th scope="col">Add to Booking</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let equipment of equipList">
-                <th scope="row"></th>
-                <td>{{equipment.itemName}}</td>
-                <td>Rs:{{equipment.pricePerDayEQ}}.00</td>
-                <td class="mt-1 mb-1"><input class="form-check-input ml-5" type="checkbox" value="{{equipment.equipmentId}}" id="flexCheckDefault"></td>
-              </tr>
-            </tbody>
-          </table>
+
+              <select multiple class="form-control" [formControlName]="'equipment'">
+              <option *ngFor="let equipment of equipList"  value="{{equipment.equipmentId}}">
+                 {{equipment.itemName}}
+                Rs:{{equipment.pricePerDayEQ}}.00
+              </option>
+            </select>
         </div>
       </div>
     </div>
