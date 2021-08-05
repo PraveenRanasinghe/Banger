@@ -19,6 +19,17 @@ export class MakeBookingComponent implements OnInit {
   userInfo:any;
   selectedVehicle:any;
   vId:number;
+  pTime:any;
+  rTime:any;
+  timeDifference:any;
+  timeDif:any;
+
+
+  pickupTime:string
+  returnTime:string
+
+  totalCostOfEquipments:number=0;
+  totalCostOfVehicle:number=0;
 
 
   constructor(private modalRef: BsModalRef,
@@ -27,11 +38,30 @@ export class MakeBookingComponent implements OnInit {
   }
 
 
+  getPickupTime(pickupTime){
+     this.pTime=new Date(pickupTime);
+     this.calculateRentalDuarion();
+  }
+
+  getReturnTime(returnTime){
+   this.rTime=new Date(returnTime);
+   this.calculateRentalDuarion();
+  }
+
+
+  calculateRentalDuarion(){
+    this.timeDifference=(this.rTime.getTime()-this.pTime.getTime()) / 3600000;
+     this.timeDif=new Date(this.timeDifference).getUTCFullYear();
+    console.log(this.timeDif);
+     Math.abs(this.timeDif-1970)
+  }
+
   ngOnInit(): void {
     this.bookingInfo();
     this.getEquipmentListToModal();
     this.getLoggedInUser();
     this.getSelectedVehicle();
+    this.calculateRentalDuarion();
   }
 
 
@@ -58,8 +88,8 @@ export class MakeBookingComponent implements OnInit {
 
   bookingInfo(){
     this.bookingForm=new FormGroup({
-      'pickupTime':new FormControl('', Validators.required),
-      'returnTime':new FormControl('', Validators.required),
+      'pickupTime':new FormControl(new Date(), Validators.required),
+      'returnTime':new FormControl(new Date(), Validators.required),
       'equipment': new FormControl(''),
       'price':new FormControl('')
     })
@@ -68,6 +98,13 @@ export class MakeBookingComponent implements OnInit {
   getSelectedEquipments(){
     this.customerService
   }
+
+  getPrice(equipment){
+    console.log(equipment);
+  }
+
+
+
 
   onBooking(){
     try{
