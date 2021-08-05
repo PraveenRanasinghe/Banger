@@ -53,6 +53,7 @@ export class UserServiceService {
     email: string,
     pickupTime: string,
     returnTime: string,
+    price:string,
     equipments: [{
       equipmentId: number
     }]

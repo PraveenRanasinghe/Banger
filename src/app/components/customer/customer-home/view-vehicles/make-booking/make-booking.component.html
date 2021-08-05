@@ -56,9 +56,17 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
         </div>
       </div>
 
+      <div class="row mt-3">
+        <div class="col" style="font-weight: 700;">
+          <label>Total Amount of the Booking:</label>
+
+          <input type="text"  class="form-control" [formControlName]="'price'" name="price" reado nly>
+        </div>
+
+      </div>
 
 
-    <button type="submit" class="btn btn-success mt-4 mb-3 ml-4" [disabled]="!bookingForm.valid" style="width: 30%;">Make Booking</button>
+    <button type="submit" class="btn btn-success mt-4 mb-3 ml-4" [disabled]="!bookingForm.valid" style="width: 40%;">Confirm Booking</button>
 
     <div class="modal-footer">
       <button type="button" class="btn btn-danger" (click)="hideForm()" style="width: 30%;">Close</button>

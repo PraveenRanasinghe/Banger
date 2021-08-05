@@ -61,6 +61,7 @@ export class MakeBookingComponent implements OnInit {
       'pickupTime':new FormControl('', Validators.required),
       'returnTime':new FormControl('', Validators.required),
       'equipment': new FormControl(''),
+      'price':new FormControl('')
     })
   }
 
@@ -73,6 +74,7 @@ export class MakeBookingComponent implements OnInit {
       this.message=undefined;
         const pickupTime:string=this.bookingForm.get('pickupTime').value;
         const returnTime:string=this.bookingForm.get('returnTime').value;
+        const price :string= this.bookingForm.get('price').value;
         let filter=null;
 
      if(this.bookingForm.value.equipment!=null){
@@ -89,6 +91,7 @@ export class MakeBookingComponent implements OnInit {
           email:this.userInfo.email,
           pickupTime:pickupTime,
           returnTime:returnTime,
+          price:price,
           equipments:filter}).subscribe(
           (data:any)=>{
             console.log(data);
