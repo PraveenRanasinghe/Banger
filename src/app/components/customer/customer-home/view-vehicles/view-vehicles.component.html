@@ -5,15 +5,15 @@
   </div>
 
     <div class="row justify-content-center mt-1">
-      <form>
+      <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
         <div class="row">
         <div class="col">
           <label><b>PickUp Time </b></label>
-          <input class="form-control me-2" type="datetime-local">
+          <input class="form-control me-2" type="datetime-local" [formControlName]="'pickupTime'">
         </div>
        <div class="col">
         <label><b>Return Time</b></label>
-        <input class="form-control me-2" type="datetime-local">
+        <input class="form-control me-2" type="datetime-local" [formControlName]="'returnTime'">
        </div>
       </div>
       <div class="row justify-content-center mt-4">

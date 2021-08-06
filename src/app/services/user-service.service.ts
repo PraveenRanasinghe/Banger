@@ -53,7 +53,7 @@ export class UserServiceService {
     email: string,
     pickupTime: string,
     returnTime: string,
-    price:string,
+
     equipments: [{
       equipmentId: number
     }]
@@ -103,6 +103,16 @@ export class UserServiceService {
         bookingId:bookingId,
     }
     return this.Http.put("http://localhost:8080/customer/requestLateReturn",requestLateReturn);
+  }
+
+  searchVehicleByPickupTimeAndReturnTime(pickupTime:string, returnTime:string){
+    const requestInfo={
+     pickupTime:pickupTime,
+     returnTime:returnTime
+    }
+    const formData : FormData= new FormData();
+
+    return this.Http.post("http://localhost:8080/customer/searchVehicles/",requestInfo);
   }
 
 }
