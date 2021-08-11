@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {AboutUsComponent} from './components/about-us/about-us.component';
 import {AdminHomeComponent} from './components/admin/admin-home/admin-home.component';
+import { BookingOperationsComponent } from './components/admin/admin-home/booking/booking-operations/booking-operations.component';
 import {BookingComponent} from './components/admin/admin-home/booking/booking.component';
 import {EquipmentComponent} from './components/admin/admin-home/equipment/equipment.component';
 import {UpdateDeleteEquipComponent} from './components/admin/admin-home/equipment/update-delete-equip/update-delete-equip.component';
@@ -11,6 +12,7 @@ import { VerifyUsersComponent } from './components/admin/admin-home/users/verify
 import { ViewUsersComponent } from './components/admin/admin-home/users/view-users/view-users.component';
 import {UpdateDeleteComponent} from './components/admin/admin-home/vehicle/update-delete/update-delete.component';
 import {VehicleComponent} from './components/admin/admin-home/vehicle/vehicle.component';
+import { MyAccountComponent } from './components/admin/my-account/my-account.component';
 import { BangerVehiclesComponent } from './components/banger-vehicles/banger-vehicles.component';
 import {ContactUsComponent} from './components/contact-us/contact-us.component';
 import {CustomerHomeComponent} from './components/customer/customer-home/customer-home.component';
@@ -75,7 +77,12 @@ const routes: Routes = [
       {
         path:'viewInquiries',
         component:InquiryComponent
+      },
+      {
+        path:'bookingOperations',
+        component:BookingOperationsComponent
       }
+
     ]
   },
   {

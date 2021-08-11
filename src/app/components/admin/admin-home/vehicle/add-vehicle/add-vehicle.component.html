@@ -1,7 +1,7 @@
 <div class="formatting-modal fm">
   <div class="modal-header" style="background-color: rgb(71,144,135);
 background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);">
-    <h4 class="modal-title">Add Vehicles to <b style="color: rgb(228, 134, 11);">BANGER</b></h4>
+    <h4 class="modal-title">Add Vehicles to <b style="color: rgb(107, 65, 10);">BANGER & Co</b></h4>
     <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
   </div>
 
@@ -17,8 +17,8 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
         <div class="row">
           <div class="col">
             <label for="vehicleType"><b>Vehicle Type</b></label>
-            <select class="form-control" type="text"  [formControlName]="'vehicleType'" required="required">
-              <option>Small-Town Car</option>
+            <select class="form-control" type="text" [formControlName]="'vehicleType'" required="required">
+              <option >Small-Town Car</option>
               <option>Small Family HatchBack</option>
               <option>Large Family Saloon</option>
               <option>Large Family Estate</option>
@@ -100,7 +100,8 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
         <div class="row mt-4">
           <div class="col">
             <label><b>Add Images of the Vehicle</b></label>
-            <input type="file" (change)="onFileChanged($event)" multiple="false"  [formControlName]="'vehicleImage'">
+            <input class="addBtn" type="file" (change)="onFileChanged($event)"    multiple="false"  [formControlName]="'vehicleImage'">
+
           </div>
         </div>
 

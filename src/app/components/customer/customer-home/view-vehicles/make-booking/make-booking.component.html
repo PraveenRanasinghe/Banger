@@ -12,11 +12,17 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
     </div>
 
   <div class="modal-body">
+
+    <i style="color: rgb(44, 13, 114); font-size: small; font-weight: 700;">Please make sure to have valid utility Bill Uploaded when you Make Bookings. The Uploaded Uitility Bill MUST be a Valid one within three months.</i>
+
     <form name="form" [formGroup]="bookingForm" (ngSubmit)="onBooking()">
-    <div class="row mt-3" style="font-size: larger;">
 
-      <div class="col">
+    <div class="row mt-3">
 
+      <div class="col" style="font-weight: 700;">
+
+        <!-- #pickupTime (change)="getPickupTime(pickupTime.value)" -->
+        <!-- #returnTime (change)="getReturnTime(returnTime.value)" -->
         <label>Select PickUp Time:</label>
 
         <input type="datetime-local"  class="form-control" [formControlName]="'pickupTime'" name="pickupTime">
@@ -26,7 +32,7 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
 
       </div>
 
-      <div class="col">
+      <div class="col mt-4" style="font-weight: 700;">
 
         <label>Select Return Time:</label>
 
@@ -37,24 +43,35 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
       </div>
     </div>
 
-    <div class="row mt-3" style="font-size: larger;">
-      <div class="col">
 
+      <div class="row mt-4 justify-content-center" style="font-weight: 700;">
         <label>Select Additional Equipments(If Needed):</label>
-        <select class="form-control" type="text" [formControlName]="'equipments'">
-          <option>Wine-Chiller</option>
-          <option>Baby-seats</option>
-          <option>Freezer</option>
-          <option>Navigation Satelite</option>
+        </div>
+        <div class="row justify-content-center">
+        <!-- <div style="width: 400px;" *ngFor="let equipment of equipList"  value="{{equipment.equipmentId}}">
+          <input class="form-check-input" type="checkbox" value="{{equipment.equipmentId}}" (change)="getPrice(equipment)">
+                  {{equipment.itemName}}
+        </div> -->
+
+        <select multiple >
+          <option *ngFor="let equipment of equipList"  value="{{equipment.equipmentId}}">
+            {{equipment.itemName}}  -->
+                Rs:{{equipment.pricePerDayEQ}}.00
+          </option>
         </select>
       </div>
 
-      <div class="col">
+      <div class="row mt-3">
+        <div class="col" style="font-weight: 700;">
+          <label>Total Amount of the Booking:</label>
+
+          <input type="text"  class="form-control" [formControlName]="'price'" name="price" readonly>
+        </div>
 
       </div>
-    </div>
 
-    <button type="button" class="btn btn-success mt-4 mb-3 ml-4" [disabled]="!bookingForm.valid" style="width: 30%;">Make Booking</button>
+
+    <button type="submit" class="btn btn-success mt-4 mb-3 ml-4" [disabled]="!bookingForm.valid" style="width: 40%;">Confirm Booking</button>
 
     <div class="modal-footer">
       <button type="button" class="btn btn-danger" (click)="hideForm()" style="width: 30%;">Close</button>

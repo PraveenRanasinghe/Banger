@@ -22,7 +22,7 @@ export class AddEquipmentComponent implements OnInit {
   ngOnInit(): void {
     this.addEqform = new FormGroup({
       'itemName':new  FormControl(null, Validators.required),
-      'pricePerDayEQ':new  FormControl(null,Validators.required),
+      'pricePerDayEQ':new  FormControl(null, [Validators.required,Validators.pattern('^[0-9]*$')]),
       'description':new  FormControl(null,Validators.required),
       'quantity':new FormControl(null, Validators.required)
     })
@@ -33,8 +33,6 @@ export class AddEquipmentComponent implements OnInit {
   }
 
   onAddEquipment(){
-
-    try{
       this.message=undefined;
       this.spinner.show();
 
@@ -50,24 +48,21 @@ export class AddEquipmentComponent implements OnInit {
             this.message='New Equipment has been added to the system successfully!'
             this.spinner.hide();
             this.addEqform.reset();
-            localStorage.setItem('token', data.token);
           },
           (error) => {
-            console.log('Process Cannot do this moment. Please Try Again!', error);
+            this.message='Equipment Name is Already Exists! Please Update the Quantity of Available Equipment!'
+            console.log('Error Occured!', error);
           }
-        );
-      }
+        )
     }
-    catch(error){
-      this.message = 'An Unexpected Error Occurred. Please Try Again !';
-    }
+
   }
 
   getMessage(){
     if (this.message === "New Equipment has been added to the system successfully!") {
       return "success";
     }
-    else {
+    else if( this.message ==='Equipment Name is Already Exists! Please Update the Quantity!'){
       return "danger";
     }
   }

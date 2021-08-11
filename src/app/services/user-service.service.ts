@@ -33,16 +33,37 @@ export class UserServiceService {
   }
 
 
-  userMakeABooking(vehicleId:number,email:string,pickupTime:string, returnTime:string,equipmentId:number){
-    const makeBooking={
-      vehicleId:vehicleId,
+  updateUserProfile(email:string,fName:string,lName:string, contactNumber:string,utilityBill:File,licenceImg:File){
+    const updatedInfo={
       email:email,
-      pickupTime:pickupTime,
-      returnTime:returnTime,
-      equipmentId:equipmentId
-    }
-    return this.Http.post("http://localhost:8080/customer/makeBooking/"+vehicleId,makeBooking);
+      fName:fName,
+      lName:lName,
+      contactNum:contactNumber,
+    };
+    const formData : FormData= new FormData();
+    formData.append('updatedInfo',JSON.stringify(updatedInfo));
+    formData.append('utilityBill',utilityBill);
+    formData.append('licenceImg',licenceImg);
+
+    return this.Http.put("http://localhost:8080/customer/userUpdateProfile",formData);
   }
+
+  userMakeABooking(makeBooking: {
+    vehicleId: number,
+    email: string,
+    pickupTime: string,
+    returnTime: string,
+
+    equipments: [{
+      equipmentId: number
+    }]
+  },)
+  {
+
+    return this.Http.post("http://localhost:8080/customer/makeBooking", makeBooking);
+  }
+
+
 
   viewVehicles(){
     return this.Http.get<any>("http://localhost:8080/customer/viewAllVehicles").pipe(map((item)=>{
@@ -53,9 +74,45 @@ export class UserServiceService {
     }))
   }
 
-
   getEquipmentList(){
     return this.Http.get<any>("http://localhost:8080/customer/getEquipmentList");
+  }
+
+  getLoggedInUser(email:string){
+    return this.Http.get<any>("http://localhost:8080/customer/getLoggedInUser/"+email);
+  }
+
+  getVehicleById(vId:number){
+    return this.Http.get<any>("http://localhost:8080/customer/getSingleVehicle/"+vId);
+  }
+
+  getEquipmentById(equipId:number){
+    return this.Http.get<any>("http://localhost:8080/customer/getEquipment/"+equipId);
+  }
+
+  getMyBookings(email:string){
+    return this.Http.get<any>("http://localhost:8080/customer/viewMyBookings/"+email);
+  }
+
+  getMyPreviousBookings(email:string){
+    return this.Http.get<any>("http://localhost:8080/customer/viewMyPreviousBookings/"+email);
+  }
+
+  requestLateReturn(bookingId:number){
+    const requestLateReturn={
+        bookingId:bookingId,
+    }
+    return this.Http.put("http://localhost:8080/customer/requestLateReturn",requestLateReturn);
+  }
+
+  searchVehicleByPickupTimeAndReturnTime(pickupTime:string, returnTime:string){
+    const requestInfo={
+     pickupTime:pickupTime,
+     returnTime:returnTime
+    }
+    const formData : FormData= new FormData();
+
+    return this.Http.post("http://localhost:8080/customer/searchVehicles/",requestInfo);
   }
 
 }

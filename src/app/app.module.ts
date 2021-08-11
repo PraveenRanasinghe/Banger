@@ -53,6 +53,14 @@ import { RemoveInqComponent } from './components/admin/admin-home/inquiry/view-m
 import { BangerVehiclesComponent } from './components/banger-vehicles/banger-vehicles.component';
 import { OpenBookingComponent } from './components/banger-vehicles/open-booking/open-booking.component';
 import { VmvUsersComponent } from './components/admin/admin-home/users/view-users/vmv-users/vmv-users.component';
+import { MyAccountComponent } from './components/admin/my-account/my-account.component';
+import { UInfoComponent } from './components/admin/admin-home/booking/u-info/u-info.component';
+import { ViewAcceptedBookingsComponent } from './components/admin/admin-home/booking/view-accepted-bookings/view-accepted-bookings.component';
+import { ViewRejectedBookingsComponent } from './components/admin/admin-home/booking/view-rejected-bookings/view-rejected-bookings.component';
+import { BookingOperationsComponent } from './components/admin/admin-home/booking/booking-operations/booking-operations.component';
+import { ViewCompletedBookingsComponent } from './components/admin/admin-home/booking/view-completed-bookings/view-completed-bookings.component';
+import { BookingHistoryComponent } from './components/customer/customer-home/view-bookings/booking-history/booking-history.component';
+import { ExtendRequestedBookingsComponent } from './components/admin/admin-home/booking/extend-requested-bookings/extend-requested-bookings.component';
 
 // @ts-ignore
 @NgModule({
@@ -101,6 +109,14 @@ import { VmvUsersComponent } from './components/admin/admin-home/users/view-user
     BangerVehiclesComponent,
     OpenBookingComponent,
     VmvUsersComponent,
+    MyAccountComponent,
+    UInfoComponent,
+    ViewAcceptedBookingsComponent,
+    ViewRejectedBookingsComponent,
+    BookingOperationsComponent,
+    ViewCompletedBookingsComponent,
+    BookingHistoryComponent,
+    ExtendRequestedBookingsComponent,
 
   ],
   imports: [

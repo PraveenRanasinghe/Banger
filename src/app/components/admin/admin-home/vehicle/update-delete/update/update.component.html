@@ -1,7 +1,7 @@
 <div class="formatting-modal fm">
   <div class="modal-header">
-    <h4 class="modal-title">Update Vehicles In <b style="color: rgb(228, 134, 11);">BANGER</b></h4>
-    <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
+    <h4 class="modal-title">Update Vehicles In <b style="color: rgb(228, 134, 11);">BANGER & Co</b></h4>
+    <button type="button" (click)="hideForm();" (click)="reloadPage()" class="close float-right"><span>&times;</span></button>
   </div>
 
   <div class="mt-4 mb-4" *ngIf="message">
@@ -35,37 +35,62 @@
           </div>
           <div class="col">
             <label for="fuelType"><b>Fuel Type</b></label>
-            <input class="form-control" type="text" [formControlName]="'fuelType'" name="fuelType"  type="text">
+            <select class="form-control" type="text"  [formControlName]="'fuelType'" required="required">
+              <option selected> {{selectedVehicle.fuelType}}</option>
+              <option>Petrol</option>
+              <option>Diesel</option>
+            </select>
+            <!-- <input class="form-control" type="text" [formControlName]="'fuelType'" name="fuelType"  type="text"> -->
           </div>
           <div class="col">
             <label for="fuelType"><b>Price Per Day</b></label>
             <input class="form-control" type="text" name="pricePerDay" [formControlName]="'pricePerDay'"
               type="text">
+              <span *ngIf="!updateVehicleForm.get('pricePerDay').valid && updateVehicleForm.get('pricePerDay').touched"
+              style="margin-top: 3px; color:red; font-size: 12px;">Please Enter the hiring Price!</span>
           </div>
         </div>
         <div class="row mt-3">
           <div class="col">
             <label for="transmission"><b>Transmission Type</b></label><br>
-            <input class="form-control" type="text" name="transmission" [formControlName]="'transmission'" type="text"
-               >
+            <select class="form-control" type="text"  [formControlName]="'transmission'" required="required">
+              <option selected> {{selectedVehicle.transmission}}</option>
+              <option>auto</option>
+              <option>manual</option>
+            </select>
+            <span *ngIf="!updateVehicleForm.get('transmission').valid && updateVehicleForm.get('transmission').touched"
+            style="margin-top: 3px; color:red; font-size: 12px;">Please Select the Transmission Type</span>
+            <!-- <input class="form-control" type="text" name="transmission" [formControlName]="'transmission'" type="text"> -->
           </div>
           <div class="col">
             <label for="airbags"><b>Air Bags</b></label><br>
-            <input class="form-control" type="text" name="airbags" [formControlName]="'airbags'" type="text"  >
+            <select class="form-control" type="text"  [formControlName]="'airbags'" required="required">
+              <option selected> {{selectedVehicle.airbags}}</option>
+              <option>yes</option>
+              <option>no</option>
+            </select>
+            <span *ngIf="!updateVehicleForm.get('airbags').valid && updateVehicleForm.get('airbags').touched"
+            style="margin-top: 3px; color:red; font-size: 12px;">Please Select the Option!</span>
+            <!-- <input class="form-control" type="text" name="airbags" [formControlName]="'airbags'" type="text"  > -->
           </div>
           <div class="col">
             <label for="ac"><b>Air-Conditioned</b></label><br>
-            <input class="form-control" type="text" name="ac" [formControlName]="'ac'" type="text">
+            <select class="form-control" type="text"  [formControlName]="'ac'" required="required">
+              <option selected> {{selectedVehicle.ac}}</option>
+              <option>yes</option>
+              <option>no</option>
+            </select>
+            <!-- <input class="form-control" type="text" name="ac" [formControlName]="'ac'" type="text"> -->
           </div>
         </div>
 
-        <button type="submit" class="btn btn-success mt-4" style="width: 40%;">Update Vehicle Details</button>
+        <button type="submit" class="btn btn-success mt-4" style="width: 40%;" [disabled]="!updateVehicleForm.valid">Update Vehicle Details</button>
       </div>
 
     </form>
 
     <div class="modal-footer">
-      <button type="button" class="btn btn-danger" (click)="hideForm()" style="width: 30%;">Close</button>
+      <button type="button" class="btn btn-danger" (click)="hideForm()"  (click)="reloadPage()" style="width: 30%;">Close</button>
     </div>
   </div>
 </div>

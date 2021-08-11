@@ -1,5 +1,5 @@
 <div class="formatting-modal fm">
-  <div class="modal-header">
+  <div class="modal-header" style="background-color: rgb(255, 255, 179);">
     <h4 class="modal-title"><b>Delete Equipment</b></h4>
     <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
   </div>
@@ -9,10 +9,10 @@
     <div class="modal-footer">
       <div class="row">
         <div class="col">
-          <button type="button" class="btn btn-danger float-left" style="width: 150px;">Delete Equipment</button>
+          <button type="button" class="btn btn-outline-danger float-left" style="width: 150px;" (click)=" removeSelectedEquipment()" (click)="reloadPage()">Yes</button>
         </div>
         <div class="col">
-          <button type="button" class="btn btn-primary" style="width: 90px;" (click)="hideForm()">Cancel</button>
+          <button type="button" class="btn btn-outline-dark" style="width: 90px;" (click)="hideForm()">Close</button>
         </div>
       </div>
 

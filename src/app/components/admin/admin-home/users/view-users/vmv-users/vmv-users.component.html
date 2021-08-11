@@ -22,14 +22,14 @@
             <input class="form-control" name="lName" type="text" value="{{selectedUser.lName}}"  readonly>
           </div>
           <div class="col-lg-4">
-            <label><b>NIC Number</b></label>
+            <label><b>License Number</b></label>
             <input class="form-control" name="nicNumber" type="text"  value="{{selectedUser.nicNumber}}" readonly>
           </div>
         </div>
         <div class="row mt-3">
           <div class="col-lg-4">
-            <label><b>Age</b></label>
-            <input class="form-control" name="dob" type="text" pattern="yyyy-MM-dd"  value="{{selectedUser.dob}}"  readonly>
+            <label><b>Date of Birth</b></label>
+            <input class="form-control" name="dob" type="text" pattern="yyyy-MM-dd"  value="{{selectedUser.dob | date:'mediumDate'}}"  readonly>
           </div>
           <div class="col-lg-4">
             <label><b>Email</b></label>

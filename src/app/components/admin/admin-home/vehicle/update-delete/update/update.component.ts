@@ -85,6 +85,10 @@ export class UpdateComponent implements OnInit {
     }
   }
 
+  reloadPage(){
+    window.location.reload();
+  }
+
   updateInfo(){
     this.updateVehicleForm= new FormGroup({
       'fuelType':new  FormControl(null, Validators.required),

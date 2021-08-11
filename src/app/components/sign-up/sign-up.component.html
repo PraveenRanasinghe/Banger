@@ -76,13 +76,13 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
         </div>
         <div class="col">
           <div class="form-group">
-            <label for="contactNumber"><b>NIC Number</b></label>
+            <label for="contactNumber"><b>Your License Number</b></label>
 
             <input type="text" class="form-control"
                   [formControlName]="'nicNumber'"
-                  placeholder="Enter Your NIC Number">
+                  placeholder="Enter Your License Number">
                   <span *ngIf="!signupForm.get('nicNumber').valid && signupForm.get('nicNumber').touched"
-                  style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your NIC Number!</span>
+                  style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your License Number!</span>
           </div>
         </div>
       </div>

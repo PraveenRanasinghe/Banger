@@ -1,0 +1,51 @@
+<div class="formatting-modal fm">
+  <div class="modal-header" style="background-color: rgb(71,144,135);
+  background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);">
+    <h4 class="modal-title">Admin Account :<b style="color: rgb(228, 134, 11);">BANGER & Co</b></h4>
+    <button type="button" (click)="hideForm();" class="close float-right"><span>&times;</span></button>
+  </div>
+
+  <div class="modal-body mb">
+    <div class="row justify-content-center">
+      <img  [src]="userInfo.profileImage"  height="200px;" width="200px;" style="border-radius: 150px;">
+    </div>
+    <form>
+      <div class="row mt-4 mb-4">
+        <div class="col ml-3">
+          <label><b>First Name:</b></label>
+          <input type="text" class="form-control" name="fName" value="{{userInfo.fName}}" readonly>
+        </div>
+        <div class="col mr-3">
+          <label><b>Last Name:</b></label>
+          <input type="text" class="form-control" name="lName" value="{{userInfo.lName}}" readonly>
+        </div>
+      </div>
+
+      <div class="row mt-4 mb-4">
+        <div class="col ml-3">
+          <label><b>Email:</b></label>
+          <input type="email" class="form-control" name="email"  value="{{userInfo.email}}" [readonly]="true">
+        </div>
+        <div class="col mr-3">
+          <label><b>Contact Number</b></label>
+          <input type="text" class="form-control" name="contactNum" value="{{userInfo.contactNum}}" readonly>
+        </div>
+      </div>
+
+      <div class="row mt-4 mb-4">
+        <div class="col ml-3">
+          <label><b>Date Of Birth:</b></label>
+          <input type="text" class="form-control" name="age" value="{{userInfo.dob  | date:'mediumDate'}}" [readonly]="true">
+        </div>
+        <div class="col mr-3">
+          <label><b>NIC Number</b></label>
+          <input type="text" class="form-control" name="nic" value="{{userInfo.nicNumber}}" [readOnly]="true">
+        </div>
+      </div>
+    </form>
+    <div class="modal-footer" style="background-color: rgb(71,144,135);
+       background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);">
+      <button type="button" class="btn btn-danger" (click)="hideForm()" style="width: 30%;">Close</button>
+    </div>
+  </div>
+</div>

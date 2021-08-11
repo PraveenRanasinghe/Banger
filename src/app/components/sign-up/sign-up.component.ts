@@ -24,10 +24,10 @@ export class SignUpComponent implements OnInit {
   liscenceImg: File;
   profileImage:File;
   utilityBill:File;
-  retrievedImage: any;
-  base64Data: any;
-  retrieveResonse: any;
-  imageName: any;
+  // retrievedImage: any;
+  // base64Data: any;
+  // retrieveResonse: any;
+  // imageName: any;
 
   ngOnInit(): void {
     this.signupInfo();
@@ -74,9 +74,8 @@ export class SignUpComponent implements OnInit {
         this.userService.userRegistration(fName,lName,email,contactNumber,nicNumber,dob,password,this.liscenceImg,this.profileImage,this.utilityBill).subscribe(
           (data:any)=>{
 
-            this.message='You have been registered in our organization successfully! Your account is under verification process. You will be notify once it Done!';
+          this.message='You have been registered in our organization successfully! Now You can make Bookings in Our Organization!';
           this.signupForm.reset();
-          localStorage.setItem('token',data.token);
           },
           (error)=>{
             console.log("Cannot Login",error);
@@ -92,7 +91,7 @@ export class SignUpComponent implements OnInit {
 
 
  getMessage(){
-    if (this.message === "You have been registered in our organization successfully! Your account is under verification process. You will be notify once it Done!") {
+    if (this.message === "You have been registered in our organization successfully! Now You can make Bookings in Our Organization!") {
       return "success";
     }
     else {

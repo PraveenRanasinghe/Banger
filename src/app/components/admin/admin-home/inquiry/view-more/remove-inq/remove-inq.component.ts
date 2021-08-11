@@ -15,7 +15,6 @@ export class RemoveInqComponent implements OnInit {
   inqId:any;
 
   ngOnInit(): void {
-    this.removeSelectedInquiry();
     console.log(this.inqId);
   }
 
@@ -27,6 +26,11 @@ export class RemoveInqComponent implements OnInit {
     this.adminService.removeInquiry(this.inqId).subscribe((data)=>{
       console.log(data);
     })
+    this.hideForm();
+  }
+
+  reloadPage(){
+    window.location.reload();
   }
 
 }

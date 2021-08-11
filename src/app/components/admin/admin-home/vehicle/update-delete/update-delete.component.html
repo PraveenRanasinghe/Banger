@@ -1,5 +1,5 @@
 <div class="row justify-content-center">
-  <h3 style="color: #130a02;"><b>Available Vehicles in our Organization!</b></h3>
+  <h3 style="color: #130a02;"><b><u>All Vehicles in our Organization!</u></b></h3>
 </div>
 
 <div class="container mt-3">
@@ -9,9 +9,7 @@
         <img class="card-img-top" [src]="vehicle.vehicleImg" height="220px">
         <div class="card-body">
 
-          <div class="row justify-content-center">
-            <label><b>Vehicle Model</b></label>
-         </div>
+
 
         <div class="row justify-content-center">
            <h2><b>{{vehicle.vehicleType}}</b></h2>
@@ -29,10 +27,10 @@
           <div class="row mt-4">
 
             <div class="col">
-              <a class="btn btn-outline-success" (click)="openUpdate(vehicle.vehicleId)">View Vehicle</a>
+              <a class="btn btn-outline-success" (click)="openUpdate(vehicle.vehicleId)">Vehicle Info<i class="fas fa-info ml-2"></i></a>
             </div>
             <div class="col">
-              <a class="btn btn-outline-danger" (click)="openDelete()">Delete Vehicle</a>
+              <a class="btn btn-outline-danger" (click)="openDelete(vehicle.vehicleId)">Remove <i class="fas fa-trash-alt ml-2"></i></a>
             </div>
           </div>
         </div>

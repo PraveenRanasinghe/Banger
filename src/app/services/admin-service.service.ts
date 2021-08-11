@@ -32,6 +32,8 @@ export class AdminServiceService{
       return this.Http.post("http://localhost:8080/admin/addVehicle",formData);
   }
 
+
+
   AddEquipment(itemName:string, pricePerDay:string,description:string,quantity:number){
     const equipmentInfo={
       itemName:itemName,
@@ -51,6 +53,30 @@ export class AdminServiceService{
 
   viewAllPendingUsers(){
     return this.Http.get<any>("http://localhost:8080/admin/viewPendingUsers");
+  }
+
+  viewAllPendingBookings(){
+    return this.Http.get<any>("http://localhost:8080/admin/viewAllBookings");
+  }
+
+  viewAllAcceptedBookings(){
+    return this.Http.get("http://localhost:8080/admin/viewAcceptedBookings");
+  }
+
+  viewAllCollectedBookings(){
+    return this.Http.get("http://localhost:8080/admin/viewCollectedBookings");
+  }
+
+  viewAllCompletedBookings(){
+    return this.Http.get("http://localhost:8080/admin/viewCompletedBookings");
+  }
+
+  viewAllRejectedBookings(){
+    return this.Http.get("http://localhost:8080/admin/viewRejectedBookings");
+  }
+
+  viewAllExtendRequestedBookings(){
+    return this.Http.get("http://localhost:8080/admin/viewExtendRequestedBookings");
   }
 
   viewAllUsers(){
@@ -79,6 +105,18 @@ export class AdminServiceService{
     return this.Http.delete("http://localhost:8080/admin/removeInquiry/"+inqId);
   }
 
+  removeEquipment(equipId:number){
+    return this.Http.delete("http://localhost:8080/admin/removeEquipment/"+equipId);
+  }
+
+  removeVehicle(vehicleId:number){
+    return this.Http.delete("http://localhost:8080/admin/removeVehicle/"+vehicleId);
+  }
+
+
+  removeUser(email:string){
+    return this.Http.delete("http://localhost:8080/admin/removeUser/"+email);
+  }
 
   getUserByID(email:string){
     return this.Http.get<any>("http://localhost:8080/admin/getSingleUser/"+email).pipe(map((item)=>{
@@ -103,13 +141,24 @@ export class AdminServiceService{
     return this.Http.put("http://localhost:8080/admin/updateVehicle/"+vehicleId,updateInfo);
   }
 
-  updateEquipmentDetails(equipmentId:number, pricePerDayEQ:string,itemDescription:string){
+  updateEquipmentDetails(equipmentId:number, pricePerDayEQ:string,itemDescription:string, quantity:number){
     const updateInfo={
       equipmentId:equipmentId,
       pricePerDayEQ:pricePerDayEQ,
-      itemDescription:itemDescription
+      itemDescription:itemDescription,
+      quantity:quantity
     }
     return this.Http.put("http://localhost:8080/admin/updateEquipment/"+equipmentId,updateInfo);
+  }
+
+
+  updateBookingStatus(bookingId:number,bookingStatus:string){
+    const updatedInfo={
+      status:bookingStatus,
+      bookingId:bookingId
+    }
+    console.log(updatedInfo)
+    return this.Http.put("http://localhost:8080/admin/updateBookingStatus",updatedInfo);
   }
 
 
@@ -121,6 +170,20 @@ export class AdminServiceService{
     return this.Http.put("http://localhost:8080/admin/acceptUser/"+email,acceptingUserAccount);
   }
 
+  acceptBooking(bookingId:number){
+    const acceptBooking={
+      bookingId:bookingId,
+    }
+    return this.Http.post("http://localhost:8080/admin/acceptBooking",acceptBooking);
+  }
+
+
+  rejectBooking(bookingId:number){
+    const rejectBooking={
+      bookingId:bookingId,
+    }
+    return this.Http.post("http://localhost:8080/admin/rejectBooing",rejectBooking);
+  }
 
   getVehicleById(vId:number){
     return this.Http.get<any>("http://localhost:8080/admin/getSingleVehicle/"+vId);
@@ -129,4 +192,13 @@ export class AdminServiceService{
   getEquipmentById(equipId:number){
     return this.Http.get<any>("http://localhost:8080/admin/getSingleEquipment/"+equipId);
   }
+
+  getBookingById(bookingId:number){
+    return this.Http.get<any>("http://localhost:8080/admin/getBooking/"+bookingId);
+  }
+
+  getLoggedInUser(email:string){
+    return this.Http.get<any>("http://localhost:8080/admin/getLoggedInUser/"+email);
+  }
+
 }

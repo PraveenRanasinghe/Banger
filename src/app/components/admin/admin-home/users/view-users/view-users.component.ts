@@ -36,10 +36,13 @@ export class ViewUsersComponent implements OnInit {
     })
   }
 
-  removeUser(){
+  removeUser(email:string){
     this.bsModal.show(RemoveUserComponent,{
       ignoreBackdropClick:true,
-      class:'modal-dialog-centered'
+      class:'modal-dialog-centered',
+      initialState: {
+        userEmail:email
+      },
     })
   }
 

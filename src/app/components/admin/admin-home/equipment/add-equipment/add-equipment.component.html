@@ -34,7 +34,7 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
         <div class="row">
           <div class="col">
             <label for="price"><b>Enter the number of items</b></label>
-            <input class="form-control" type="number" id="quantity"
+            <input class="form-control" type="number" min="0" id="quantity"
             placeholder="Quantity of Equipment" [formControlName]="'quantity'">
             <span *ngIf="!addEqform.get('quantity').valid && addEqform.get('quantity').touched"
             style="margin-top: 3px; color:red; font-size: 12px;">Please Enter the Number of Items!</span>
