@@ -24,6 +24,12 @@ export class UpdateEquipComponent implements OnInit {
   ngOnInit(): void {
     this.updateInfo();
     this.getSelectedEquipment();
+    this.updateEquipmentForm = new FormGroup({
+      'itemName':new  FormControl(null, Validators.required),
+      'pricePerDayEQ':new  FormControl(null, [Validators.required,Validators.pattern('^[0-9]*$')]),
+      'itemDescription':new  FormControl(null,Validators.required),
+      'quantity':new FormControl(null, Validators.required)
+    })
   }
 
   reloadPage(){
@@ -77,6 +83,7 @@ export class UpdateEquipComponent implements OnInit {
 
   updateInfo() {
     this.updateEquipmentForm = new FormGroup({
+      itemName:new FormControl(null,Validators.required),
       pricePerDayEQ: new FormControl(null, Validators.required),
       itemDescription: new FormControl(null, Validators.required),
       quantity:new FormControl(null,Validators.required)

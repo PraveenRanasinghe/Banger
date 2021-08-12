@@ -89,9 +89,27 @@ export class MakeBookingComponent implements OnInit {
   }
 
   onBooking(){
+    // this.message=undefined;
+    // if(this.bookingForm.valid){
+    //   const pickupTime:Date=this.bookingForm.get('pickupTime').value;
+    //   const returnTime:Date=this.bookingForm.get('returnTime').value;
+    //   const equipment:number[]=this.bookingForm.get('equipment').value;
+    //   const price:number=this.bookingForm.get('price').value;
 
+    //   this.customerService.userMakeABooking(pickupTime,returnTime,equipment,price).subscribe((data)=>{
+
+    //   })
+    // }
   }
 
+  getMessage(){
+    if (this.message === "") {
+      return "success";
+    }
+    else {
+      return "danger";
+    }
+  }
   
   hideForm() {
     this.modalRef.hide();

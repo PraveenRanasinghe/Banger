@@ -51,18 +51,16 @@ export class UserServiceService {
   userMakeABooking(makeBooking: {
     vehicleId: number,
     email: string,
-    pickupTime: string,
-    returnTime: string,
-
+    pickupTime: Date,
+    returnTime: Date,
+    price:number
     equipments: [{
       equipmentId: number
     }]
   },)
   {
-
     return this.Http.post("http://localhost:8080/customer/makeBooking", makeBooking);
   }
-
 
 
   viewVehicles(){
