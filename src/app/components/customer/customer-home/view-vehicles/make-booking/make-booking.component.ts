@@ -29,6 +29,8 @@ export class MakeBookingComponent implements OnInit {
   totalCostOfEquipments: number = 0;
   totalCostOfVehicle: number = 0;
 
+  equipmentPriceList: any = [];
+
   constructor(
     private modalRef: BsModalRef,
     private spinner: NgxSpinnerService,
@@ -47,10 +49,13 @@ export class MakeBookingComponent implements OnInit {
 
   calculateRentalDuarion() {
     this.timeDifference =
-      (this.rTime.getTime() - this.pTime.getTime()) / 3600000;
-    this.timeDif = new Date(this.timeDifference).getUTCFullYear();
-    console.log(this.timeDif);
-    Math.abs(this.timeDif - 1970);
+      (this.rTime.getTime() - this.pTime.getTime()) / 3600000/24;
+    this.calculateTotalCost(this.timeDifference);
+    console.log(this.timeDifference);
+  }
+
+  calculateTotalCost(timeDifference: number) {
+
   }
 
   ngOnInit(): void {
@@ -61,45 +66,29 @@ export class MakeBookingComponent implements OnInit {
     this.calculateRentalDuarion();
   }
 
-  getEquipmentListToModal() {
-    this.customerService.getEquipmentList().subscribe((data) => {
-      console.log(data);
-      this.equipList = data;
-    });
-  }
-
-  getLoggedInUser() {
-    this.customerService
-      .getLoggedInUser(JSON.parse(sessionStorage.getItem('data')).email)
-      .subscribe((data) => {
-        console.log(data);
-        this.userInfo = data;
-      });
-  }
-
-  getSelectedVehicle() {
-    this.customerService.getVehicleById(this.vId).subscribe((data) => {
-      this.selectedVehicle = data;
-      console.log(this.vId);
-    });
-  }
-
-  bookingInfo() {
-    this.bookingForm = new FormGroup({
-      pickupTime: new FormControl(new Date(), Validators.required),
-      returnTime: new FormControl(new Date(), Validators.required),
-      equipment: new FormControl(''),
-      price: new FormControl(''),
-    });
-  }
-
-  getSelectedEquipments() {
-    this.customerService;
-  }
 
   getPrice(equipment) {
-    console.log(equipment);
+    let isFound: boolean = false;
+    let totalPrice:number=0;
+
+    for (let i = 0; i < this.equipmentPriceList.length; i++) {
+
+      if (this.equipmentPriceList[i].equipmentId == equipment.equipmentId) {
+        this.equipmentPriceList.splice(i, 1);
+        isFound = true;
+        break;
+      }
+    }
+
+    if (!isFound) {
+      this.equipmentPriceList.push(equipment);
+      for(let i=0; i<this.equipmentPriceList.length; i++){
+        totalPrice = this.equipmentPriceList[i].pricePerDayEQ * this.timeDifference;
+      }
+    }
+    this.totalCostOfVehicle = totalPrice;
   }
+
 
   onBooking() {
     this.message = undefined;
@@ -142,4 +131,41 @@ export class MakeBookingComponent implements OnInit {
   hideForm() {
     this.modalRef.hide();
   }
+
+  getEquipmentListToModal() {
+    this.customerService.getEquipmentList().subscribe((data) => {
+      console.log(data);
+      this.equipList = data;
+    });
+  }
+
+  getLoggedInUser() {
+    this.customerService
+      .getLoggedInUser(JSON.parse(sessionStorage.getItem('data')).email)
+      .subscribe((data) => {
+        console.log(data);
+        this.userInfo = data;
+      });
+  }
+
+  getSelectedVehicle() {
+    this.customerService.getVehicleById(this.vId).subscribe((data) => {
+      this.selectedVehicle = data;
+      console.log(this.vId);
+    });
+  }
+
+  bookingInfo() {
+    this.bookingForm = new FormGroup({
+      pickupTime: new FormControl(new Date(), Validators.required),
+      returnTime: new FormControl(new Date(), Validators.required),
+      equipment: new FormControl(''),
+      price: new FormControl(''),
+    });
+  }
+
+  getSelectedEquipments() {
+    this.customerService;
+  }
+
 }

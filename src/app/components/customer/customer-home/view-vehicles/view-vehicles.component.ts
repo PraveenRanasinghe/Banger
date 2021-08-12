@@ -12,6 +12,8 @@ import { MakeBookingComponent } from './make-booking/make-booking.component';
 export class ViewVehiclesComponent implements OnInit {
   List: any;
   searchForm: FormGroup;
+  message:any;
+
 
   constructor(
     private bsModal: BsModalService,
@@ -40,6 +42,7 @@ export class ViewVehiclesComponent implements OnInit {
           data[i] = eachVehicle;
         }
         this.List = data;
+        this.message='Available Vehicles in Searched Time Period!';
       });
   }
 
@@ -57,5 +60,14 @@ export class ViewVehiclesComponent implements OnInit {
         vId: vehicleId,
       },
     });
+  }
+
+  getMessage(){
+    if (this.message === "Available Vehicles in Searched Time Period!") {
+      return "success";
+    }
+    else {
+      return "danger";
+    }
   }
 }
