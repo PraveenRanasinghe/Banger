@@ -24,13 +24,11 @@ export class SignUpComponent implements OnInit {
   liscenceImg: File;
   profileImage:File;
   utilityBill:File;
-  // retrievedImage: any;
-  // base64Data: any;
-  // retrieveResonse: any;
-  // imageName: any;
+  maxDate:any;
 
   ngOnInit(): void {
     this.signupInfo();
+    this.disableFutureDates();
   }
 
   signupInfo(){
@@ -51,6 +49,21 @@ export class SignUpComponent implements OnInit {
 
   hideForm() {
     this.modalRef.hide();
+  }
+
+  disableFutureDates(){
+    var date:any= new Date();
+    var todayDate :any= date.getDate();
+    var month :any=date.getMonth()+1;
+    var year :any=date.getFullYear();
+
+    if(todayDate<10){
+      todayDate='0'+todayDate;
+    }
+    if(month<10){
+      month='0'+month;
+    }
+    this.maxDate=year + '-'+month + '-' + todayDate;
   }
 
   onSignUP(){
@@ -88,6 +101,7 @@ export class SignUpComponent implements OnInit {
     }
 
   }
+
 
 
  getMessage(){

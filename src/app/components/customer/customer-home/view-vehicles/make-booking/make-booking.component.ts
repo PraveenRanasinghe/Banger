@@ -89,7 +89,13 @@ export class MakeBookingComponent implements OnInit {
   }
 
   onBooking(){
-    // this.message=undefined;
+    this.message=undefined;
+    let timePeriod :boolean=false;
+    if((this.returnTime.getTime() - this.pickupTime.getTime()) < 5){
+      this.message="Your Booking must be more than 5 Hours!";
+      timePeriod=true;
+    }
+
     // if(this.bookingForm.valid){
     //   const pickupTime:Date=this.bookingForm.get('pickupTime').value;
     //   const returnTime:Date=this.bookingForm.get('returnTime').value;
@@ -103,7 +109,7 @@ export class MakeBookingComponent implements OnInit {
   }
 
   getMessage(){
-    if (this.message === "") {
+    if (this.message === "Your Booking must be more than 5 Hours!") {
       return "success";
     }
     else {
