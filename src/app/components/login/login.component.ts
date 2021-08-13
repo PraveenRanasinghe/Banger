@@ -37,7 +37,8 @@ export class LoginComponent implements OnInit {
 
 
   onLogin() {
-    try{
+    
+    this.message=undefined;
       const email:string=this.form.get('emailAddress').value;
       const password : string=this.form.get('password').value;
 
@@ -60,13 +61,11 @@ export class LoginComponent implements OnInit {
           }
           else {
             this.message='Authentication Failed! Please Try Again!';
+            console.log(this.message);
           }
         },
       );
-    }
-    catch(error){
-      this.message='Authentication Failed! Please Try Again!';
-    }
+    
   }
 
   getMessage(){

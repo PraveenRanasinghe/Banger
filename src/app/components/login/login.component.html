@@ -13,7 +13,7 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
       </div>
       </div>
 
-    <form name="form" [formGroup]="form">
+    <form name="form" [formGroup]="form" (ngSubmit)="onLogin()">
 
       <div class="form-group">
 
@@ -38,7 +38,7 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
         style="margin-top: 3px; color:red; font-size: 12px;">Please Enter Your Password</span>
       </div>
 
-      <button type="button" class="btn btn-success mb-2" style="width: 30%; margin-right: 0px;" (click)="onLogin()">Login</button>
+      <button type="submit" class="btn btn-success mb-2" style="width: 30%; margin-right: 0px;">Login</button>
       <hr>
       <span style="font-size: 14px;">Not a User at BANGER? <a
         style="text-decoration: none; color: rgba(162, 124, 231, 0.938); cursor: pointer;"

@@ -88,24 +88,44 @@ export class MakeBookingComponent implements OnInit {
     console.log(this.finalCost);
   }
 
-  onBooking(){
-    this.message=undefined;
-    let timePeriod :boolean=false;
-    if((this.returnTime.getTime() - this.pickupTime.getTime()) < 5){
+  
+  onBooking() {
+
+    this.message = undefined;
+      let timePeriod :boolean=false;
+      if((this.returnTime.getTime() - this.pickupTime.getTime()) < 5){
       this.message="Your Booking must be more than 5 Hours!";
       timePeriod=true;
     }
-
-    // if(this.bookingForm.valid){
-    //   const pickupTime:Date=this.bookingForm.get('pickupTime').value;
-    //   const returnTime:Date=this.bookingForm.get('returnTime').value;
-    //   const equipment:number[]=this.bookingForm.get('equipment').value;
-    //   const price:number=this.bookingForm.get('price').value;
-
-    //   this.customerService.userMakeABooking(pickupTime,returnTime,equipment,price).subscribe((data)=>{
-
-    //   })
-    // }
+    
+    if(this.bookingForm.valid){
+      const pickupTime: string = this.bookingForm.get('pickupTime').value;
+      const returnTime: string = this.bookingForm.get('returnTime').value;
+      const price:number=this.bookingForm.get('price').value;
+      let filter = null;
+      if (this.bookingForm.value.equipment != null) {
+        filter = this.bookingForm.value.equipment.map((eachID) => {
+          console.log(eachID);
+          return { equipmentId: Number.parseInt(eachID) };
+        });
+      }
+  
+      // this.customerService
+      //   .userMakeABooking({
+      //     vehicleId: this.vehicle.vehicleId,
+      //     email: JSON.parse(sessionStorage.getItem("data")).email,
+      //     pickupTime: pickupTime,
+      //     returnTime: returnTime,
+      //     price:price,
+      //     equipments: filter,
+      //   })
+      //   .subscribe((data: any) => {
+      //     console.log(data);
+      //     this.message = 'Booking Successfull!';
+      //     this.bookingForm.reset();
+      //   });
+    }
+    
   }
 
   getMessage(){
