@@ -18,8 +18,6 @@ export class UserServiceService {
        nicNumber:nic,
        dob:dob,
        password:password,
-      //  licenceImg:licenceImg,
-      //  profileImage:profileImage
      };
 
      const formData : FormData = new FormData();
@@ -64,6 +62,7 @@ export class UserServiceService {
 
 
   viewVehicles(){
+    
     return this.Http.get<any>("http://localhost:8080/customer/viewAllVehicles").pipe(map((item)=>{
       item.forEach(element => {
         element.vehicleImg=`data:image/jpeg;base64,${element.vehicleImg}`;

@@ -53,11 +53,13 @@ export class MakeBookingComponent implements OnInit {
   getPickupTime(pickupTime){
     this.pickupTime= new Date(pickupTime);
     this.calculateDuration();
+    console.log(pickupTime);
   }
 
   getReturnTime(returnTime){
     this.returnTime= new Date(returnTime);
     this.calculateDuration();
+    console.log(returnTime);
   }
 
   calculateDuration(){
@@ -99,8 +101,8 @@ export class MakeBookingComponent implements OnInit {
     }
     
     if(this.bookingForm.valid){
-      const pickupTime: string = this.bookingForm.get('pickupTime').value;
-      const returnTime: string = this.bookingForm.get('returnTime').value;
+      const pickupTime: Date = this.bookingForm.get('pickupTime').value;
+      const returnTime: Date = this.bookingForm.get('returnTime').value;
       const price:number=this.bookingForm.get('price').value;
       let filter = null;
       if (this.bookingForm.value.equipment != null) {
@@ -109,21 +111,21 @@ export class MakeBookingComponent implements OnInit {
           return { equipmentId: Number.parseInt(eachID) };
         });
       }
-  
-      // this.customerService
-      //   .userMakeABooking({
-      //     vehicleId: this.vehicle.vehicleId,
-      //     email: JSON.parse(sessionStorage.getItem("data")).email,
-      //     pickupTime: pickupTime,
-      //     returnTime: returnTime,
-      //     price:price,
-      //     equipments: filter,
-      //   })
-      //   .subscribe((data: any) => {
-      //     console.log(data);
-      //     this.message = 'Booking Successfull!';
-      //     this.bookingForm.reset();
-      //   });
+      
+      this.customerService
+        .userMakeABooking({
+          vehicleId: this.vehicle.vehicleId,
+          email: JSON.parse(sessionStorage.getItem("data")).email,
+          pickupTime: pickupTime,
+          returnTime: returnTime,
+          price:price,
+          equipments: filter,
+        })
+        .subscribe((data: any) => {
+          console.log(data);
+          this.message = 'Booking Successfull!';
+          this.bookingForm.reset();
+        });
     }
     
   }
