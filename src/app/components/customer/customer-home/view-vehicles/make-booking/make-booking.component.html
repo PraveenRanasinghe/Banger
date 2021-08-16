@@ -48,8 +48,8 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
         <label>Select Additional Equipments(If Needed):</label>
         </div>
         <div class="row justify-content-center">
-        <div style="width: 400px;" *ngFor="let equipment of equipList"  value="{{equipment.equipmentId}}">
-          <input class="form-check-input" type="checkbox" value="{{equipment.equipmentId}}" (change)="getEquipmentPrice(equipment)">
+        <div style="width: 400px;" *ngFor="let equipment of equipList">
+          <input class="form-check-input" type="checkbox" [formControlName]="equipments" (change)="getEquipmentPrice(equipment)">
                   {{equipment.itemName}} ----  Rs.{{equipment.pricePerDayEQ}}.00
         </div>
       </div>
@@ -59,7 +59,7 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
         <div class="col" style="font-weight: 700;">
           <label>Total Amount of the Booking:</label>
 
-          <input type="text"  class="form-control"  value="{{finalCost}}" name="price" readonly>
+          <input type="text"  class="form-control"  value="{{finalCost}}" readonly>
         </div>
 
       </div>
