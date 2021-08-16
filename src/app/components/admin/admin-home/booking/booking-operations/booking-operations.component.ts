@@ -74,8 +74,8 @@ export class BookingOperationsComponent implements OnInit {
     window.location.reload();
   }
 
-  saveBookingStatus(bookingId:number, ChangeStatus:string){
-         this.adminService.updateBookingStatus(bookingId,ChangeStatus).subscribe((data)=>{
+  saveBookingStatus(bookingId:number, ChangeStatus:string,email:string){
+         this.adminService.blackListUserWhenBookingStatusChanged(bookingId,ChangeStatus,email).subscribe((data)=>{
           this.message= 'New Equipment has been added to the system successfully!'
            console.log(data);
          })

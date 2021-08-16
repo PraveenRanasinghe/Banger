@@ -155,11 +155,24 @@ export class AdminServiceService{
   updateBookingStatus(bookingId:number,bookingStatus:string){
     const updatedInfo={
       status:bookingStatus,
-      bookingId:bookingId
+      bookingId:bookingId,
     }
     console.log(updatedInfo)
     return this.Http.put("http://localhost:8080/admin/updateBookingStatus",updatedInfo);
   }
+
+
+  blackListUserWhenBookingStatusChanged(bookingId:number,bookingStatus:string,email:string){
+    const updatedInfo={
+      status:bookingStatus,
+      bookingId:bookingId,
+      email:email
+    }
+    console.log(updatedInfo)
+    return this.Http.put("http://localhost:8080/admin/updateBookingStatus",updatedInfo);
+  }
+
+
 
 
   acceptUserAccount(email:string, status:string){

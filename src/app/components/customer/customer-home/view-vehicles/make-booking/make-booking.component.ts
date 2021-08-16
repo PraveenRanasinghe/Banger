@@ -124,7 +124,7 @@ export class MakeBookingComponent implements OnInit {
   }
 
   getMessage() {
-    if (this.message === "Your Booking must be more than 5 Hours!") {
+    if (this.message === "Booking Successfull!") {
       return "success";
     }
     else {
