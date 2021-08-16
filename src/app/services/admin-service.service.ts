@@ -83,6 +83,10 @@ export class AdminServiceService{
     return this.Http.get<any>("http://localhost:8080/admin/viewAllUsers");
   }
 
+  viewBlackListedUsers(){
+    return this.Http.get<any>("http://localhost:8080/admin/viewBlackListedUsers");
+  }
+
   viewAllVehicles(){
     return this.Http.get<any>("http://localhost:8080/admin/viewAllVehicles").pipe(map((item)=>{
       item.forEach(element => {

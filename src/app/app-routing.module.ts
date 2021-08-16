@@ -7,6 +7,7 @@ import {BookingComponent} from './components/admin/admin-home/booking/booking.co
 import {EquipmentComponent} from './components/admin/admin-home/equipment/equipment.component';
 import {UpdateDeleteEquipComponent} from './components/admin/admin-home/equipment/update-delete-equip/update-delete-equip.component';
 import { InquiryComponent } from './components/admin/admin-home/inquiry/inquiry.component';
+import { BlacklistedUsersComponent } from './components/admin/admin-home/users/blacklisted-users/blacklisted-users.component';
 import {UsersComponent} from './components/admin/admin-home/users/users.component';
 import { VerifyUsersComponent } from './components/admin/admin-home/users/verify-users/verify-users.component';
 import { ViewUsersComponent } from './components/admin/admin-home/users/view-users/view-users.component';
@@ -81,6 +82,10 @@ const routes: Routes = [
       {
         path:'bookingOperations',
         component:BookingOperationsComponent
+      },
+      {
+        path:'blacklistedUsers',
+        component:BlacklistedUsersComponent
       }
 
     ]
