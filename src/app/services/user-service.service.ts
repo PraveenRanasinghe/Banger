@@ -58,9 +58,8 @@ export class UserServiceService {
   }
 
 
-  viewVehicles() {
-
-    return this.Http.get<any>("http://localhost:8080/customer/viewAllVehicles").pipe(map((item) => {
+  viewVehicles(email:string) {
+    return this.Http.get<any>("http://localhost:8080/customer/viewAllVehicles/"+email).pipe(map((item) => {
       item.forEach(element => {
         element.vehicleImg = `data:image/jpeg;base64,${element.vehicleImg}`;
       })

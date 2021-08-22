@@ -47,7 +47,7 @@ export class ViewVehiclesComponent implements OnInit {
   }
 
   getAllVehicles() {
-    this.userService.viewVehicles().subscribe((data) => {
+    this.userService.viewVehicles(JSON.parse(sessionStorage.getItem("data")).email).subscribe((data) => {
       this.List = data;
     });
   }
