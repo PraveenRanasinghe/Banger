@@ -40,7 +40,7 @@ export class SignUpComponent implements OnInit {
       'passwordValidator': new FormControl(null, [Validators.required, Validators.minLength(6)]),
       'contactNumber':new FormControl(null, [Validators.required, Validators.pattern('(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})')],),
       'dob':new  FormControl('',Validators.required),
-      'nicNumber':new  FormControl('',Validators.required),
+      'nicNumber':new  FormControl('',[Validators.required,Validators.pattern('^([x|X|B|B][0-9]{7}[x|X|D|D])$')]),
       'profileImage':new FormControl('',Validators.required),
       'licenceImg':new FormControl('',Validators.required),
       'utilityBill':new FormControl('',Validators.required)

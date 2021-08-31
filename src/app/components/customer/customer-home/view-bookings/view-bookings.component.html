@@ -2,7 +2,15 @@
   <a class="btn btn-outline-success" style="width: 300px; font-weight:600;" (click)="bookingHistory()">Click Here To View Your Booking History</a>
 </div>
 
-<div class="container">
+<div class="row justify-content-center mt-4">
+  <p style="color: rgb(88, 51, 2);"><i>You can Extend Your On-Going Bookings Upto 4:00 PM, If there are no any Bookings for the Vehicle in the following Day!</i></p>
+</div>
+
+<div class="row justify-content-center mt-3 mb11">
+  <h3 style="color: rgb(192, 92, 11);"><i><u>Your On-Going Bookings!</u></i></h3>
+</div>
+
+<div class="container mt-3">
   <div class="row">
     <div style="width: 1300px;">
       <table class="table table-secondary" style="border-radius: 15px">
@@ -25,7 +33,7 @@
           <td>{{myBookings.returnTime  | date:'short'}}</td>
           <td>{{myBookings.vehicle.vehicleType}}</td>
           <td>{{myBookings.bookingStatus}}</td>
-          <td class="btn btn-outline-primary mt-2 mb-2" (click)="openExtendBooking(myBookings.bookingId)" style="width: 150px; border-color: black;">Extend Booking</td>
+          <td class="btn btn-outline-primary mt-2 mb-2" (click)="openExtendBooking(myBookings.bookingId)" style="width: 165px; border-color: black;">Check Extendability</td>
         </tr>
         </tbody>
       </table>
