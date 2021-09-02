@@ -1,11 +1,16 @@
 <div class="container">
   <div class="row mt-4">
     <div class="d-grid gap-2">
-      <button class="btn btn-success" style="width: 500px;" type="button" (click)="openAddVehicle()"><i
+      <button class="btn btn-outline-success" style="width: 500px;" type="button" [routerLink]="['/admin','scrappedResult']"><i
+         class="fas fa-money-check-alt float-left"></i>
+         Compare Prices with Other Hiring Companies
+      </button>
+      <br>
+      <button class="btn btn-outline-success mt-4" style="width: 500px;" type="button" (click)="openAddVehicle()"><i
         class="fas fa-car float-left"></i> Add Vehicles
       </button>
       <br>
-      <button class="btn btn-success mt-4" style="width: 500px;" type="button"
+      <button class="btn btn-outline-success mt-4" style="width: 500px;" type="button"
               [routerLink]="['/admin','updateDeleteVehicle']" routerLinkActive="active">
         <i class="fal fa-car-mechanic float-left"></i> View Vehicles (Delete & Update)
       </button>

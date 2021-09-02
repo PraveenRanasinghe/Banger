@@ -11,6 +11,7 @@ import { BlacklistedUsersComponent } from './components/admin/admin-home/users/b
 import {UsersComponent} from './components/admin/admin-home/users/users.component';
 import { VerifyUsersComponent } from './components/admin/admin-home/users/verify-users/verify-users.component';
 import { ViewUsersComponent } from './components/admin/admin-home/users/view-users/view-users.component';
+import { ScrappedDetailsComponent } from './components/admin/admin-home/vehicle/scrapped-details/scrapped-details.component';
 import {UpdateDeleteComponent} from './components/admin/admin-home/vehicle/update-delete/update-delete.component';
 import {VehicleComponent} from './components/admin/admin-home/vehicle/vehicle.component';
 import { MyAccountComponent } from './components/admin/my-account/my-account.component';
@@ -86,6 +87,10 @@ const routes: Routes = [
       {
         path:'blacklistedUsers',
         component:BlacklistedUsersComponent
+      },
+      {
+        path:'scrappedResult',
+        component:ScrappedDetailsComponent
       }
 
     ]

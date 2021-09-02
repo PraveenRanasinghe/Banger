@@ -218,4 +218,8 @@ export class AdminServiceService{
     return this.Http.get<any>("http://localhost:8080/admin/getLoggedInUser/"+email);
   }
 
+  getScrappedDetails(){
+    return this.Http.get<any>("http://localhost:8080/admin/getScrappedResult/");
+  }
+
 }
