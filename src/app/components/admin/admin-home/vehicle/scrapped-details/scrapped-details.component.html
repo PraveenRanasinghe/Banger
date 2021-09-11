@@ -1,15 +1,17 @@
 <div class="row justify-content-center">
-  <h3 style="color: #e9af45;"> MALKEY RENT-A-CAR Vehicle Price List </h3>
+  <h3 style="color: #5a2c17;"> MALKEY RENT-A-CAR Vehicle Price List </h3>
 </div>
-
-
+<div class="row justify-content-center mt-2">
+  <button class="btn btn-outline-primary mt-4" style="width: 500px;" type="button" (click)="openAddVehicle()"><i
+    class="fas fa-car float-left"></i> Add Vehicles
+  </button>
+</div>
 <div class="container mt-3">
-  <ngx-spinner [fullScreen]="false" bdColor="rgba(247, 250, 252)" color="#000000"></ngx-spinner>
   <div class="row">
     <div class="mb-5">
       <table class="table table-success">
         <thead>
-        <tr style="height: 70px; width: 100%; background-color: #c9dbb9; font-size: large; font-weight: 100;">
+        <tr style="height: 70px; background-color: #c9dbb9; font-size: large;">
           <th scope="col">#</th>
           <th scope="col">Vehicle Type</th>
           <th scope="col">Rate Per Month</th>
@@ -20,10 +22,10 @@
         <tbody>
         <tr style="height: 60px; font-size: large;" *ngFor="let scrappedDetails of List">
           <th scope="row"></th>
-          <th>{{scrappedDetails.header}}</th>
-          <th>{{scrappedDetails.subHeader}}</th>
-          <th>{{scrappedDetails.newsHeadlines}}</th>
-          <th>{{scrappedDetails.priceList}}</th>
+          <th>{{scrappedDetails.vehicleType}}</th>
+          <th>{{scrappedDetails.ratePerMonth}}</th>
+          <th>{{scrappedDetails.ratePerWeek}}</th>
+          <th>{{scrappedDetails.excessPrice}}</th>
         </tr>
         </tbody>
       </table>

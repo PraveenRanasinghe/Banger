@@ -93,13 +93,12 @@ export class MakeBookingComponent implements OnInit {
   onBooking() {
 
     this.message = undefined;
-    // let timePeriod: boolean = false;
-    // if ((this.returnTime.getTime() - this.pickupTime.getTime()) < 5) {
-    //   this.message = "Your Booking must be more than 5 Hours!";
-    //   timePeriod = true;
-    // }
 
-    if (this.bookingForm.valid) {
+    if(this.timeDifference<5 && this.timeDifference>366){
+      this.message ="Your booking must be minimum of 5 hours and maximum of 2 weeks!";
+    }
+    else
+    {
       const pickupTime: Date = this.bookingForm.get('pickupTime').value;
       const returnTime: Date = this.bookingForm.get('returnTime').value;
       const price: number = this.finalCost;

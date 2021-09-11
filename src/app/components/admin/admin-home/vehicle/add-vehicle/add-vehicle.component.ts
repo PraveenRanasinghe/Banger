@@ -39,6 +39,7 @@ export class AddVehicleComponent implements OnInit {
       'ac':new  FormControl(null, Validators.required),
       'vehicleImage': new FormControl(null, Validators.required)
     })
+    this.spinner.show();
   }
 
   onFileChanged(event){

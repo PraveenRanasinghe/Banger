@@ -17,6 +17,7 @@ export class ViewBookingsComponent implements OnInit {
 
   email:any;
   List:any;
+  pendingList:any;
   userInfo:any;
 
   ngOnInit(): void {
@@ -46,4 +47,12 @@ export class ViewBookingsComponent implements OnInit {
     this.List=data;
     })
   }
+
+  getMyPendingBookings(){
+    this.customerService.getMyPendingBookings(JSON.parse(sessionStorage.getItem("data")).email).subscribe((data)=>{
+    console.log(data);
+    this.pendingList=data;
+    })
+  }
+
 }
