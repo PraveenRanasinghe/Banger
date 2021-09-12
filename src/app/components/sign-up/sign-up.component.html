@@ -53,7 +53,7 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
           <div class="form-group">
             <label for="age"><b>Date of Birth</b></label>
 
-            <input type="date" class="form-control"
+            <input type="date" max="{{maxDate}}" class="form-control"
                   [formControlName]="'dob'"
                   placeholder="Enter Your Birthday">
                   <span *ngIf="!signupForm.get('dob').valid && signupForm.get('dob').touched"
@@ -80,9 +80,9 @@ background: linear-gradient(0deg, rgba(71,144,135,1) 0%, rgba(71,144,135,1) 0%);
 
             <input type="text" class="form-control"
                   [formControlName]="'nicNumber'"
-                  placeholder="Enter Your License Number">
+                  placeholder="Enter Your License Number (B1234567)">
                   <span *ngIf="!signupForm.get('nicNumber').valid && signupForm.get('nicNumber').touched"
-                  style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your License Number!</span>
+                  style="margin-top: 3px; color:red; font-size: 12px;">Please Enter a Valid License Number!</span>
           </div>
         </div>
       </div>

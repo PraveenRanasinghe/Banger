@@ -24,13 +24,11 @@ export class SignUpComponent implements OnInit {
   liscenceImg: File;
   profileImage:File;
   utilityBill:File;
-  // retrievedImage: any;
-  // base64Data: any;
-  // retrieveResonse: any;
-  // imageName: any;
+  maxDate:any;
 
   ngOnInit(): void {
     this.signupInfo();
+    this.disableFutureDates();
   }
 
   signupInfo(){
@@ -42,7 +40,7 @@ export class SignUpComponent implements OnInit {
       'passwordValidator': new FormControl(null, [Validators.required, Validators.minLength(6)]),
       'contactNumber':new FormControl(null, [Validators.required, Validators.pattern('(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})')],),
       'dob':new  FormControl('',Validators.required),
-      'nicNumber':new  FormControl('',Validators.required),
+      'nicNumber':new  FormControl('',[Validators.required,Validators.pattern('^([B][0-9]{7})$')]),
       'profileImage':new FormControl('',Validators.required),
       'licenceImg':new FormControl('',Validators.required),
       'utilityBill':new FormControl('',Validators.required)
@@ -51,6 +49,21 @@ export class SignUpComponent implements OnInit {
 
   hideForm() {
     this.modalRef.hide();
+  }
+
+  disableFutureDates(){
+    var date:any= new Date();
+    var todayDate :any= date.getDate();
+    var month :any=date.getMonth()+1;
+    var year :any=date.getFullYear();
+
+    if(todayDate<10){
+      todayDate='0'+todayDate;
+    }
+    if(month<10){
+      month='0'+month;
+    }
+    this.maxDate=year + '-'+month + '-' + todayDate;
   }
 
   onSignUP(){
@@ -88,6 +101,7 @@ export class SignUpComponent implements OnInit {
     }
 
   }
+
 
 
  getMessage(){

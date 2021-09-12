@@ -12,6 +12,8 @@ import { MakeBookingComponent } from './make-booking/make-booking.component';
 export class ViewVehiclesComponent implements OnInit {
   List: any;
   searchForm: FormGroup;
+  message:any;
+
 
   constructor(
     private bsModal: BsModalService,
@@ -40,22 +42,32 @@ export class ViewVehiclesComponent implements OnInit {
           data[i] = eachVehicle;
         }
         this.List = data;
+        this.message='Available Vehicles in Searched Time Period!';
       });
   }
 
   getAllVehicles() {
-    this.userService.viewVehicles().subscribe((data) => {
+    this.userService.viewVehicles(JSON.parse(sessionStorage.getItem("data")).email).subscribe((data) => {
       this.List = data;
     });
   }
 
-  openBooking(vehicleId: number) {
+  openBooking(vehicle: any) {
     this.bsModal.show(MakeBookingComponent, {
       ignoreBackdropClick: true,
       class: 'modal-dialog-centered modal-md',
       initialState: {
-        vId: vehicleId,
+        vehicle: vehicle,
       },
     });
+  }
+
+  getMessage(){
+    if (this.message === "Available Vehicles in Searched Time Period!") {
+      return "success";
+    }
+    else {
+      return "danger";
+    }
   }
 }

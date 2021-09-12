@@ -50,7 +50,7 @@
               <option>Collected</option>
               <option>Not-Collected</option>
             </select></td>
-            <td><a class="btn btn-outline-primary" (click)="saveBookingStatus(booking.bookingId, ChangeStatus.value)" (click)="reloadPage()">Save Changes</a></td>
+            <td><a class="btn btn-outline-primary" (click)="saveBookingStatus(booking.bookingId, ChangeStatus.value,booking.email)" (click)="reloadPage()">Save Changes</a></td>
           </tr>
           </tbody>
         </table>

@@ -12,76 +12,32 @@ import { UserServiceService } from 'src/app/services/user-service.service';
   styleUrls: ['./make-booking.component.css'],
 })
 export class MakeBookingComponent implements OnInit {
-  bookingForm: FormGroup;
+
+  vehicle: any;
+  timeDifference: number;
   message: string;
-  equipList: any;
-  userInfo: any;
-  selectedVehicle: any;
-  vId: number;
-  pTime: any;
-  rTime: any;
-  timeDifference: any;
-  timeDif: any;
-
-  pickupTime: string;
-  returnTime: string;
-
-  totalCostOfEquipments: number = 0;
+  bookingForm: FormGroup;
+  pickupTime: Date;
+  returnTime: Date;
   totalCostOfVehicle: number = 0;
+  totalCostOfEqupments: number = 0;
+  finalCost: number = 0;
+  equipList: any;
+  equipmentPriceList: any = [];
+
 
   constructor(
     private modalRef: BsModalRef,
     private spinner: NgxSpinnerService,
     private customerService: UserServiceService
-  ) {}
-
-  getPickupTime(pickupTime) {
-    this.pTime = new Date(pickupTime);
-    this.calculateRentalDuarion();
-  }
-
-  getReturnTime(returnTime) {
-    this.rTime = new Date(returnTime);
-    this.calculateRentalDuarion();
-  }
-
-  calculateRentalDuarion() {
-    this.timeDifference =
-      (this.rTime.getTime() - this.pTime.getTime()) / 3600000;
-    this.timeDif = new Date(this.timeDifference).getUTCFullYear();
-    console.log(this.timeDif);
-    Math.abs(this.timeDif - 1970);
-  }
+  ) { }
 
   ngOnInit(): void {
     this.bookingInfo();
-    this.getEquipmentListToModal();
-    this.getLoggedInUser();
-    this.getSelectedVehicle();
-    this.calculateRentalDuarion();
-  }
-
-  getEquipmentListToModal() {
     this.customerService.getEquipmentList().subscribe((data) => {
-      console.log(data);
       this.equipList = data;
-    });
-  }
-
-  getLoggedInUser() {
-    this.customerService
-      .getLoggedInUser(JSON.parse(sessionStorage.getItem('data')).email)
-      .subscribe((data) => {
-        console.log(data);
-        this.userInfo = data;
-      });
-  }
-
-  getSelectedVehicle() {
-    this.customerService.getVehicleById(this.vId).subscribe((data) => {
-      this.selectedVehicle = data;
-      console.log(this.vId);
-    });
+    })
+    this.calculateDuration();
   }
 
   bookingInfo() {
@@ -93,53 +49,91 @@ export class MakeBookingComponent implements OnInit {
     });
   }
 
-  getSelectedEquipments() {
-    this.customerService;
+  getPickupTime(pickupTime) {
+    this.pickupTime = new Date(pickupTime);
+    this.calculateDuration();
+    console.log(pickupTime);
   }
 
-  getPrice(equipment) {
-    console.log(equipment);
+  getReturnTime(returnTime) {
+    this.returnTime = new Date(returnTime);
+    this.calculateDuration();
+    console.log(returnTime);
   }
+
+  calculateDuration() {
+    this.timeDifference = (this.returnTime.getTime() - this.pickupTime.getTime()) / 3.6e+6;
+    this.totalCostOfVehicle = (((this.vehicle.pricePerDay) / 24) * this.timeDifference);
+    this.finalCost = this.totalCostOfVehicle;
+  }
+
+  getEquipmentPrice(equipment) {
+    let isFound: boolean = false;
+    let totalPrice: number = 0;
+
+
+    for (let i = 0; i < this.equipmentPriceList.length; i++) {
+      if (this.equipmentPriceList[i].equipmentId == equipment.equipmentId) {
+        this.equipmentPriceList.splice(i, 1);
+        isFound = true;
+        break;
+      }
+    }
+    if (!isFound) {
+      this.equipmentPriceList.push(equipment);
+      for (let i = 0; i < this.equipmentPriceList.length; i++) {
+        totalPrice = (((this.equipmentPriceList[i].pricePerDayEQ) / 24) * this.timeDifference);
+      }
+    }
+    this.finalCost = this.totalCostOfVehicle + totalPrice;
+    console.log(this.finalCost);
+  }
+
 
   onBooking() {
+
     this.message = undefined;
-    const pickupTime: string = this.bookingForm.get('pickupTime').value;
-    const returnTime: string = this.bookingForm.get('returnTime').value;
 
-    let filter = null;
+    if(this.timeDifference<5 && this.timeDifference>366){
+      this.message ="Your booking must be minimum of 5 hours and maximum of 2 weeks!";
+    }
+    else
+    {
+      const pickupTime: Date = this.bookingForm.get('pickupTime').value;
+      const returnTime: Date = this.bookingForm.get('returnTime').value;
+      const price: number = this.finalCost;
+      const equipment =this.equipmentPriceList;
 
-    if (this.bookingForm.value.equipment != null) {
-      filter = this.bookingForm.value.equipment.map((eachID) => {
-        console.log(eachID);
-        return { equipmentId: Number.parseInt(eachID) };
-      });
+      this.customerService
+        .userMakeABooking({
+          vehicleId: this.vehicle.vehicleId,
+          email: JSON.parse(sessionStorage.getItem("data")).email,
+          pickupTime: pickupTime,
+          returnTime: returnTime,
+          price: price,
+          equipments: equipment,
+        })
+        .subscribe((data: any) => {
+          console.log(data);
+          this.message = 'Booking Successfull!';
+          this.bookingForm.reset();
+        });
     }
 
-    console.log(this.userInfo.email);
-    this.customerService
-      .userMakeABooking({
-        vehicleId: this.selectedVehicle.vehicleId,
-        email: this.userInfo.email,
-        pickupTime: pickupTime,
-        returnTime: returnTime,
-        equipments: filter,
-      })
-      .subscribe((data: any) => {
-        console.log(data);
-        this.message = 'Booking Successfull!';
-        this.bookingForm.reset();
-      });
   }
 
   getMessage() {
-    if (this.message === 'Booking Successfull!') {
-      return 'success';
-    } else {
-      return 'danger';
+    if (this.message === "Booking Successfull!") {
+      return "success";
+    }
+    else {
+      return "danger";
     }
   }
 
   hideForm() {
     this.modalRef.hide();
   }
+
+
 }

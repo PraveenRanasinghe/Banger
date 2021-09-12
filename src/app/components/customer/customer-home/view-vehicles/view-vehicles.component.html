@@ -1,5 +1,9 @@
-
-
+<div class="row justify-content-center">
+  <p style="color: rgb(228, 24, 24);"><i>If Your age is below 25, You will be able to book Small-Town cars only!</i></p>
+</div>
+<div class="row justify-content-center">
+  <p style="color: rgb(247, 47, 12);">Make Sure to Search Available Vehicles Before Make Your Booking!</p>
+</div>
   <div class="row justify-content-center">
     <p style="color: darkgreen;"><b>Enter your Pickup date and Return date to view the available vehicles.</b></p>
   </div>
@@ -24,12 +28,19 @@
   </div>
 
 
+    <div class="mt-4 mb-4" *ngIf="message">
+      <div class="row justify-content-center">
+        <alert class="alert" style="background-color: rgba(204, 214, 174, 0.767); font-weight: 500;" [type]="getMessage()" [dismissible]="true"><span [innerHtml]="message"></span></alert>
+      </div>
+      </div>
+
+
 
   <div class="container mt-3">
     <div class="row">
       <div class="col-sm-4 mb-4" *ngFor="let vehicle of List">
         <div class="card cd" style="width: 22rem; background-color: rgb(255, 255, 255);">
-          <img class="card-img-top" [src]="vehicle.vehicleImg" style="width: 22rem; height: 13rem">
+          <img class="card-img-top" [src]="vehicle.vehicleImg" style="width: 22rem; height: 13rem; border-radius: 10px;">
               <div class="ml-4 mr-4 mt-3">
                 <div class="row justify-content-center">
                   <h3><b>{{vehicle.vehicleType}}</b></h3>
@@ -76,7 +87,7 @@
                   </div>
                 </div>
                 <button type="button" class="btn btn-success mb-3 mt-4" style="width: 70%; margin-left: 15%;"
-                        (click)="openBooking(vehicle.vehicleId)">Make a Booking
+                        (click)="openBooking(vehicle)">Make a Booking
                 </button>
               </div>
         </div>
