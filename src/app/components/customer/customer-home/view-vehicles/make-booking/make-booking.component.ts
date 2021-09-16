@@ -71,7 +71,6 @@ export class MakeBookingComponent implements OnInit {
     let isFound: boolean = false;
     let totalPrice: number = 0;
 
-
     for (let i = 0; i < this.equipmentPriceList.length; i++) {
       if (this.equipmentPriceList[i].equipmentId == equipment.equipmentId) {
         this.equipmentPriceList.splice(i, 1);
