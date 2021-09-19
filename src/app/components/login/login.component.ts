@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -56,17 +56,17 @@ export class LoginComponent implements OnInit {
             this.hideForm();
             this.route.navigate(['/customer']);
           }
-          else {
-            this.message='Authentication Failed! Please Try Again!';
-            console.log(this.message);
-          }
-        },
+        },(error:HttpErrorResponse)=>{
+          this.message='Invalid Credentials. Please Try Again!';
+        },()=>{
+          this.message='Logged in Successfully!';
+        }
       );
 
   }
 
   getMessage(){
-    if (this.message === "Authentication Failed! Please Try Again!") {
+    if (this.message === "Invalid Credentials. Please Try Again!") {
       return "danger";
     }
     else {
