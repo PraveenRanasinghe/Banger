@@ -16,8 +16,6 @@
 
         <div class="card-body">
 
-
-
         <div class="row justify-content-center">
            <h4>Booking Id :{{bookings.bookingId}} <b></b></h4>
         </div>
@@ -28,6 +26,10 @@
 
        <div class="row justify-content-center">
         <label><b>Return Time: {{bookings.returnTime  | date:'short'}}</b></label>
+       </div>
+
+       <div class="row justify-content-center">
+        <label><b>Total Amount: Rs: {{bookings.price}}.00</b></label>
        </div>
 
       <div class="row justify-content-center">

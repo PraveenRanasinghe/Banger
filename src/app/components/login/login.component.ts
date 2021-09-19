@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
 
 
   onLogin() {
-    
+
     this.message=undefined;
       const email:string=this.form.get('emailAddress').value;
       const password : string=this.form.get('password').value;
@@ -47,9 +47,6 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("jwttoken",data.token);
           console.log(data.token);
           sessionStorage.setItem("data",JSON.stringify(data));
-
-          console.log(data.userRole);
-          console.log(data.email);
 
           if(data.userRole=="Admin"){
             this.hideForm();
@@ -65,7 +62,7 @@ export class LoginComponent implements OnInit {
           }
         },
       );
-    
+
   }
 
   getMessage(){

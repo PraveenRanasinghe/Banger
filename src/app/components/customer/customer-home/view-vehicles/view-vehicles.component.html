@@ -1,8 +1,8 @@
 <div class="row justify-content-center">
-  <p style="color: rgb(228, 24, 24);"><i>If Your age is below 25, You will be able to book Small-Town cars only!</i></p>
+  <p style="color: rgb(7, 69, 105);"><i>If Your age is below 25, You will be able to book Small-Town cars only!</i></p>
 </div>
 <div class="row justify-content-center">
-  <p style="color: rgb(247, 47, 12);">Make Sure to Search Available Vehicles Before Make Your Booking!</p>
+  <p style="color: rgb(7, 69, 105);">Make Sure to Search Available Vehicles Before Make Your Booking!</p>
 </div>
   <div class="row justify-content-center">
     <p style="color: darkgreen;"><b>Enter your Pickup date and Return date to view the available vehicles.</b></p>
@@ -14,10 +14,14 @@
         <div class="col">
           <label><b>PickUp Time </b></label>
           <input class="form-control me-2" type="datetime-local" [formControlName]="'pickupTime'">
+          <span *ngIf="!searchForm.get('pickupTime').valid && searchForm.get('pickupTime').touched"
+                style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your Pickup Time</span>
         </div>
        <div class="col">
         <label><b>Return Time</b></label>
         <input class="form-control me-2" type="datetime-local" [formControlName]="'returnTime'">
+        <span *ngIf="!searchForm.get('returnTime').valid && searchForm.get('returnTime').touched"
+        style="margin-top: 3px; color:red; font-size: 12px;">Please Enter your Return Time</span>
        </div>
       </div>
       <div class="row justify-content-center mt-4">
