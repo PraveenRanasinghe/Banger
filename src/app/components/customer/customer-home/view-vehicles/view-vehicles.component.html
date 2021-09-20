@@ -25,7 +25,7 @@
        </div>
       </div>
       <div class="row justify-content-center mt-4">
-        <button class="btn btn-primary" type="submit" style="width: 50%;">Search</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!searchForm.valid" style="width: 50%;">Search</button>
       </div>
 
       </form>

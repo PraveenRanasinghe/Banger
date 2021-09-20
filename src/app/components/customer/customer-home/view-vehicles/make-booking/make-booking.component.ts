@@ -53,13 +53,13 @@ export class MakeBookingComponent implements OnInit {
   getPickupTime(pickupTime) {
     this.pickupTime = new Date(pickupTime);
     this.calculateDuration();
-    console.log(pickupTime);
+
   }
 
   getReturnTime(returnTime) {
     this.returnTime = new Date(returnTime);
     this.calculateDuration();
-    console.log(returnTime);
+
   }
 
   calculateDuration() {
@@ -94,15 +94,14 @@ export class MakeBookingComponent implements OnInit {
 
     this.message = undefined;
 
-    if(this.timeDifference<5 && this.timeDifference>366){
-      this.message ="Your booking must be minimum of 5 hours and maximum of 2 weeks!";
+    if ((this.timeDifference < 5) || (this.timeDifference > 336)) {
+      this.message = "Your booking must be minimum of 5 hours and maximum of 2 weeks!";
     }
-    else
-    {
+    else {
       const pickupTime: Date = this.bookingForm.get('pickupTime').value;
       const returnTime: Date = this.bookingForm.get('returnTime').value;
       const price: number = this.finalCost;
-      const equipment =this.equipmentPriceList;
+      const equipment = this.equipmentPriceList;
 
       this.customerService
         .userMakeABooking({
@@ -114,11 +113,14 @@ export class MakeBookingComponent implements OnInit {
           equipments: equipment,
         })
         .subscribe((data: any) => {
-          console.log(data);
-          this.message = 'Booking Successfull!';
-          this.bookingForm.reset();
-        },(error:HttpErrorResponse)=>{
-          this.message= "Cannot make the Booking.";
+
+          if(data.bookingInfo){
+            this.message = 'Booking Made Successfully!';
+            this.bookingForm.reset();
+          }
+        }, (error: HttpErrorResponse) => {
+          console.log(error);
+          this.message = "Cannot make the Booking due to our Restrictions.";
         }
         );
     }
@@ -126,7 +128,7 @@ export class MakeBookingComponent implements OnInit {
   }
 
   getMessage() {
-    if (this.message === "Booking Successfull!") {
+    if (this.message === "Booking Made Successfully!") {
       return "success";
     }
     else {
@@ -137,6 +139,4 @@ export class MakeBookingComponent implements OnInit {
   hideForm() {
     this.modalRef.hide();
   }
-
-
 }

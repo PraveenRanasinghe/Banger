@@ -31,8 +31,6 @@ export class ViewVehiclesComponent implements OnInit {
   onSearch() {
     const pickupTime: string = this.searchForm.get('pickupTime').value;
     const returnTime: string = this.searchForm.get('returnTime').value;
-    console.log(pickupTime);
-    console.log(returnTime);
     this.userService
       .searchVehicleByPickupTimeAndReturnTime(pickupTime, returnTime)
       .subscribe((data: any) => {

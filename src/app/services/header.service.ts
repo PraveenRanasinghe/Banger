@@ -1,11 +1,13 @@
 import {
+  HttpErrorResponse,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
   HttpRequest,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/Operators';
 
 @Injectable({
   providedIn: 'root',
@@ -40,6 +42,9 @@ export class HeaderService implements HttpInterceptor {
         ),
       });
     }
-    return next.handle(req);
+    return next.handle(req).pipe(catchError((error: HttpErrorResponse) => {
+      console.log(error.status);
+      return throwError(error);
+    }));
   }
 }
