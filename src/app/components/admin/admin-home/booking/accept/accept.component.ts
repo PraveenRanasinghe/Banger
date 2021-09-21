@@ -15,6 +15,7 @@ export class AcceptComponent implements OnInit {
   }
 
   bookingId:any;
+  email:any;
   acceptBookingForm:FormGroup
   selectedBooking:any
 
@@ -31,7 +32,7 @@ export class AcceptComponent implements OnInit {
   }
 
   acceptBooking(){
-    this.adminService.acceptBooking(this.bookingId).subscribe(
+    this.adminService.acceptBooking(this.bookingId, this.email).subscribe(
       (data:any)=>{
         console.log(data);
       }

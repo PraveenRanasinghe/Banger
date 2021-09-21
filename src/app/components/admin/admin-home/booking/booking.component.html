@@ -42,13 +42,17 @@
               <a class="btn btn-outline-primary" (click)="openUserInfo(bookings.email)" >User Info<i class="fas fa-info ml-2"></i></a>
             </div>
             <div class="col-lg-4">
-              <a class="btn btn-outline-success" (click)="openAccept(bookings.bookingId)" >Accept<i class="far fa-check-circle ml-2"></i></a>
+              <a class="btn btn-outline-success" (click)="openAccept(bookings.bookingId, bookings.email)" >Accept<i class="far fa-check-circle ml-2"></i></a>
             </div>
             <div class="col-lg-4">
-              <a class="btn btn-outline-danger" (click)="openReject(bookings.bookingId)" >Reject <i class="fas fa-trash-alt ml-2"></i></a>
+              <a class="btn btn-outline-danger" (click)="openReject(bookings.bookingId, bookings.email)" >Reject <i class="fas fa-trash-alt ml-2"></i></a>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <div *ngIf="List.length==0" class="alert alert-primary" role="alert">
+    <div class="row justify-content-center"><b> No Pending Bookings to Display!</b></div>
   </div>

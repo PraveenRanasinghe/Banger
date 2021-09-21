@@ -23,17 +23,6 @@ export class BookingOperationsComponent implements OnInit {
   List:any;
   message:string;
 
-  getMessage(){
-    if (this.message === "New Equipment has been added to the system successfully!") {
-      return "success";
-    }
-    else if( this.message ==='Equipment Name is Already Exists! Please Update the Quantity!'){
-      return "danger";
-    }
-  }
-
-
-
   getAllBookings(){
     this.adminService.viewAllAcceptedBookings().subscribe((data)=>{
       console.log(data);
@@ -76,7 +65,6 @@ export class BookingOperationsComponent implements OnInit {
 
   saveBookingStatus(bookingId:number, ChangeStatus:string,email:string){
          this.adminService.blackListUserWhenBookingStatusChanged(bookingId,ChangeStatus,email).subscribe((data)=>{
-          this.message= 'New Equipment has been added to the system successfully!'
            console.log(data);
          })
   }

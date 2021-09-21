@@ -31,23 +31,25 @@ export class BookingComponent implements OnInit {
     })
   }
 
-  openAccept(bookingId:number) {
+  openAccept(bookingId:number, email:string) {
     this.bsModal.show(AcceptComponent, {
       ignoreBackdropClick:true,
       class: 'modal-dialog-centered',
       initialState: {
-        bookingId:bookingId
+        bookingId:bookingId,
+        email:email
      },
     })
     console.log(bookingId);
   }
 
-  openReject(bookingId:number) {
+  openReject(bookingId:number, email:string) {
     this.bsModal.show(RejectComponent, {
       ignoreBackdropClick:true,
       class: 'modal-dialog-centered',
       initialState: {
-        bookingId:bookingId
+        bookingId:bookingId,
+        email:email
      },
     })
   }

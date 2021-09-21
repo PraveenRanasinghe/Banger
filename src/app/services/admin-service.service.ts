@@ -168,8 +168,8 @@ export class AdminServiceService{
 
   blackListUserWhenBookingStatusChanged(bookingId:number,bookingStatus:string,email:string){
     const updatedInfo={
-      status:bookingStatus,
       bookingId:bookingId,
+      status:bookingStatus,
       email:email
     }
     console.log(updatedInfo)
@@ -187,17 +187,19 @@ export class AdminServiceService{
     return this.Http.put("http://localhost:8080/admin/acceptUser/"+email,acceptingUserAccount);
   }
 
-  acceptBooking(bookingId:number){
+  acceptBooking(bookingId:number, email:string){
     const acceptBooking={
       bookingId:bookingId,
+      email:email
     }
     return this.Http.post("http://localhost:8080/admin/acceptBooking",acceptBooking);
   }
 
 
-  rejectBooking(bookingId:number){
+  rejectBooking(bookingId:number, email:string){
     const rejectBooking={
       bookingId:bookingId,
+      email:email
     }
     return this.Http.post("http://localhost:8080/admin/rejectBooing",rejectBooking);
   }

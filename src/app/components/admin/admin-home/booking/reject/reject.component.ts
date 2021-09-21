@@ -14,6 +14,7 @@ export class RejectComponent implements OnInit {
   }
 
   bookingId:any;
+  email:any;
 
   ngOnInit(): void {
   }
@@ -27,7 +28,7 @@ export class RejectComponent implements OnInit {
   }
 
   rejectBooking(){
-    this.adminService.rejectBooking(this.bookingId).subscribe(
+    this.adminService.rejectBooking(this.bookingId,this.email).subscribe(
       (data:any)=>{
         console.log(data);
       }
