@@ -38,6 +38,7 @@ export class UpdateEquipComponent implements OnInit {
 
   getSelectedEquipment() {
     this.adminService.getEquipmentById(this.equipId).subscribe((data) => {
+      console.log(data);
       this.selectedEquipment = data;
       this.updateEquipmentForm.patchValue({
         pricePerDayEQ: data.pricePerDayEQ,
@@ -45,18 +46,16 @@ export class UpdateEquipComponent implements OnInit {
         quantity:data.quantity,
       });
     });
+
   }
 
   onUpdateEquipment() {
-    try{
-      this.message = undefined;
-      this.spinner.show();
-
+    console.log("pakayo wada krapan dn");
       if(this.updateEquipmentForm.valid){
       const pricePerDayEQ: string = this.updateEquipmentForm.get('pricePerDayEQ').value;
       const description: string = this.updateEquipmentForm.get('itemDescription').value;
       const quantity :number= this.updateEquipmentForm.get('quantity').value;
-      console.log(pricePerDayEQ, description);
+
       this.adminService.updateEquipmentDetails(this.equipId, pricePerDayEQ, description,quantity)
         .subscribe((data) => {
           console.log(data);
@@ -65,11 +64,6 @@ export class UpdateEquipComponent implements OnInit {
           this.updateEquipmentForm.reset();
         });
       }
-    }
-    catch(error){
-      this.message = 'An Unexpected Error Occurred. Please Try Again !';
-    }
-
   }
 
   getMessage(){

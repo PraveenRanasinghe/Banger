@@ -28,6 +28,10 @@
         <label><b>Return Time: {{bookings.returnTime  | date:'short'}}</b></label>
        </div>
 
+       <div class="row justify-content-center" *ngFor="let item of bookings.equipments">
+        <label><b>Additional Equipments:<p>{{item.itemName}}</p></b></label>
+       </div>
+
        <div class="row justify-content-center">
         <label><b>Total Amount: Rs: {{bookings.price}}.00</b></label>
        </div>
