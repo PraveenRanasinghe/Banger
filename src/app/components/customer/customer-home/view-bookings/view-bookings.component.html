@@ -7,11 +7,10 @@
 </div>
 
 <div class="row">
-  <!-- <div class="col">
+  <div class="col">
     <div class="row justify-content-center mt-3 mb11">
-      <h3 style="color: rgb(27, 37, 7);"><i><u>Your Pending Bookings!</u></i></h3>
+      <h3 style="color: rgb(70, 33, 4);"><i><u>Your Pending Bookings!</u></i></h3>
     </div>
-
     <div class="container mt-3">
       <div class="row">
         <div style="width: 1300px;">
@@ -24,29 +23,37 @@
               <th scope="col">Return Time</th>
               <th scope="col">Booked Vehicle</th>
               <th scope="col">Status</th>
+              <th scope="col">Cancel Booking</th>
             </tr>
             </thead>
             <tbody>
-            <tr style="height: 60px; font-size: large"  *ngFor="let myBooking of pendingList">
+            <tr style="height: 60px; font-size: large" *ngFor="let myBooking of pending">
               <th scope="row"></th>
               <td><b>{{myBooking.bookingId}}</b></td>
               <td>{{myBooking.pickupTime  | date:'short'}}</td>
               <td>{{myBooking.returnTime  | date:'short'}}</td>
               <td>{{myBooking.vehicle.vehicleType}}</td>
               <td>{{myBooking.bookingStatus}}</td>
+              <td class="btn btn-outline-danger mt-2 mb-2" (click)="openCancelBooking(myBooking.bookingId)" style="width: 165px; border-color: black;">Cancel Booking</td>
             </tr>
             </tbody>
           </table>
+
+          <div *ngIf="List.length==0" class="alert alert-primary" role="alert">
+            <div class="row justify-content-center"><b> No On Going Bookings to Display!</b></div>
+          </div>
+
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
+</div>
 
+<div class="row">
   <div class="col">
     <div class="row justify-content-center mt-3 mb11">
       <h3 style="color: rgb(192, 92, 11);"><i><u>Your On-Going Bookings!</u></i></h3>
     </div>
-
     <div class="container mt-3">
       <div class="row">
         <div style="width: 1300px;">
@@ -63,7 +70,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr style="height: 60px; font-size: large"  *ngFor="let myBookings of List">
+            <tr style="height: 60px; font-size: large" *ngFor="let myBookings of List">
               <th scope="row"></th>
               <td><b>{{myBookings.bookingId}}</b></td>
               <td>{{myBookings.pickupTime  | date:'short'}}</td>
@@ -74,6 +81,11 @@
             </tr>
             </tbody>
           </table>
+
+          <div *ngIf="List.length==0" class="alert alert-primary" role="alert">
+            <div class="row justify-content-center"><b> No On Going Bookings to Display!</b></div>
+          </div>
+
         </div>
       </div>
     </div>

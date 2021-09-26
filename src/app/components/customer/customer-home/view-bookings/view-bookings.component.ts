@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { BookingHistoryComponent } from './booking-history/booking-history.component';
+import { CancelBookingComponent } from './cancel-booking/cancel-booking.component';
 import { ExtendBookingComponent } from './extend-booking/extend-booking.component';
 
 @Component({
@@ -17,11 +18,12 @@ export class ViewBookingsComponent implements OnInit {
 
   email:any;
   List:any;
-  pendingList:any;
+  pending:any;
   userInfo:any;
 
   ngOnInit(): void {
     this.getMyBookings();
+    this.getMyPendingBookings();
   }
 
   openExtendBooking(bookingId:number) {
@@ -31,6 +33,16 @@ export class ViewBookingsComponent implements OnInit {
       initialState:{
         bookingId:bookingId
       }
+    })
+  }
+
+  openCancelBooking(bookingId:number){
+    this.bsModal.show(CancelBookingComponent,{
+      ignoreBackdropClick:true,
+      initialState: {
+        bookingId:bookingId,
+     },
+      class:'modal-dialog-centered',
     })
   }
 
@@ -51,7 +63,7 @@ export class ViewBookingsComponent implements OnInit {
   getMyPendingBookings(){
     this.customerService.getMyPendingBookings(JSON.parse(sessionStorage.getItem("data")).email).subscribe((data)=>{
     console.log(data);
-    this.pendingList=data;
+    this.pending=data;
     })
   }
 

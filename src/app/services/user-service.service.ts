@@ -88,7 +88,7 @@ export class UserServiceService {
   }
 
   getMyPendingBookings(email:string){
-    return this.Http.get<any>("http://localhost:8080/customer/viewMyPendingBookings/" + email);
+    return this.Http.get<any>("http://localhost:8080/customer/viewMyPBookings/" + email);
   }
 
   getMyPreviousBookings(email: string) {
@@ -110,6 +110,11 @@ export class UserServiceService {
     const formData: FormData = new FormData();
 
     return this.Http.post("http://localhost:8080/customer/searchVehicles/", requestInfo);
+  }
+
+
+  removeBooking(bookingId:number){
+    return this.Http.delete("http://localhost:8080/customer/cancelBooking/"+bookingId);
   }
 
 }

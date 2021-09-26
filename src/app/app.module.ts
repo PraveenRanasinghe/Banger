@@ -63,6 +63,7 @@ import { BookingHistoryComponent } from './components/customer/customer-home/vie
 import { ExtendRequestedBookingsComponent } from './components/admin/admin-home/booking/extend-requested-bookings/extend-requested-bookings.component';
 import { BlacklistedUsersComponent } from './components/admin/admin-home/users/blacklisted-users/blacklisted-users.component';
 import { ScrappedDetailsComponent } from './components/admin/admin-home/vehicle/scrapped-details/scrapped-details.component';
+import { CancelBookingComponent } from './components/customer/customer-home/view-bookings/cancel-booking/cancel-booking.component';
 
 // @ts-ignore
 @NgModule({
@@ -121,6 +122,7 @@ import { ScrappedDetailsComponent } from './components/admin/admin-home/vehicle/
     ExtendRequestedBookingsComponent,
     BlacklistedUsersComponent,
     ScrappedDetailsComponent,
+    CancelBookingComponent,
 
   ],
   imports: [
