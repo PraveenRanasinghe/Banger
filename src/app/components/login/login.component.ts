@@ -58,8 +58,6 @@ export class LoginComponent implements OnInit {
           }
         },(error:HttpErrorResponse)=>{
           this.message='Invalid Credentials. Please Try Again!';
-        },()=>{
-          this.message='Logged in Successfully!';
         }
       );
 

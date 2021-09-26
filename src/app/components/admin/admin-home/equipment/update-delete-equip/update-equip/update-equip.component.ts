@@ -23,6 +23,7 @@ export class UpdateEquipComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateInfo();
+    this.onUpdateEquipment();
     this.getSelectedEquipment();
     this.updateEquipmentForm = new FormGroup({
       'itemName':new  FormControl(null, Validators.required),
@@ -50,7 +51,6 @@ export class UpdateEquipComponent implements OnInit {
   }
 
   onUpdateEquipment() {
-    console.log("pakayo wada krapan dn");
       if(this.updateEquipmentForm.valid){
       const pricePerDayEQ: string = this.updateEquipmentForm.get('pricePerDayEQ').value;
       const description: string = this.updateEquipmentForm.get('itemDescription').value;

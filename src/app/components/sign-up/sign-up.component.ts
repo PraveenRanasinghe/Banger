@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BsModalRef} from 'ngx-bootstrap/modal';
@@ -67,9 +67,7 @@ export class SignUpComponent implements OnInit {
   }
 
   onSignUP(){
-    try{
-      this.message = undefined;
-      this.spinner.show();
+
 
       if(this.signupForm.valid){
         const fName:string=this.signupForm.get('fName').value;
@@ -86,20 +84,14 @@ export class SignUpComponent implements OnInit {
 
         this.userService.userRegistration(fName,lName,email,contactNumber,nicNumber,dob,password,this.liscenceImg,this.profileImage,this.utilityBill).subscribe(
           (data:any)=>{
-
           this.message='You have been registered in our organization successfully! Now You can make Bookings in Our Organization!';
           this.signupForm.reset();
           },
-          (error)=>{
-            console.log("Cannot Login",error);
+          (error:HttpErrorResponse)=>{
+            this.message="Entered License Number is Already in Use.Please Try Again!";
           }
         );
       }
-    }
-    catch(error){
-      this.message = 'An Unexpected Error Occurred. Please Try Again !';
-    }
-
   }
 
 
